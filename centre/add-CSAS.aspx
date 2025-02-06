@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="/Admin.master" AutoEventWireup="true" CodeFile="add-CSAS.aspx.cs" Inherits="PMIST_Admin_Mcentre_CSAS" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/PMIST-Admin/Admin.master" AutoEventWireup="true" CodeFile="add-CSAS.aspx.cs" Inherits="PMIST_Admin_Mcentre_CSAS" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
 </asp:Content>

@@ -347,6 +347,9 @@ body[data-background-color="dark"] .demo-icon .icon-class {
 .margin-top20 {
     margin-top: 30px !important;
 }
+.row.margin-top20 {
+	margin-top: 12px !important;
+}
 /* .form-group-row {
     display: inline-block;
     width: 100%;

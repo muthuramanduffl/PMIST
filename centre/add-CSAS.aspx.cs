@@ -11,7 +11,7 @@ using System.Linq;
 
 public partial class PMIST_Admin_Mcentre_CSAS : System.Web.UI.Page
 {
-    Bindddl Ddl = new Bindddl();
+    //Bindddl Ddl = new Bindddl();
     //pmistCSAS CSAS = new pmistCSAS();
     protected void Page_Load(object sender, EventArgs e)
     {

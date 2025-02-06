@@ -10,28 +10,19 @@
     <title>Admin Dashboard | PMIST</title>
 
     <meta content='width=device-width, initial-scale=1.0, shrink-to-fit=no' name='viewport' />
-    <link rel="icon" href="assets/img/fav-icon.png" type="image/x-icon" />
+    <link rel="icon" href="https://demo.pmu.edu/PMIST-admin/assets/img/fav-icon.png" type="image/x-icon" />
 
     <!-- Fonts and icons -->
-    <script src="assets/js/plugin/webfont/webfont.min.js"></script>
-    <script>
-        WebFont.load({
-            google: { "families": ["Lato:300,400,700,900"] },
-            custom: { "families": ["Flaticon", "Font Awesome 5 Solid", "Font Awesome 5 Regular", "Font Awesome 5 Brands", "simple-line-icons"], urls: ['assets/css/fonts.min.css'] },
-            active: function () {
-                sessionStorage.fonts = true;
-            }
-        });
-    </script>
-
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900" media="all">
+  
     <!-- FontAwesome (for icons) -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 
     <!-- CSS Files -->
-    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/css/atlantis.min.css">
-    <link rel="stylesheet" href="assets/bootstrap-icons/bootstrap-icons.css">
-    <link rel="stylesheet" href="assets/css/demo.css">
+    <link rel="stylesheet" href="https://demo.pmu.edu/PMIST-admin/assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://demo.pmu.edu/PMIST-admin/assets/css/atlantis.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.8.1/font/bootstrap-icons.min.css"> 
+    <link rel="stylesheet" href="https://demo.pmu.edu/PMIST-admin/assets/css/demo.css">
 </head>
 <body>
     <form id="form1" runat="server">
@@ -43,8 +34,8 @@
                     <nav class="navbar navbar-header navbar-expand-lg" data-background-color="white">
                         <div class="container-fluid">
                             <div>
-                                <a href="dashboard.html" class="logo">
-                                    <img src="assets/img/logo.png" width="150" alt="navbar brand" class="navbar-brand">
+                                <a href="https://demo.pmu.edu/PMIST-admin/dashboard.html" class="logo">
+                                    <img src="https://demo.pmu.edu/PMIST-admin/assets/img/logo.png" width="150" alt="navbar brand" class="navbar-brand">
                                 </a>
                             </div>
                             <ul class="navbar-nav topbar-nav ml-md-auto align-items-center">
@@ -97,7 +88,7 @@
                                     <a class="dropdown-toggle profile-pic" data-bs-toggle="dropdown" href="#" aria-expanded="false">
                                         <div class="avatar-sm">
                                             <i class="fa fa-user"></i>
-                                            <!-- <img src="assets/img/user.png" alt="img" class="avatar-img rounded-circle"> -->
+                                            <!-- <img src="https://demo.pmu.edu/PMIST-admin/assets/img/user.png" alt="img" class="avatar-img rounded-circle"> -->
                                         </div>
                                     </a>
                                     <ul class="dropdown-user dropdown-menu dropdown-menu-end animated fadeIn">
@@ -105,7 +96,7 @@
                                             <li>
                                                 <div class="user-box">
                                                     <div class="avatar-lg">
-                                                        <img src="assets/img/profile.jpg" alt="image profile" class="avatar-img rounded">
+                                                        <img src="https://demo.pmu.edu/PMIST-admin/assets/img/profile.jpg" alt="image profile" class="avatar-img rounded">
                                                     </div>
                                                     <div class="u-text align-content-center">
                                                         <h4 class="text-capitalize">
@@ -137,7 +128,7 @@
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" data-bs-toggle="tab" href="#tab-2">
-                                    <i class="bi bi-buildings" aria-hidden="true"></i>Infrastructure
+                                    <i class="bi bi-buildings" aria-hidden="true"></i>More
                                 </a>
                             </li>
                         </div>
@@ -147,13 +138,13 @@
                                 <!-- Content for Tab 1 -->
                                 <ul class="sub-menu">
                                     <li class="active">
-                                        <a href="add-faqs.aspx">
+                                        <a href="https://demo.pmu.edu/PMIST-admin/add-faqs.aspx">
                                             <i class="bi bi-kanban" aria-hidden="true"></i>
                                             Add FAQ's
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="view-faqs.aspx">
+                                        <a href="https://demo.pmu.edu/PMIST-admin/view-faqs.aspx">
                                             <i class="bi bi-kanban" aria-hidden="true"></i>
                                             View FAQ's
                                         </a>
@@ -163,15 +154,22 @@
                             <div class="tab-pane fade" id="tab-2">
                                 <ul class="sub-menu">
                                     <li>
-                                        <a href="add-infrastructure.aspx">
+                                        <a href="https://demo.pmu.edu/PMIST-admin/add-infrastructure.aspx">
                                             <i class="bi bi-kanban" aria-hidden="true"></i>
                                             Add Infrastructure
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="view-infrastructure.aspx">
+                                        <a href="https://demo.pmu.edu/PMIST-admin/view-infrastructure.aspx">
                                             <i class="bi bi-kanban" aria-hidden="true"></i>
                                             View Infrastructure
+                                        </a>
+                                    </li>
+                                    
+                                    <li>
+                                        <a href="https://demo.pmu.edu/PMIST-admin/centre/add-CSAS.aspx">
+                                            <i class="bi bi-kanban" aria-hidden="true"></i>
+                                            Add CSAS
                                         </a>
                                     </li>
                                 </ul>
@@ -189,7 +187,10 @@
                     <footer class="footer">
                         <div class="container-fluid">
                             <nav class="pull-left">
-                                &copy;<script type="text/javascript">var today = new Date() var year = today.getFullYear() document.write(year)</script>
+                                &copy;<script type="text/javascript">
+                                          var today = new Date();
+                                          var year = today.getFullYear();
+                                          document.write(year);</script>
                             </nav>
                             <div class="copyright ml-auto">
                                 Powered by <a class="text-uppercase" href="https://duffldigital.com/" target="_blank">Duffl Digital</a>
@@ -198,17 +199,17 @@
                     </footer>
                     <div class="back-to-top" style="display: none;">
                         <a href="#" data-bs-toggle="tooltip" title="Back to Top">
-                            <img src="assets/img/back-to-top.png" class="w-50 px-1 d-flex mx-auto">
+                            <img src="https://demo.pmu.edu/PMIST-admin/assets/img/back-to-top.png" class="w-50 px-1 d-flex mx-auto">
                         </a>
                     </div>
                 </div>
             </div>
 
             <!--   Core JS Files   -->
-            <script src="assets/js/core/jquery.3.2.1.min.js"></script>
-            <script src="assets/js/core/bootstrap.min.js"></script>
+            <script src="https://demo.pmu.edu/PMIST-admin/assets/js/core/jquery.3.2.1.min.js"></script>
+            <script src="https://demo.pmu.edu/PMIST-admin/assets/js/core/bootstrap.min.js"></script>
             <!-- Sweet Alert -->
-            <script src="assets/js/plugin/sweetalert/sweetalert.min.js"></script>
+            <script src="https://demo.pmu.edu/PMIST-admin/assets/js/plugin/sweetalert/sweetalert.min.js"></script>
 
             <script> 
                 //-- menu
