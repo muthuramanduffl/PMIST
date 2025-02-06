@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title> Admin Dashboard | PMIST</title>
+    <meta content='width=device-width, initial-scale=1.0, shrink-to-fit=no' name='viewport' />
+    <link rel="icon" href="assets/img/fav-icon.png" type="image/x-icon" />
+
+    <!-- Fonts and icons -->
+    <script src="assets/js/plugin/webfont/webfont.min.js"></script>
+    <script>
+        WebFont.load({
+            google: { "families": ["Lato:300,400,700,900"] },
+            custom: { "families": ["Flaticon", "Font Awesome 5 Solid", "Font Awesome 5 Regular", "Font Awesome 5 Brands", "simple-line-icons"], urls: ['assets/css/fonts.min.css'] },
+            active: function () {
+                sessionStorage.fonts = true;
+            }
+        });
+    </script>
+
+    <!-- FontAwesome (for icons) -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/atlantis.min.css"> 
+    <link rel="stylesheet" href="assets/bootstrap-icons/bootstrap-icons.css"> 
+    <link rel="stylesheet" href="assets/css/demo.css">
+</head> 
+
+<body>
+    <div class="wrapper sidebar_minimize">
+        <div class="main-header">
+
+            <!-- Navbar Header -->
+            <nav class="navbar navbar-header navbar-expand-lg" data-background-color="white">
+
+                <div class="container-fluid">
+                    <div>
+
+                        <a href="dashboard.html" class="logo">
+                            <img src="assets/img/logo.png" width="150" alt="navbar brand" class="navbar-brand">
+                        </a>
+                    </div>
+                        <!-- <form class="navbar-left navbar-form nav-search mr-md-3">
+                    <div class="collapse" id="search-nav">
+							<div class="input-group">
+								<div class="input-group-prepend">
+									<button type="submit" class="btn btn-search pr-1">
+										<i class="fa fa-search search-icon"></i>
+									</button>
+								</div>
+								<input type="text" placeholder="Search ..." class="form-control">
+							</div>
+						</form>
+                    </div> -->
+                    <ul class="navbar-nav topbar-nav ml-md-auto align-items-center">
+                        
+                    <li class="nav-item dropdown hidden-caret">
+                        <a class="nav-link dropdown-toggle" href="#" id="notifDropdown" role="button"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="fa fa-bell"></i>
+                        <span class="notification">3</span>
+                    </a>
+                    <ul class="dropdown-menu notif-box animated fadeIn" aria-labelledby="notifDropdown">
+                        <li>
+                            <div class="dropdown-title">You have 3 new notification</div>
+                        </li>
+                        <li>
+                            <div class="notif-scroll scrollbar-outer">
+                                <div class="notif-center">
+                                    <a href="#">
+                                        <div class="notif-icon notif-primary"> <i class="fa fa-user"></i>
+                                        </div>
+                                        <div class="notif-content">
+                                            <span class="block">
+                                                2 Follow-ups have been closed
+                                            </span>
+                                            <span class="time">5 minutes ago</span>
+                                        </div>
+                                    </a>
+                                    <a href="#">
+                                        <div class="notif-icon notif-primary"> <i class="fa fa-user"></i></div>
+                                        <div class="notif-content">
+                                            <span class="block">
+                                                4 New leads have been received
+                                            </span>
+                                            <span class="time">12 minutes ago</span>
+                                        </div>
+                                    </a>
+                                    <a href="#">
+                                        <div class="notif-icon notif-primary"> <i class="fa fa-user"></i></div>
+                                                <!-- <div class="notif-img"> 
+													<img src="assets/img/profile2.jpg" alt="Img Profile">
+												</div> -->
+                                                <div class="notif-content">
+                                                    <span class="block">
+                                                        A lead status has been updated
+                                                    </span>
+                                                    <span class="time">12 minutes ago</span>
+                                                </div>
+                                            </a> 
+                                        </div>
+                                    </div>
+                                </li> 
+                            </ul>
+                        </li>
+
+                        <li class="nav-item dropdown hidden-caret">
+                            <a class="dropdown-toggle profile-pic" data-bs-toggle="dropdown" href="#" aria-expanded="false">
+                                <div class="avatar-sm">
+                                    <i class="fa fa-user"></i>
+                                    <!-- <img src="assets/img/user.png" alt="img" class="avatar-img rounded-circle"> -->
+                                </div>
+                            </a>
+                            <ul class="dropdown-user dropdown-menu dropdown-menu-end animated fadeIn">
+                                <div class="dropdown-user-scroll scrollbar-outer">
+                                    <li>
+                                        <div class="user-box">
+                                                <div class="avatar-lg">
+                                                    <img src="assets/img/profile.jpg" alt="image profile" class="avatar-img rounded">
+                                                </div>
+                                                <div class="u-text align-content-center">
+                                                    <h4 class="text-capitalize">
+                                                        <span id="lblloginusername">XXXX</span>
+                                                    </h4>
+                                                    <p class="text-muted mb-0">
+                                                        <span id="lblloginusermailid">XXX@gamil.com</span>
+                                                    </p> 
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="dropdown-divider"></div> 
+                                            <a class="dropdown-item text-center" href="#">Logout</a>
+                                        </li>
+                                    </div>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+                <!-- End Navbar -->
+                <div id="dvadminmenu" class="menu-1" style="display:block;">
+                    <div class="menu-tab nav nav-tabs">
+                        <li class="nav-item">
+                            <a class="nav-link active" data-bs-toggle="tab" href="#tab-1">
+                                <i class="bi bi-bar-chart-steps" aria-hidden="true"></i> FAQ's
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-bs-toggle="tab" href="#tab-2">
+                                <i class="bi bi-buildings" aria-hidden="true"></i> Infrastructure
+                            </a>
+                        </li>  
+                </div>
+                
+                <div class="tab-content">
+                    <div class="tab-pane fade active show" id="tab-1">
+                        <!-- Content for Tab 1 -->
+                        <ul class="sub-menu">
+                            <li class="active">
+                                <a href="add-faqs.html">
+                                    <i class="bi bi-kanban" aria-hidden="true"></i> 
+                                    Add FAQ's
+                                </a>
+                            </li> 
+                            <li>
+                                <a href="view-faqs.html">
+                                    <i class="bi bi-kanban" aria-hidden="true"></i> 
+                                    View FAQ's
+                                </a>
+                            </li> 
+                        </ul>
+                    </div>
+                    <div class="tab-pane fade" id="tab-2">
+                        <ul class="sub-menu">
+                            <li>
+                                <a href="add-infrastructure.html">
+                                    <i class="bi bi-kanban" aria-hidden="true"></i> 
+                                    Add Infrastructure
+                                </a>
+                            </li> 
+                            <li>
+                                <a href="view-infrastructure.html">
+                                    <i class="bi bi-kanban" aria-hidden="true"></i> 
+                                    View Infrastructure
+                                </a>
+                            </li> 
+                        </ul>
+                    </div> 
+                </div>
+                
+            </div>
+        </div>
+
+
+        <div class="main-panel">
+            <div class="content">
+                <div class="panel-header bg-primary-gradient">
+                    <div class="page-inner py-5">
+                        <div class="d-flex pb-2 align-items-left align-items-md-center flex-column flex-md-row justify-content-between">
+                            <div class="d-flex">
+                                <h2 class="text-white mb-0 fw-bold text-uppercase">Add Centre For Students and Administrative Services</h2>
+                                <ul class="breadcrumbs"> 
+                                    <li class="nav-home pt-1">
+                                        <a href="dashboard.html">
+                                            <i class="fa fa-home"></i>
+                                        </a>
+                                    </li> 
+                                </ul> 
+                            </div>
+                            <!-- <div>
+                                <a href="view-flat.html" data-bs-toggle="tooltip" title="View page">
+                                    <img class="add-view-img" src=""/>
+                                </a>
+                            </div> -->
+ 
+                        </div>
+                    </div>
+                </div>
+                <div class="page-inner mt--5">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="card"> 
+                                <div class="card-body">
+                                    
+                                    <div class="form-group">
+                                        <div class="form-border margin-top20">
+                                            <div class="form-title">
+                                                <h3>CSAS Details</h3>
+                                            </div>
+                                            <div class="row mx-0 margin-top20 mb-4">
+                                                <div class="col-md-4 pt-3">
+                                                    <div class="input-icon input-icon-sm right">
+                                                        <label>Title <span class="text-danger">*</span></label>
+                                                        <i class="bi bi-journal-bookmark-fill b5-icon"></i>
+                                                        <input type="text" class="form-control capitalize-input" />
+                                                    </div>
+                                                    <!-- <span class="error">Enter title</span> --> 
+                                                </div>
+                                                <div class="col-md-4 pt-3">
+                                                    <div class="input-icon input-icon-sm right">
+                                                        <label>Content <span class="text-danger">*</span></label>
+                                                        <i class="bi bi-body-text b5-icon"></i> 
+                                                        <textarea class="form-control capitalize-input" Rows="3" placeholder="" runat="server"></textarea>
+                                                        <!-- <span class="handle-file-request">(maximum 200 characters)</span> -->
+                                                    </div>
+                                                    <!-- <span class="error">Enter content </span> -->
+                                                </div>
+                                                 <div class="col-md-3 pt-3">
+                                                    <div class="input-icon input-icon-sm right">
+                                                        <label>Display Status <span class="text-danger">*</span></label> 
+                                                        <div class="toggle-container">
+                                                            <div class="toggle-switch">
+                                                                <input type="checkbox" checked id="toggleActiveInactive">
+                                                                <label for="toggleActiveInactive" class="toggle-label mt-1">
+                                                                    <span class="toggle-text-active">Active</span>
+                                                                    <span class="toggle-text-inactive">Inactive</span>
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                        
+                                                    </div>
+                                                </div> 
+                                                 
+                                            </div>
+                                        </div>
+                                        <div class="form-border margin-top20">
+                                            <div class="form-title">
+                                                <h3>Contact Details</h3>
+                                            </div>
+                                            <div class="row mx-0 margin-top20 mb-4">
+                                                <div class="col-md-3 pt-3">
+                                                    <div class="input-icon input-icon-sm right">
+                                                        <label>Contact:1 Name </label>
+                                                        <i class="bi bi-person-square b5-icon"></i>
+                                                        <input type="text" class="form-control capitalize-input" />
+                                                    </div>
+                                                    <!-- <span class="error">Enter name</span> --> 
+                                                </div>
+                                                <div class="col-md-3 col-6 pt-3">
+                                                    <div class="input-icon input-icon-sm right">
+                                                        <label>Designation </label>
+                                                        <i class="bi bi-person-workspace b5-icon"></i>
+                                                        <input type="text" class="form-control capitalize-input" />
+                                                    </div>
+                                                    <!-- <span class="error">Enter designation</span> --> 
+                                                </div>
+                                                <div class="col-md-3 col-6 pt-3">
+                                                    <div class="input-icon input-icon-sm right">
+                                                        <label>Mobile Number </label>
+                                                        <i class="bi bi-telephone b5-icon"></i>
+                                                        <input type="text" class="form-control " />
+                                                    </div>
+                                                    <!-- <span class="error">Enter mobile no.</span> --> 
+                                                </div>
+                                                <div class="col-md-3 col-6 pt-3">
+                                                    <div class="input-icon input-icon-sm right">
+                                                        <label>Email ID </label>
+                                                        <i class="bi bi-envelope b5-icon"></i>
+                                                        <input type="text" class="form-control " />
+                                                    </div>
+                                                    <!-- <span class="error">Enter email id</span> --> 
+                                                </div> 
+                                                 
+                                            </div>
+                                            <div class="row mx-0 margin-top20 mb-4">
+                                                <div class="col-md-3 pt-3">
+                                                    <div class="input-icon input-icon-sm right">
+                                                        <label>Contact:2 Name </label>
+                                                        <i class="bi bi-person-square b5-icon"></i>
+                                                        <input type="text" class="form-control capitalize-input" />
+                                                    </div>
+                                                    <!-- <span class="error">Enter name</span> --> 
+                                                </div>
+                                                <div class="col-md-3 col-6 pt-3">
+                                                    <div class="input-icon input-icon-sm right">
+                                                        <label>Designation </label>
+                                                        <i class="bi bi-person-workspace b5-icon"></i>
+                                                        <input type="text" class="form-control capitalize-input" />
+                                                    </div>
+                                                    <!-- <span class="error">Enter designation</span> --> 
+                                                </div>
+                                                <div class="col-md-3 col-6 pt-3">
+                                                    <div class="input-icon input-icon-sm right">
+                                                        <label>Mobile Number </label>
+                                                        <i class="bi bi-telephone b5-icon"></i>
+                                                        <input type="text" class="form-control " />
+                                                    </div>
+                                                    <!-- <span class="error">Enter mobile no.</span> --> 
+                                                </div>
+                                                <div class="col-md-3 col-6 pt-3">
+                                                    <div class="input-icon input-icon-sm right">
+                                                        <label>Email ID </label>
+                                                        <i class="bi bi-envelope b5-icon"></i>
+                                                        <input type="text" class="form-control " />
+                                                    </div>
+                                                    <!-- <span class="error">Enter email id</span> --> 
+                                                </div> 
+                                                <div class="row mx-0 margin-top20 mb-4">
+                                                    <div class="col-md-3 pt-3">
+                                                        <div class="input-icon input-icon-sm right">
+                                                            <label>Contact:3 Name </label>
+                                                            <i class="bi bi-person-square b5-icon"></i>
+                                                            <input type="text" class="form-control capitalize-input" />
+                                                        </div>
+                                                        <!-- <span class="error">Enter name</span> --> 
+                                                    </div>
+                                                    <div class="col-md-3 col-6 pt-3">
+                                                        <div class="input-icon input-icon-sm right">
+                                                            <label>Designation </label>
+                                                            <i class="bi bi-person-workspace b5-icon"></i>
+                                                            <input type="text" class="form-control capitalize-input" />
+                                                        </div>
+                                                        <!-- <span class="error">Enter designation</span> --> 
+                                                    </div>
+                                                    <div class="col-md-3 col-6 pt-3">
+                                                        <div class="input-icon input-icon-sm right">
+                                                            <label>Mobile Number </label>
+                                                            <i class="bi bi-telephone b5-icon"></i>
+                                                            <input type="text" class="form-control " />
+                                                        </div>
+                                                        <!-- <span class="error">Enter mobile no.</span> --> 
+                                                    </div>
+                                                    <div class="col-md-3 col-6 pt-3">
+                                                        <div class="input-icon input-icon-sm right">
+                                                            <label>Email ID </label>
+                                                            <i class="bi bi-envelope b5-icon"></i>
+                                                            <input type="text" class="form-control " />
+                                                        </div>
+                                                        <!-- <span class="error">Enter email id</span> --> 
+                                                    </div> 
+                                                     
+                                                </div>
+                                                 
+                                            </div>
+                                        </div>
+                                        <div class="form-border margin-top20">
+                                            <div class="form-title">
+                                                <h3>Images Details</h3>
+                                            </div>
+                                            <div class="row mx-0 margin-top20 mb-4">
+                                                <div class="col-md-4 pt-3">
+                                                    <div class="input-icon input-icon-sm right">
+                                                        <label>Multi-Image Upload </label>
+                                                        <i class="bi bi-images b5-icon"></i>
+                                                        <input type="file" class="form-control capitalize-input" />
+                                                        <span class="handle-file-request">(max file size of 500 KB)</span>
+                                                    </div> 
+                                                    <div class="view-pro-screen-img view-pro-screen btn-view-pop btn-view-Photo1" runat="server" id="viewpflphoto" style="display: none">
+                                                        <i class="bi bi-eye"></i>View Image
+                                                    </div>
+                                                    <!-- <span class="error">Upload images </span> --> 
+                                                </div>
+                                                
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                                <div class="card-footer">
+                                    <div class="d-flex justify-content-center">
+                                        <input type="button" class="btn btn-sm btn-success handle-btn-success me-1 swtAltSubmit" value="Submit">
+                                        <button type="button" class="btn btn-secondary btn-sm me-1"><i class='fa fa-spinner fa-spin'></i> Please wait</button>
+                                        <button class="btn btn-sm btn-danger handle-btn-danger swtAltCancel">Cancel</button>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+            <footer class="footer">
+                <div class="container-fluid">
+                    <nav class="pull-left">
+                        &copy;
+                        <script type="text/javascript">
+                            var today = new Date()
+                            var year = today.getFullYear()
+                            document.write(year)
+                        </script>
+                    </nav>
+                    <div class="copyright ml-auto">
+                        Powered by <a class="text-uppercase" href="https://duffldigital.com/" target="_blank">Duffl
+                        Digital</a>
+                    </div>
+                </div>
+            </footer>
+        </div>
+
+        <div class="back-to-top" style="display: none;">
+            <a href="#" data-bs-toggle="tooltip" title="Back to Top">
+                <img src="assets/img/back-to-top.png" class="w-50 px-1 d-flex mx-auto">
+            </a>
+        </div>
+        
+        
+    </div>
+    <!--   Core JS Files   -->
+    <script src="assets/js/core/jquery.3.2.1.min.js"></script> 
+    <script src="assets/js/core/bootstrap.min.js"></script>
+    <!-- Sweet Alert -->
+    <script src="assets/js/plugin/sweetalert/sweetalert.min.js"></script>
+    
+    <script>
+     
+
+        //-- menu
+        function updateNavBackground() {
+            document.querySelectorAll('.menu-tab .nav-item').forEach(item => {
+                const link = item.querySelector('.nav-link');
+                if (link.classList.contains('active')) {
+            item.style.backgroundColor = '#2b2e32'; // Apply background for active
+        } else {
+            item.style.backgroundColor = 'transparent'; // Reset background for inactive
+        }
+    });
+        }
+
+// Run function when tab is clicked
+document.querySelectorAll('.menu-tab .nav-link').forEach(link => {
+    link.addEventListener('shown.bs.tab', updateNavBackground); // Bootstrap tab event
+});
+
+// Initial run to set correct background
+updateNavBackground();
+//--// menu
+
+//-- tooltips Back to Top button
+document.addEventListener("DOMContentLoaded", function () {
+    const tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+    tooltipTriggerList.forEach(function (tooltipTriggerEl) {
+        new bootstrap.Tooltip(tooltipTriggerEl);
+    });
+});
+
+document.addEventListener("scroll", function () {
+    const backToTop = document.querySelector(".back-to-top");
+    if (window.scrollY > 1000) {
+        backToTop.style.display = "block";
+    } else {
+        backToTop.style.display = "none";
+    }
+});
+
+document.querySelector(".back-to-top a").addEventListener("click", function (event) {
+    event.preventDefault();
+    window.scrollTo({ top: 0, behavior: "smooth" });
+});
+//--// tooltips Back to Top button
+
+
+    //-- Select the Submit button with the class 'swtAltSubmit'
+    const buttons = document.querySelectorAll('.swtAltSubmit');
+    
+    buttons.forEach(function(button) {
+        button.addEventListener('click', function() {
+            Swal.fire({
+                 title: 'CSAS details added successfully',  
+                  icon: 'success',  
+                  allowOutsideClick: 'true', 
+                  customClass: {  
+                    icon: 'handle-icon-clr', 
+                    confirmButton: 'handle-btn-success'  
+                  }    
+            });
+        });
+    });
+    //--// Select the Submit button with the class 'swtAltSubmit'
+
+ //-- Select the Cancel button with the class 'swtAltCancel'
+const cancelButton = document.querySelector('.swtAltCancel');
+
+if (cancelButton) { // Ensure the element exists
+    cancelButton.addEventListener('click', function() {
+        Swal.fire({
+            title: 'Are you sure you want to cancel?',
+            showCancelButton: true,
+            confirmButtonText: 'Yes',
+            cancelButtonText: 'No',
+            customClass: { 
+                confirmButton: 'handle-btn-danger',
+                cancelButton: 'handle-btn-success',
+            }
+        }).then((result) => {
+             
+        });
+    });
+}
+
+ //--// Select the Cancel button with the class 'swtAltCancel'
+
+</script>
+</body>
+
+</html>
