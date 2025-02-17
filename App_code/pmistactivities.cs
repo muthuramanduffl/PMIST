@@ -6,18 +6,15 @@ using System.Linq;
 using System.Web;
 
 /// <summary>
-/// Summary description for pmistfaq
+/// Summary description for pmistactivities
 /// </summary>
-public class pmistfaq
+public class pmistactivities
 {
-
-
-
-    public int intFAQID { get; set; }
+    public int intACTID { get; set; }
     public string strDepartment { get; set; }
-    public bool boolQStatus { get; set; }
-    public string strQuetion { get; set; }
-    public string strAnswer { get; set; }
+    public bool ActivitiyStatus { get; set; }
+    public string strTitle { get; set; }
+    public string strPdfFilename { get; set; }
     public string strAddedBy { get; set; }
     public string strUpdatedBy { get; set; }
 
@@ -36,7 +33,7 @@ public class pmistfaq
     }
 
 
-    public int AddFAQ(pmistfaq PQ)
+    public int AddDepartmentActivities(pmistactivities PQ)
     {
         int Sno = 0;
         string connetionString = null;
@@ -46,15 +43,15 @@ public class pmistfaq
         int rowsAffected = 0;
         try
         {
-            using (SqlCommand command = new SqlCommand("AddFAQ", cnn))
+            using (SqlCommand command = new SqlCommand("AddDepartmentActivities", cnn))
             {
                 cnn.Open();
                 command.CommandType = CommandType.StoredProcedure;
                 command.Parameters.Add(new SqlParameter("@Department", PQ.strDepartment));
-                command.Parameters.Add(new SqlParameter("@QStatus", PQ.boolQStatus));
-                command.Parameters.Add(new SqlParameter("@Quetion", PQ.strQuetion));
-                command.Parameters.Add(new SqlParameter("@Answer", PQ.strAnswer));
-                command.Parameters.Add(new SqlParameter("@AddedDate", Utility.IndianTime));
+                command.Parameters.Add(new SqlParameter("@Title", PQ.strTitle));
+                command.Parameters.Add(new SqlParameter("@ActivitiyStatus",PQ.ActivitiyStatus));
+                command.Parameters.Add(new SqlParameter("@PdfFilename", PQ.strPdfFilename));
+                command.Parameters.Add(new SqlParameter("@Addedate", Utility.IndianTime));
                 command.Parameters.Add(new SqlParameter("@AddedBy", PQ.strAddedBy));
                 rowsAffected = command.ExecuteNonQuery();
             }
@@ -66,7 +63,7 @@ public class pmistfaq
         return rowsAffected;
     }
 
-    public int UpdateFAQ(pmistfaq PQ)
+    public int UpdateDepartmentActivities(pmistactivities PQ)
     {
         int Sno = 0;
         string connetionString = null;
@@ -76,17 +73,17 @@ public class pmistfaq
         int rowsAffected = 0;
         try
         {
-            using (SqlCommand command = new SqlCommand("UpdateFAQ", cnn))
+            using (SqlCommand command = new SqlCommand("UpdateDepartmentActivities", cnn))
             {
                 cnn.Open();
                 command.CommandType = CommandType.StoredProcedure;
-                command.Parameters.Add(new SqlParameter("@FAQID", PQ.intFAQID));
+                command.Parameters.Add(new SqlParameter("@ACTID", PQ.intACTID));
                 command.Parameters.Add(new SqlParameter("@Department", PQ.strDepartment));
-                command.Parameters.Add(new SqlParameter("@QStatus", PQ.boolQStatus));
-                command.Parameters.Add(new SqlParameter("@Quetion", PQ.strQuetion));
-                command.Parameters.Add(new SqlParameter("@Answer", PQ.strAnswer));
-                command.Parameters.Add(new SqlParameter("@UpdatedDate", Utility.IndianTime));
+                command.Parameters.Add(new SqlParameter("@Title", PQ.strTitle));
+                command.Parameters.Add(new SqlParameter("@ActivitiyStatus", PQ.ActivitiyStatus));
+                command.Parameters.Add(new SqlParameter("@PdfFilename", PQ.strPdfFilename));
                 command.Parameters.Add(new SqlParameter("@UpdatedBy", PQ.strUpdatedBy));
+                command.Parameters.Add(new SqlParameter("@UpdatedDate", Utility.IndianTime));
                 rowsAffected = command.ExecuteNonQuery();
             }
             cnn.Close();
@@ -97,7 +94,7 @@ public class pmistfaq
         return rowsAffected;
     }
 
-    public int DelteFAQ(int FAQ)
+    public int DelteActivities(int ActID)
     {
         int Sno = 0;
         string connetionString = null;
@@ -107,11 +104,11 @@ public class pmistfaq
         int rowsAffected = 0;
         try
         {
-            using (SqlCommand command = new SqlCommand("DeleteFAQID", cnn))
+            using (SqlCommand command = new SqlCommand("DeleteDepartmentActivities", cnn))
             {
                 cnn.Open();
                 command.CommandType = CommandType.StoredProcedure;
-                command.Parameters.Add(new SqlParameter("@FAQID", FAQ));
+                command.Parameters.Add(new SqlParameter("@ACTID", ActID));
                 rowsAffected = command.ExecuteNonQuery();
             }
             cnn.Close();
@@ -124,7 +121,7 @@ public class pmistfaq
 
 
 
-    public DataTable ViewAllFAQs(string Department, string status, string FAQID)
+    public DataTable ViewAllDepartmentActivities(string Department, string status, string ActID)
     {
         bool? boolValue = null;
         DataTable dt = new DataTable();
@@ -134,12 +131,12 @@ public class pmistfaq
         cnn = new SqlConnection(connetionString);
         try
         {
-            using (SqlCommand command = new SqlCommand("ViewAllFAQs", cnn))
+            using (SqlCommand command = new SqlCommand("ViewAllDepartmentActivities", cnn))
             {
                 cnn.Open();
                 command.CommandType = CommandType.StoredProcedure;
                 command.Parameters.Add(new SqlParameter("@Department", Department));
-                command.Parameters.Add(new SqlParameter("@FAQID", string.IsNullOrWhiteSpace(FAQID) ? (object)DBNull.Value : Convert.ToInt32(FAQID)));
+                command.Parameters.Add(new SqlParameter("@ACTID", string.IsNullOrWhiteSpace(ActID) ? (object)DBNull.Value : Convert.ToInt32(ActID)));
                 if (!string.IsNullOrWhiteSpace(status))
                 {
                     if (status == "1" || status.ToLower() == "true")
@@ -147,8 +144,7 @@ public class pmistfaq
                     else if (status == "0" || status.ToLower() == "false")
                         boolValue = false;
                 }
-
-                command.Parameters.Add(new SqlParameter("@QStatus", boolValue.HasValue ? (object)boolValue.Value : DBNull.Value));
+                command.Parameters.Add(new SqlParameter("@ActivitiyStatus", boolValue.HasValue ? (object)boolValue.Value : DBNull.Value));
                 SqlDataAdapter DA = new SqlDataAdapter(command);
                 DA.Fill(dt);
             }

@@ -6,18 +6,18 @@ using System.Linq;
 using System.Web;
 
 /// <summary>
-/// Summary description for pmistfaq
+/// Summary description for pmistplacements
 /// </summary>
-public class pmistfaq
+public class pmistplacements
 {
 
 
 
-    public int intFAQID { get; set; }
+    public int intPID { get; set; }
     public string strDepartment { get; set; }
-    public bool boolQStatus { get; set; }
+    public bool boolPStatus { get; set; }
     public string strQuetion { get; set; }
-    public string strAnswer { get; set; }
+    public string strcontent { get; set; }
     public string strAddedBy { get; set; }
     public string strUpdatedBy { get; set; }
 
@@ -36,7 +36,7 @@ public class pmistfaq
     }
 
 
-    public int AddFAQ(pmistfaq PQ)
+    public int AddPMISTplacements(pmistplacements PQ)
     {
         int Sno = 0;
         string connetionString = null;
@@ -46,14 +46,13 @@ public class pmistfaq
         int rowsAffected = 0;
         try
         {
-            using (SqlCommand command = new SqlCommand("AddFAQ", cnn))
+            using (SqlCommand command = new SqlCommand("AddPMISTplacements", cnn))
             {
                 cnn.Open();
                 command.CommandType = CommandType.StoredProcedure;
                 command.Parameters.Add(new SqlParameter("@Department", PQ.strDepartment));
-                command.Parameters.Add(new SqlParameter("@QStatus", PQ.boolQStatus));
-                command.Parameters.Add(new SqlParameter("@Quetion", PQ.strQuetion));
-                command.Parameters.Add(new SqlParameter("@Answer", PQ.strAnswer));
+                command.Parameters.Add(new SqlParameter("@Content", PQ.strcontent));
+                command.Parameters.Add(new SqlParameter("@PStatus", PQ.boolPStatus));
                 command.Parameters.Add(new SqlParameter("@AddedDate", Utility.IndianTime));
                 command.Parameters.Add(new SqlParameter("@AddedBy", PQ.strAddedBy));
                 rowsAffected = command.ExecuteNonQuery();
@@ -64,9 +63,7 @@ public class pmistfaq
         {
         }
         return rowsAffected;
-    }
-
-    public int UpdateFAQ(pmistfaq PQ)
+    } public int updatePMISTplacements(pmistplacements PQ)
     {
         int Sno = 0;
         string connetionString = null;
@@ -76,15 +73,14 @@ public class pmistfaq
         int rowsAffected = 0;
         try
         {
-            using (SqlCommand command = new SqlCommand("UpdateFAQ", cnn))
+            using (SqlCommand command = new SqlCommand("UpdatePMISTplacements", cnn))
             {
                 cnn.Open();
                 command.CommandType = CommandType.StoredProcedure;
-                command.Parameters.Add(new SqlParameter("@FAQID", PQ.intFAQID));
+                command.Parameters.Add(new SqlParameter("@PID", PQ.intPID));
                 command.Parameters.Add(new SqlParameter("@Department", PQ.strDepartment));
-                command.Parameters.Add(new SqlParameter("@QStatus", PQ.boolQStatus));
-                command.Parameters.Add(new SqlParameter("@Quetion", PQ.strQuetion));
-                command.Parameters.Add(new SqlParameter("@Answer", PQ.strAnswer));
+                command.Parameters.Add(new SqlParameter("@Content", PQ.strcontent));
+                command.Parameters.Add(new SqlParameter("@PStatus", PQ.boolPStatus));
                 command.Parameters.Add(new SqlParameter("@UpdatedDate", Utility.IndianTime));
                 command.Parameters.Add(new SqlParameter("@UpdatedBy", PQ.strUpdatedBy));
                 rowsAffected = command.ExecuteNonQuery();
@@ -97,7 +93,9 @@ public class pmistfaq
         return rowsAffected;
     }
 
-    public int DelteFAQ(int FAQ)
+   
+
+    public int DeletePMISTPlacementsByID(int FAQ)
     {
         int Sno = 0;
         string connetionString = null;
@@ -107,11 +105,11 @@ public class pmistfaq
         int rowsAffected = 0;
         try
         {
-            using (SqlCommand command = new SqlCommand("DeleteFAQID", cnn))
+            using (SqlCommand command = new SqlCommand("DeletePMISTPlacementsByID", cnn))
             {
                 cnn.Open();
                 command.CommandType = CommandType.StoredProcedure;
-                command.Parameters.Add(new SqlParameter("@FAQID", FAQ));
+                command.Parameters.Add(new SqlParameter("@PID", FAQ));
                 rowsAffected = command.ExecuteNonQuery();
             }
             cnn.Close();
@@ -124,7 +122,7 @@ public class pmistfaq
 
 
 
-    public DataTable ViewAllFAQs(string Department, string status, string FAQID)
+    public DataTable ViewAllPlacements(string Department, string status, string PID)
     {
         bool? boolValue = null;
         DataTable dt = new DataTable();
@@ -134,12 +132,12 @@ public class pmistfaq
         cnn = new SqlConnection(connetionString);
         try
         {
-            using (SqlCommand command = new SqlCommand("ViewAllFAQs", cnn))
+            using (SqlCommand command = new SqlCommand("ViewAllPlacements", cnn))
             {
                 cnn.Open();
                 command.CommandType = CommandType.StoredProcedure;
                 command.Parameters.Add(new SqlParameter("@Department", Department));
-                command.Parameters.Add(new SqlParameter("@FAQID", string.IsNullOrWhiteSpace(FAQID) ? (object)DBNull.Value : Convert.ToInt32(FAQID)));
+                command.Parameters.Add(new SqlParameter("@PID", string.IsNullOrWhiteSpace(PID) ? (object)DBNull.Value : Convert.ToInt32(PID)));
                 if (!string.IsNullOrWhiteSpace(status))
                 {
                     if (status == "1" || status.ToLower() == "true")
@@ -148,7 +146,7 @@ public class pmistfaq
                         boolValue = false;
                 }
 
-                command.Parameters.Add(new SqlParameter("@QStatus", boolValue.HasValue ? (object)boolValue.Value : DBNull.Value));
+                command.Parameters.Add(new SqlParameter("@PStatus", boolValue.HasValue ? (object)boolValue.Value : DBNull.Value));
                 SqlDataAdapter DA = new SqlDataAdapter(command);
                 DA.Fill(dt);
             }
