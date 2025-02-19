@@ -38,14 +38,14 @@
 
                                         <div class="col-md-3 pt-3">
                                             <div class="input-icon input-icon-sm right">
-                                                <label>Department <span class="text-danger">*</span></label>
+                                                <label>Centre Name <span class="text-danger">*</span></label>
                                                 <i class="bi bi-journal-bookmark-fill b5-icon"></i>
                                                 <asp:DropDownList ID="ddltype" class="bs-select form-control input-sm" runat="server">
                                                     <asp:ListItem Selected="True" Value=""></asp:ListItem>
                                                 </asp:DropDownList>
                                             </div>
                                             <span class="error">
-                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator4" ControlToValidate="ddltype" ValidationGroup="FaqsVal" InitialValue="" runat="server" ErrorMessage="Select centre type"></asp:RequiredFieldValidator>
+                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator4" ControlToValidate="ddltype" ValidationGroup="CSASVals" InitialValue="" runat="server" ErrorMessage="Select centre type"></asp:RequiredFieldValidator>
                                             </span>
                                         </div>
 

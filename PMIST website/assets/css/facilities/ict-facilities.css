@@ -1,0 +1,54 @@
+.student-details {
+    color: #000;
+    font-family:'Figtree-Bold'; 
+    font-size: 16px;
+    font-style: normal;
+    line-height: 145%; /* 21.75px */
+    letter-spacing: 0.15px;
+    text-align: center;
+    margin-right: 40px;
+    padding: 10px 0;
+    position: relative;
+}
+
+.student-details span {
+    margin-left: 20px;
+    position: relative;
+}
+
+.student-details span::after {
+    position:absolute;
+    content: "";
+    width: 1px;
+    height: 35px;
+    left: -12px;
+    top: -12px;
+    background: linear-gradient(to top, white 3.9%, #C52F2C 45.4%, white 100%);
+
+}
+
+.student-details::after {
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(to right, white 3.9%, #C52F2C 45.4%, white 100%);
+    left: 0;
+    top: 0;
+}
+
+.student-details::before {
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(to right, white 3.9%, #C52F2C 45.4%, white 100%);
+    left: 0;
+    bottom: 0;
+}
+
+@media (min-width:2000px) {
+    .student-details {
+        font-size: 21px;
+    }
+}

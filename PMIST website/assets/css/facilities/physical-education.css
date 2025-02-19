@@ -1,0 +1,432 @@
+/* faculty-profile START  */
+
+.faculty-dep-role {
+    color: #872927;
+    font-family:'Figtree-Bold'; 
+    font-size: 21px;
+    font-style: normal;
+    line-height: 150%; /* 30px */
+    letter-spacing: 0.6px;
+    text-transform: uppercase;
+}
+
+.faculty-name {
+    color: #2D2D2D;
+    font-family:'Figtree-Bold'; 
+    font-size: 17px;
+    font-style: normal;
+    line-height: 150%; /* 24px */
+    letter-spacing: 0.48px;
+    text-transform: uppercase;
+}
+
+.faculty-role {
+    color: #414141;
+    font-family:'Afacad-Regular'; 
+    font-style: italic;
+    font-size: 16px;
+    line-height: 150%; /* 21px */
+    letter-spacing: 0.42px;
+}
+
+.director-content-bg {
+    background-image: url(../../img/facilities/physical-education/director-bg.jpg);
+    background-size: cover;
+    background-position: center;
+}
+
+.faculty-profile-content p{
+    color: #FFF; 
+    width: 95%;
+}
+
+.view-btn{
+    color: #252525;
+    font-family:'Figtree-Medium'; 
+    font-size: 16px;
+    line-height: 150%; /* 21px */
+    letter-spacing: 0.42px;
+    border-radius: 2px;
+    border: 0.5px solid #092C68;
+    background: #FFF;
+    position: absolute;
+    bottom: -51px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.btn:hover {
+    color: #252525;
+    background-color: #fff;
+    border-color: #092C68;
+}
+
+.faculty-profile-img {
+    padding: 10px;
+    margin: 0px 0px -85px auto;
+    z-index: 9;
+    position: relative;
+    border-radius: 2px;
+    border: 0.794px solid rgb(44 51 98 / 33%);
+}
+
+
+.faculty-profile-img img {
+    border-radius: 1.587px;
+    border: 0.794px solid #FFF;
+    background: url(<path-to-image>) lightgray 0px 0.294px / 100% 147.717% no-repeat;
+    box-shadow: 0px 3.969px 6.35px 0px rgba(0, 0, 0, 0.15);
+    width: 100%;
+}
+
+@media (min-width:2000px) {
+    .faculty-dep-role {
+        font-size: 26px;
+    }
+
+    .faculty-name {
+        font-size: 22px;
+    }
+
+    .faculty-role,.faculty-profile-content p, .view-btn  {
+         
+        font-size: 22px;
+    }
+}
+
+@media (max-width:991px) {
+    .faculty-profile-img {
+        width: 50%;
+        margin: 0 auto;
+    }
+
+    .faculty-profile-details {
+        text-align: center;
+        padding-top: 70px;
+    }
+
+    .faculty-profile-content p {
+        width: 98%;
+        text-align: center;
+    }
+}
+
+@media (max-width:768px) {
+    .faculty-profile-img {
+        width: 50%;
+        margin: 0 auto !important;
+    }
+
+    .faculty-dep-role {
+        text-align: center;
+        padding-top: 17px;
+    }
+
+    .faculty-name,.faculty-role {
+        text-align: center;
+    }
+
+    .faculty-profile-content p {
+        width: 100%;
+        text-align: center;
+        padding: 0 10px;
+    }
+
+    .faculty-profile-content h5 {
+        text-align: center;
+    }
+
+    .faculty-profile-details {
+        padding-top: 55px;
+    }
+}
+
+@media (max-width:600px) {
+    .faculty-profile-img {
+        width: 80%;
+        margin: 0 auto !important;
+    }
+}
+
+/* faculty-profile END*/
+
+.table-custom td {
+    padding: 15px 18px 15px 18px;
+}
+
+.Coaching-center-line::after{
+    position: absolute;
+    content: "";
+    width: 1px;
+    height: 85%;
+    left: -31px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: linear-gradient(360deg, #FFF 0%, #AD302D 52.42%, #FFF 100%);
+}
+
+.physical-education {
+    width:100%;
+    background: linear-gradient(104deg, #2F4088 0.77%, #181B61 50.61%, #2F4088 101.67%);
+    padding: 20px 0 0px 0;
+    margin-left: -20px;
+}
+
+.physical-education-full::after {
+    width: 24px;
+    height: 109%;
+    background: #AD302D;
+    position: absolute;
+    content: "";
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.physical-education-heading {
+    color: #FFF;
+    font-family:'Figtree-Bold'; 
+    font-size: 18px;
+    line-height: 150%; /* 27px */
+    letter-spacing: 0.54px;
+    text-transform: uppercase;
+}
+
+ .small-BA-line::after {
+    content: "";
+    display: inline-block;
+    width: 50px;
+    margin: 7px 8px;
+    height: 1px;
+    background: linear-gradient(to right, white 0%, #2B3B83 99.6%);
+}
+
+.small-BA-line::before{
+    content: "";
+    display: inline-block;
+    width: 50px;
+    margin: 7px 8px;
+    height: 1px;
+    background: linear-gradient(to right, #2B3B83 0%, white 99.6%);
+}
+
+.physical-education-profile img{
+    width: 60%;
+}
+
+.physical-education-name {
+    color: #FFF;
+    font-family: 'Figtree-Bold';
+    font-size: 14px;
+    line-height: 150%;
+    letter-spacing: 0.42px;
+    text-transform: uppercase;
+    padding: 19px 0 12px 0;
+    position: relative;
+}
+
+.physical-education-name::after {
+    position: absolute;
+    content: "";
+    width: 91%;
+    height: 1px;
+    bottom: 4px;
+    background: linear-gradient(to right, #242F76 0%, white 50.5%, #242F76 100%);
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.physical-education-role {
+    color: #FFF;
+    font-family:'Afacad-Regular'; 
+    font-size: 16px;
+    line-height: 150%; /* 21px */
+    letter-spacing: 0.42px;
+    height: 48px;
+}
+
+.pdt-btn {
+    color: #000;
+    font-family: 'Afacad-Regular';
+    font-size: 16px;
+    line-height: 150%;
+    border-radius: 3px;
+    background: #FFF;
+    box-shadow: 0px 0px 7px 0px rgba(0, 0, 0, 0.35);
+    border: none;
+    padding: 6px 9px;
+    margin: 0;
+}
+
+.pdf-btn-pare {
+    position: relative;
+    bottom: -12px;
+}
+
+.physical-education-line {
+    row-gap: 50px;
+}
+
+.physical-education-line::after {
+    position: absolute;
+    content: "";
+    width: 1px;
+    background: linear-gradient(to bottom, #253178 1.4%, white 47.9%, #20286F 100%);
+    height: 80%;
+    top: 50%;
+    left: 33%;
+    transform: translateY(-50%);
+}
+
+.physical-education-line::before{
+    position: absolute;
+    content: "";
+    width: 1px;
+    background: linear-gradient(to bottom, #253178 1.4%, white 47.9%, #20286F 100%);
+    height: 80%;
+    top: 50%;
+    right: 33%;
+    transform: translateY(-50%);
+}
+
+.diff-list a {
+    width: max-content;
+}
+
+/* multi popup img design START */
+.fancybox-img-set {
+    row-gap: 20px;
+}
+
+.image-pop {
+    border-radius: 5px;
+}
+
+.image-pop-overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    border-radius: 5px;
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.10) 0%, rgba(0, 0, 0, 0.10) 100%), linear-gradient(132deg, rgba(186, 12, 47, 0.10) -0.95%, #032A6C 98.41%);
+}
+
+.cultural-heading {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: 0 9px;
+}
+
+.cultural-name {
+    color: #FFF;
+    text-align: center;
+    font-family: 'Figtree-Bold';
+    font-size: 16px;
+    font-style: normal;
+    line-height: 150%;
+    text-transform: uppercase;
+}
+
+.image-count {
+    color: #161616;
+    font-family: 'Afacad-Regular';
+    font-size: 14px;
+    font-style: normal;
+    line-height: 150%;
+    background-color: #FFF;
+    border-radius: 50%;
+    width: 22px;
+    height: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.image-wrapper img {
+    border-radius: 5px;
+}
+
+.contact-name {
+    color: #282828;
+    font-family: 'Figtree-Bold';
+    font-size: 16px;
+    font-style: normal;
+    line-height: 180%;
+    text-transform: uppercase;
+    margin: 0;
+}
+
+.role {
+    color: #282828;
+    font-family: 'Afacad-Regular';
+    font-size: 16px;
+    font-style: normal;
+    line-height: 180%;
+    margin: 0;
+}
+
+.mbl-number {
+    color: #282828;
+    font-family: 'Figtree-Bold';
+    font-size: 16px;
+    font-style: normal;
+    line-height: 180%;
+    margin: 0;
+}
+
+.mbl-number span {
+    color: #282828;
+    font-family: 'Afacad-Regular';
+    font-style: normal;
+    line-height: 180%;
+}
+
+@media (min-width:2000px) {
+    .physical-education-heading {
+        font-size: 23px;
+    }
+
+    .physical-education-name {
+        font-size: 19px;
+    }
+    .physical-education-role, .pdt-btn  {
+        font-size: 21px;
+    }
+}
+
+@media (max-width:1200px) {
+    
+    .pdf-btn-pare {
+        bottom:0px;
+    }
+
+    .physical-education-line {
+        padding-bottom: 50px;
+    }
+
+    .physical-education-line::after, .physical-education-line::before {
+        display: none;
+    }
+}
+
+@media (max-width:991px) {
+    .Coaching-center-line::after {
+        display: none;
+    }
+
+    .physical-education-full::after {
+        height: 103%;
+    }
+    
+}
+
+@media (max-width:524px) {
+    .small-BA-line::after, .small-BA-line::before {
+        display: none;
+    }
+
+    .physical-education-heading {
+        font-size: 16px;
+    }
+}

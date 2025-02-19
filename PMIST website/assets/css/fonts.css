@@ -1,0 +1,61 @@
+    @font-face {
+    font-family: 'Albertsans-Regular'; 
+    src: url('../font/Albert_Sans/AlbertSans-Regular.ttf');
+    }
+    @font-face {
+        font-family: 'Albertsans-Black'; 
+        src: url('../font/Albert_Sans/AlbertSans-Black.ttf');
+    } 
+    @font-face {
+        font-family: 'Albertsans-Bold'; 
+        src: url('../font/Albert_Sans/AlbertSans-Bold.ttf');
+    } 
+    @font-face {
+        font-family: 'Albertsans-Light'; 
+        src: url('../font/Albert_Sans/AlbertSans-Light.ttf');
+    } 
+    @font-face {
+        font-family: 'Albertsans-Medium'; 
+        src: url('../font/Albert_Sans/AlbertSans-Medium.ttf');
+    } 
+    @font-face {
+        font-family: 'AlbertSans SemiBold'; 
+        src: url('../font/Albert_Sans/AlbertSans-SemiBold.ttf');
+    } 
+    @font-face{
+        font-family:'Figtree-Light'; 
+        src: url('../font/Figtree/Figtree-Light.ttf');
+    }
+    @font-face{
+        font-family:'Figtree-Regular'; 
+        src: url('../font/Figtree/Figtree-Regular.ttf');
+    }
+    @font-face{
+         font-family:'Figtree-Semibold'; 
+         src: url('../font/Figtree/Figtree-SemiBold.ttf');
+    }
+    @font-face{
+        font-family:'Figtree-Bold'; 
+        src: url('../font/Figtree/Figtree-Bold.ttf');
+    }   
+    @font-face{
+        font-family:'Figtree-Medium'; 
+        src: url('../font/Figtree/Figtree-Medium.ttf');
+    }   
+
+    @font-face{
+        font-family:'Afacad-Regular'; 
+        src: url('../font/Afacad/Afacad-Regular.ttf');
+    }
+    @font-face{
+        font-family:'Afacad-Semibold'; 
+        src: url('../font/Afacad/Afacad-SemiBold.ttf');
+    }
+    @font-face{
+        font-family:'Afacad-Bold'; 
+        src: url('../font/Afacad/Afacad-Bold.ttf');
+    }   
+    @font-face{
+        font-family:'Afacad-Medium'; 
+        src: url('../font/Afacad/Afacad-Medium.ttf');
+    }   

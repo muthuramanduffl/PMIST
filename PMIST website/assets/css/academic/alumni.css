@@ -1,0 +1,293 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+a{text-decoration: none;} 
+.custom-container{width: 90%; max-width: 90%; margin: 0 auto;}
+
+
+.alumni-heading {
+    color: #060708;
+    font-family:'Figtree-Bold'; 
+    font-size: 16px;
+    font-style: normal;
+    line-height: 150%;
+    letter-spacing: 0.48px;
+    text-transform: uppercase;
+    padding: 8px 0 11px 25px;
+    border-left: 3px solid #001B74;
+}
+
+.alumni-content {
+    color: #000;
+    font-family: 'Afacad-Regular';
+    font-size: 16px;
+    font-style: normal;
+    line-height: 180%;
+    padding-left: 25px;
+}
+
+/* Proud Alumni START  */
+
+.proud-alumni-details {
+    width: 100%;
+    background: linear-gradient(104deg, #2F4088 0.77%, #181B61 50.61%, #2F4088 101.67%);
+    padding: 30px 0;
+}
+
+.alumni-main-heading {
+    color: #FFC955;
+    font-family: 'Figtree-Regular';
+font-size: 16px;
+font-style: normal;
+line-height: 150%; /* 22.5px */
+letter-spacing: 0.45px;
+text-transform: uppercase;
+}
+
+.alumni-sub-heading {
+    color: #FFF;
+    font-family:'Figtree-Bold'; 
+font-size: 18px;
+font-style: normal;
+line-height: 150%; /* 27px */
+letter-spacing: 0.54px;
+text-transform: uppercase;
+}
+
+.small-BA-line::before {
+    content: "";
+    display: inline-block;
+    width: 6%;
+    margin: 7px 8px;
+    height: 1px;
+    background: linear-gradient(to left, white, #2B3B83 99%);
+}
+
+.small-BA-line::after {
+    content: "";
+    display: inline-block;
+    width: 6%;
+    margin: 7px 8px;
+    height: 1px;
+    background: linear-gradient(to right, white, #2B3B83 99%);
+}
+
+.alumni-profile {
+    width: 53%;
+    margin: 0 auto;
+}
+
+.alumni-name {
+    color: #FFD028;
+    font-family:'Figtree-Bold'; 
+    font-size: 14px;
+    font-style: normal;
+    line-height: 150%; /* 21px */
+    letter-spacing: 0.42px;
+    text-transform: uppercase;
+    padding: 25px 0 5px 0;
+    text-align: center;
+}
+
+.alumni-role {
+    color: #F1F1F1;
+text-align: center;
+font-family: 'Afacad-Regular';
+font-size: 14px;
+font-style: italic;
+line-height: 150%; /* 21px */
+letter-spacing: 0.42px;
+padding-bottom: 5px;
+
+}
+
+.alumni-role::after {
+    position: absolute;
+    content: "";
+    bottom: 0;
+    left: 50%;
+    background: linear-gradient(to right, #242F76, white 50%, #242F76);
+    width: 80%;
+    height: 1px;
+    transform: translateX(-50%);
+}
+
+.ministry {
+    color: #FFF;
+text-align: center;
+font-family:'Figtree-Bold'; 
+font-size: 14px;
+font-style: normal;
+line-height: 150%; /* 21px */
+letter-spacing: 0.42px;
+padding-top: 5px;
+}
+
+.batch {
+    color: #FFF;
+    font-family:'Figtree-Bold'; 
+font-size: 14px;
+font-style: normal;
+line-height: 150%; /* 21px */
+letter-spacing: 0.42px;
+padding-top: 5px;
+text-align: center;
+}
+
+.alumni-center-line {
+    row-gap: 80px;
+}
+
+.alumni-center-line::after {
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(to right, #242F76, white 50%, #242F76);
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.all-alumni-set::after {
+    position: absolute;
+    content: "";
+    width: 1px;
+    height: 100%;
+    left: 33%;
+    top:0;
+    background: linear-gradient(to bottom, #253178 1%, white 47.9%, #20286F);
+}
+
+.all-alumni-set::before {
+    position: absolute;
+    content: "";
+    width: 1px;
+    height: 100%;
+    right: 33%;
+    top:0;
+    background: linear-gradient(to bottom, #253178 1%, white 47.9%, #20286F);
+}
+
+
+@media (max-width:991px) {
+    .alumni-center-line::after {
+        position: absolute;
+        content: "";
+        width: 100%;
+        height: 1px;
+        background: linear-gradient(to right, #242F76, white 50%, #242F76);
+        top: 32%;
+        /* transform: translateY(-50%); */
+    }
+
+    .alumni-center-line::before {
+        position: absolute;
+        content: "";
+        width: 100%;
+        height: 1px;
+        background: linear-gradient(to right, #242F76, white 50%, #242F76);
+        bottom: 32%;
+        /* transform: translateY(-50%); */
+    }
+
+    .all-alumni-set::after {
+        position: absolute;
+        content: "";
+        width: 1px;
+        height: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+        top: 0;
+        background: linear-gradient(to bottom, #253178 1%, white 47.9%, #20286F);
+    }
+
+    .all-alumni-set::before {
+        display: none;
+    }
+}
+
+@media (max-width:768px) {
+    .alumni-center-line::after {
+        display: none;
+    }
+
+    .alumni-center-line::before {
+        display: none;
+    }
+
+    .all-alumni-set::after {
+        display: none;
+    }
+}
+
+@media (max-width:424px) {
+    .alumni-center-line {
+        row-gap: 44px;
+    }
+}
+
+/* GIT start  */
+
+.GIT-heading {
+    color: #060708;
+    font-family:'Figtree-Bold'; 
+    font-size: 16px;
+    font-style: normal;
+    line-height: 150%; /* 24px */
+    letter-spacing: 0.48px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    }
+
+    .GIT-para {
+        color: #000;
+        font-family: 'Afacad-Regular';
+        font-size: 16px;
+        font-style: normal;
+        line-height: 180%; /* 25.2px */
+    }
+
+    .mbl-head {
+        color: #282828;
+        font-family:'Figtree-Bold'; 
+        font-size: 16px;
+        font-style: normal;
+        line-height: 180%; /* 28.8px */
+        padding-right: 33px;
+    }
+
+    .mbl-head span {
+        font-family: 'Afacad-Regular';
+    }
+
+    @media (min-width:2000px) {
+        .alumni-heading, .alumni-content, .alumni-main-heading, .GIT-heading, .GIT-para, .mbl-head {
+            font-size: 21px;
+        }
+
+        .alumni-sub-heading  {
+            font-size: 23px;
+        }
+
+        .alumni-name, .alumni-role, .alumni-role, .batch {
+            font-size: 20px;
+        }
+    }
+
+    @media (max-width:600px) {
+        .GIT-heading {
+            text-align: center;
+        }
+
+        .GIT-para {
+            text-align: center;
+        }
+
+        .mbl-head {
+            padding-right: 0px;
+            text-align: center;
+        }
+
+        .Contact-GIT {
+            justify-content: center;
+            flex-direction: column;
+        }
+    }

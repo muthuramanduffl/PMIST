@@ -1,0 +1,205 @@
+.sub-title {
+    color: #000;
+    font-family: 'Figtree-Semibold';
+    font-size: 20px;
+    font-style: normal;
+    line-height: 150%;
+    letter-spacing: 0.63px;
+}
+
+.table-custom thead th {
+    align-content: center;
+    background: #FFF2D5;
+    text-align: left;
+    color: #121212;
+    font-family: 'Afacad-Semibold';
+    font-size: 19px;
+    padding: 12px 30px 14px;
+    border-bottom: 1px solid #DCDCDC;
+    border-right: 1px solid #DCDCDC;
+    font-style: normal;
+    line-height: 150%;
+}
+
+.table-custom tbody tr:nth-child(odd) {
+    background-color: #EBF5FF;
+}
+
+.table-custom tbody tr:nth-child(even) {
+    background-color: #F9FCFF;
+}
+
+.table-custom tbody td {
+    align-content: center;
+    background-color: transparent;
+    color: #121212;
+    font-family: 'Afacad-Regular';
+    font-size: 16px;
+    font-style: normal;
+    line-height: 150%;
+    /* 21px */
+    text-transform: capitalize;
+}
+
+
+.table-custom thead {
+    border-top: 3px solid #FFF2D5;
+    border-left: 1px solid #FFF2D5;
+    border-right: 1px solid #FFF2D5;
+}
+
+.table-custom thead tr th:last-child {
+    border-right: 1px solid #FFF2D5;
+}
+.table-custom tbody td:nth-child(2) { font-family: 'Afacad-Medium';}
+.table-custom.all-td-regular tbody td:nth-child(2) { font-family: 'Afacad-Regular';}
+
+.table-custom td {
+    border: 1px solid #DCDCDC;
+    padding: 12px 30px;
+}
+
+.sub-h4-title {
+    color: #000;
+    font-family: 'Figtree-Bold';
+    font-size: 18px;
+    font-style: normal;
+    line-height: 150%;
+    /* 24px */
+    letter-spacing: 0.48px;
+}
+/* start */
+.tick-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.tick-list li {
+    position: relative;
+    padding-left: 30px; 
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+.tick-list li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 5px;
+    width: 20px;
+    height: 20px;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+/* Blue Tick for Odd Items */
+.tick-list li:nth-child(odd)::before {
+    background-image: url('../../img/icon/blue-tick.svg');
+}
+
+/* Red Tick for Even Items */
+.tick-list li:nth-child(even)::before {
+    background-image: url('../../img/icon/red-tick.svg');
+}
+
+/* end */
+.tick-sec {
+    color: #000;
+    font-family: 'Afacad-Regular';
+    font-size: 16px;
+    font-style: normal;
+    line-height: 150%;
+    /* 21px */
+    letter-spacing: 0.14px;
+    padding-bottom: 8px;
+    display: flex;
+    align-items: baseline;
+}
+
+.contact-sec h2 {
+    color: #1E2E60;
+    font-family: 'Figtree-Bold';
+    font-size: 17px;
+    font-style: normal;
+    line-height: 204%;
+    /* 34.68px */
+    text-transform: uppercase;
+}
+
+.contact-sec h3 {
+    color: #000;
+    font-family: 'Figtree-Bold';
+    font-size: 15px;
+    font-style: normal;
+    line-height: 204%;
+    /* 30.6px */
+    text-transform: uppercase;
+}
+
+.contact-sec p,
+.p,
+.txt-a {
+    color: #282828;
+    font-family: 'Afacad-Regular';
+    font-size: 16px;
+    font-style: normal;
+    line-height: 150%;
+}
+
+/* .contact-sec .txt-a{color: #080808;font-family: 'Figtree-Regular';
+    font-size: 14px;
+    font-style: normal; 
+    line-height: 180%;  } */
+.line-A {
+    position: relative;
+}
+
+.line-A::before {
+    content: "";
+    position: absolute;
+    top: 0px;
+    right: -1px;
+    width: 1px;
+    height: 100%;
+    background: linear-gradient(0deg, #FFF 0.5%, #000 50.61%, #FFF 100%);
+}
+ 
+
+@media (max-width: 768px) {
+
+    .table-custom th,
+    .table-custom td {
+        font-size: 14px;
+        padding: 8px;
+    }
+
+    .table-custom thead th {
+        padding: 12px 20px 14px;
+    }
+}
+
+
+@media only screen and (min-width:2000px) {
+    .sub-title { font-size: 23px; } 
+    .table-custom thead th { font-size: 22px;}
+    
+.table-custom tbody td, .tick-sec ,.contact-sec p, .p, .txt-a{ font-size: 19px;}
+
+.sub-h4-title {
+    color: #000;
+    font-family: 'Figtree-Bold';
+    font-size: 21px;
+    font-style: normal;
+    line-height: 150%;
+    /* 24px */
+    letter-spacing: 0.48px;
+}
+  
+.contact-sec h2 { font-size: 20px; }
+
+.contact-sec h3 { font-size: 18px; }
+
+ 
+
+}

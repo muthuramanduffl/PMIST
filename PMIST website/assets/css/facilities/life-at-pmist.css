@@ -1,0 +1,166 @@
+.experience {
+    width: 100%;
+    background: linear-gradient(180deg, #2F4088 0%, #14175C 100%);
+    position: relative;
+}
+
+.experience::after {
+    width: 24px;
+    height: 109%;
+    background: #AD302D;
+    position: absolute;
+    content: "";
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.border-design::after{
+    position: absolute;
+    content: "";
+    width: 65%;
+    height: 110%;
+    border-left: 3px solid rgba(255, 255, 255, 0.70);
+    border-top: 3px solid rgba(255, 255, 255, 0.70);
+    border-bottom: 3px solid rgba(255, 255, 255, 0.70);
+    left: 12%;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.border-design::before{
+    position: absolute;
+    content: "";
+    width: 65%;
+    height: 109%;
+    border-right: 3px solid rgba(255, 255, 255, 0.70);
+    right: 23%;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.experience-heading {
+    color: #FFF;
+    font-family:'Figtree-Bold'; 
+    font-size: 22px;
+    letter-spacing: 0.22px;
+}
+
+.experience-para {
+    color: #FFF;
+    font-family:'Afacad-Regular'; 
+    font-size: 17px;
+    font-style: normal;
+    line-height: 180%; /* 27px */
+}
+
+.clg-facilities {
+    position: relative;
+    left: -37px;
+}
+
+.facilities-list {
+    width: 25%;
+    color: #FFF;
+    font-family:'Figtree-Bold'; 
+    font-size: 16px;
+    text-align: center;
+}
+
+.facilities-list span {
+    font-family:'Figtree-Regular'; 
+    display: block;
+    color: #dfdbdb;
+}
+
+.facilities-list::after {
+    position: absolute;
+    content: "";
+    width: 1px;
+    height: 90%;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 0;
+    background: linear-gradient(219deg, #273C68 0%, #FFF 43.9%, #273C68 100%);
+}
+
+.facilities-list:last-child::after {
+    display: none;
+}
+
+.control-prev-btn {
+    top: 50%;
+}
+
+.control-next-btn {
+    top:50%;
+    right: -20px;
+}
+
+.experience-set {
+    row-gap: 70px;
+}
+
+@media (max-width:991px) {
+    .border-design {
+        width: 70%;
+        margin: 0 auto;
+    }
+
+    .experience-heading,.experience-para {
+        text-align: center;
+    }
+
+    .clg-facilities {
+        left: 0;
+    }
+}
+
+@media (max-width:600px)  {
+    .facilities-list {
+        width: 50%;
+    }
+
+    .clg-facilities{
+        row-gap: 40px;
+    }
+
+    .facilities-list::after {
+        position: absolute;
+        content: "";
+        width: 29%;
+        height: 1px;
+        transform: translateX(-50%);
+        right: 0;
+        background: linear-gradient(219deg, #273C68 0%, #FFF 43.9%, #273C68 100%);
+        bottom: -18px;
+        left: 50%;
+        top: unset;
+    }
+    
+    .facilities-list:nth-child(3n+3)::after {
+        display: none;
+    }
+
+    .experience-set {
+        row-gap: 45px;
+    }
+
+    .experience::after {
+        display: none;
+    }
+}
+
+@media (min-width:2000px) {
+    .experience-heading {
+        font-size: 27px;
+    }
+
+    .experience-para {
+        font-size: 22px;
+    }
+
+    .facilities-list {
+        font-size: 21px;
+    }
+}

@@ -1,0 +1,198 @@
+.w-97 {
+    width: 95%;
+    height: 100%;
+    margin-top: -1.5rem;
+}
+
+.driving-sec {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.driving-sec-bg-img {
+    position: relative;
+    width: 100%;
+    background: url('../../img/CIII/driving-bg-img.jpg') no-repeat center center;
+    /* background:
+            linear-gradient(to bottom, #fff 5%, rgba(255, 255, 255, 0) 5%, rgba(255, 255, 255, 0) 95%, #fff 5%),
+            url('../../img/about/chancellor/bg-img.jpg') no-repeat center center; */
+    background-size: cover;
+}
+
+
+.driving-sec h4 {
+    font-family: 'Figtree-Bold';
+    color: #FFF;
+    font-size: 20px;
+    font-style: normal;
+    line-height: 150%;
+    letter-spacing: 0.6px;
+    text-transform: uppercase;
+}
+
+.driving-sec {
+    position: relative;
+    border: 7px solid #FFF;
+    background: #07154F;
+}
+
+.driving-sec::before {
+    position: absolute;
+    content: "";
+    top: 0px;
+    left: -26px;
+    width: 0;
+    height: 0;
+    border-top: 25px solid transparent;
+    border-right: 19px solid #3F4149;
+}
+
+.driving-sec p {
+    font-family: 'Afacad-Regular';
+    color: #FFF;
+    font-size: 16px;
+    font-style: normal;
+    line-height: 150%;
+    letter-spacing: 0.42px;
+}
+
+.col-md-06 {
+    flex: 0 0 auto;
+    width: 230px;
+}
+
+.driving-count-sec h5 {
+    color: #FFF;
+    font-family: 'Figtree-Bold';
+    font-size: 30px;
+    font-style: normal;
+    line-height: normal;
+}
+
+.driving-count-sec p {
+    color: #FFF;
+    font-family: 'Afacad-Regular';
+    font-size: 17px;
+    font-style: normal;
+    line-height: 22px;
+}
+
+.driving-count-sec {
+    display: inline-block;
+}
+
+.driving-count-sec,
+.driving-count-sec-top {
+    position: relative;
+}
+
+.driving-count-sec::after {
+    content: "";
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    width: 1px;
+    height: 80%;
+    background: linear-gradient(0deg, #68384B 1.5%, #FFF 60.5%, #68384B 100%);
+    background-repeat: no-repeat;
+}
+
+.driving-count-sec-top::after {
+    content: "";
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(90deg, #68384B 1.5%, #FFF 60.5%, #68384B 100%);
+    background-repeat: no-repeat;
+}
+
+/* recruiter-section START  */
+
+.recruiter-section .carousel {
+    border-radius: 5px;
+    background: #FFF;
+    margin-top: -55px;
+    box-shadow: 0px 1px 4.5px 3px rgba(0, 0, 0, 0.10);
+}
+
+.recruiterImages {
+    height: 115px !important;
+    background-size: 75% !important;
+    background-repeat: no-repeat !important;
+    background-position: center !important;
+}
+
+.recruiter-section .carousel-indicators [data-bs-target] {
+    width: 8px !important;
+    border-radius: 50%;
+    height: 8px !important;
+    background-color: #002391;
+}
+
+.recruiter-section .carousel-indicators {
+    bottom: -10px !important;
+}
+
+@media only screen and (max-width:1173px) {
+    .col-md-06 {
+        flex: 0 0 auto;
+        width: 50%;
+    }
+
+    .driving-count-sec {
+        width: 100%;
+    }
+}
+
+@media only screen and (max-width:768px) {
+
+    .w-97 {
+        width: 100%;
+        height: inherit;
+    }
+
+    .driving-count-sec {
+        display: block;
+    }
+
+}
+
+
+@media only screen and (min-width:2000px) {
+    .driving-sec h4 {
+        font-size: 23px;
+    }
+
+    .driving-sec p {
+        font-size: 21px;
+    }
+
+    .driving-count-sec h5 {
+        font-size: 33px;
+    }
+
+    .driving-count-sec p {
+        font-size: 20px;
+        line-height: 24px;
+    }
+
+    .col-md-06 {
+        width: 230px;
+    }
+
+    .recruiter-para {
+        font-size: 21px;
+    }
+
+    .recruiterImages {
+        height: 150px !important;
+    }
+
+    .recruiter-section .carousel {
+        padding: 3rem !important;
+    }
+
+}

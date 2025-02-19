@@ -1,0 +1,72 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+a{text-decoration: none;} 
+
+
+.banner-section {
+    position: relative;
+}
+
+.banner-heading {
+    position: absolute;
+    bottom: 65px;
+}
+
+.banner-heading h4{
+    font-family:'Figtree-Regular'; 
+    color: #FFF;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 150%; /* 24px */
+    letter-spacing: 0.48px;
+}
+
+.banner-heading h1{
+    font-family:'Figtree-Bold'; 
+    color: #FFF;
+    font-size: 24px;
+    font-style: normal;
+    line-height: 150%; /* 36px */
+    letter-spacing: 0.72px;
+    text-transform: uppercase;
+}
+
+@media (min-width:2000px) {
+    .banner-heading h1 {
+        font-size: 29px !important;
+    }
+
+    .banner-heading h4 {
+        font-size: 23px !important;
+    }
+}
+
+@media (max-width:768px) {
+    .banner-section {
+        height: 300px;
+    }
+
+    .banner-section img{
+        height:100%;
+        object-fit: cover;
+    }
+}
+
+@media (max-width:500px) {
+    .banner-section {
+        height: 248px;
+    }
+
+    .banner-section img{
+        height:100%;
+        object-fit: cover;
+    }
+
+    .banner-heading h1 {
+        font-size: 20px;
+    }
+
+    .banner-heading h4 {
+        font-size: 14px;
+    }
+}

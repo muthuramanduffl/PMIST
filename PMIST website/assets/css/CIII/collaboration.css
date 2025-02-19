@@ -1,0 +1,111 @@
+.sub-title {
+    font-family: 'Figtree-Semibold';
+    color: #102A82;
+    font-size: 19px;
+    font-style: normal;
+    line-height: 150%;
+    /* 28.5px */
+    letter-spacing: 0.57px;
+    text-transform: uppercase;
+}
+
+.table-custom thead th {
+    align-content: center;
+    background: #FFF2D5;
+    text-align: left;
+    color: #121212;
+    font-family: 'Afacad-Semibold';
+    font-size: 19px;
+    padding: 12px 30px 14px;
+    border-bottom: 1px solid #DCDCDC;
+    border-right: 1px solid #DCDCDC;
+    font-style: normal;
+    line-height: 150%;
+}
+
+.table-custom tbody tr:nth-child(odd) {
+    background-color: #EBF5FF;
+}
+
+.table-custom tbody tr:nth-child(even) {
+    background-color: #F9FCFF;
+}
+
+.table-custom tbody td {
+    background-color: transparent;
+    color: #121212;
+    font-family: 'Afacad-Regular';
+    font-size: 16px;
+    font-style: normal;
+    line-height: 150%;
+    /* 21px */
+    text-transform: capitalize;
+}
+
+.table-custom thead {
+    border-top: 3px solid #FFF2D5;
+    border-left: 1px solid #FFF2D5;
+    border-right: 1px solid #FFF2D5;
+}
+
+.table-custom thead tr th:last-child {
+    border-right: 1px solid #FFF2D5;
+}
+
+.table-custom td {
+    align-content: center;
+    border: 1px solid #DCDCDC;
+    padding: 12px 30px;
+}
+
+.table-custom tr td:nth-child(2) {
+    font-family: 'Afacad-Medium';
+}
+
+.custom-table-ul {
+    margin-bottom: 7px;
+    list-style: none;
+    padding-left: 18px;
+}
+
+.custom-table-ul li {
+    position: relative;
+    color: #121212;
+    font-family: 'Afacad-Regular';
+    font-size: 16px;
+    padding-bottom: 5px;
+    font-style: normal;
+    line-height: 21px;
+}
+
+.custom-table-ul li::after {
+    content: "";
+    position: absolute;
+    top: 8.5px;
+    left: -14px;
+    width: 6px;
+    height: 6px;
+    background: url(../../img/about/icon/ul-icon.svg);
+    background-repeat: no-repeat;
+}
+
+
+
+@media (max-width: 768px) {
+
+    .table-custom th,
+    .table-custom td {
+        font-size: 14px;
+        padding: 8px;
+    }
+
+    .table-custom thead th {
+        padding: 12px 20px 14px;
+    }
+}
+
+@media only screen and (min-width:2000px) {
+    .sub-title, .table-custom thead th { font-size: 23px;}
+    .table-custom tbody td, .custom-table-ul li { font-size: 19px;}
+
+}

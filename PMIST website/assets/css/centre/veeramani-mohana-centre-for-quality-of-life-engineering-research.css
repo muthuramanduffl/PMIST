@@ -1,0 +1,44 @@
+
+.contact-name {
+    color: #282828;
+    font-family: 'Figtree-Bold';
+    font-size: 16px;
+    font-style: normal;
+    line-height: 180%;
+    text-transform: uppercase;
+    margin: 0;
+}
+
+.role {
+    color: #282828;
+    font-family: 'Afacad-Regular';
+    font-size: 16px;
+    font-style: normal;
+    line-height: 180%;
+    margin: 0;
+}
+
+.Research {
+    color: #282828;
+    font-family: 'Afacad-Regular';
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 180%; /* 25.2px */
+    margin: 0;
+}
+
+
+@media (min-width:2000px) {
+    .Research {
+        font-size: 21px;
+    }
+
+    .role {
+        font-size: 21px;
+    }
+
+    .contact-name {
+        font-size: 21px;
+    }
+}

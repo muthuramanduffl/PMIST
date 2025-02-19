@@ -1,0 +1,72 @@
+
+
+.admission-banner-section {
+    position: relative;
+}
+
+.admission-banner-heading {
+    position: absolute;
+    bottom: 23px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+
+.admission-banner-heading h1{
+    font-family:'Figtree-Bold'; 
+    color: #FFF;
+    font-size: 24px;
+    font-style: normal;
+    line-height: 150%; /* 36px */
+    letter-spacing: 0.72px;
+    text-transform: uppercase;
+}
+
+.admission-banner-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.00) 0%, rgba(0, 0, 0, 0.40) 100%);
+}
+
+@media (min-width:2000px) {
+    .admission-banner-heading h1 {
+        font-size: 29px !important;
+    }
+
+    .admission-banner-heading h4 {
+        font-size: 23px !important;
+    }
+}
+
+@media (max-width:768px) {
+    .admission-banner-section {
+        height: 300px;
+    }
+
+    .admission-banner-section img{
+        height:100%;
+        object-fit: cover;
+    }
+}
+
+@media (max-width:500px) {
+    .admission-banner-section {
+        height: 248px;
+    }
+
+    .admission-banner-section img{
+        height:100%;
+        object-fit: cover;
+    }
+
+    .admission-banner-heading h1 {
+        font-size: 20px;
+    }
+
+    .admission-banner-heading h4 {
+        font-size: 14px;
+    }
+}

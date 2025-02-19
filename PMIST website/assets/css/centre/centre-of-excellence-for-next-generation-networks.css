@@ -1,0 +1,108 @@
+.vision-mission {
+    width: 100%;
+    background-image: url(../../img/centre/vision-mission-bg.jpg);
+    background-size: cover;
+    background-position: center;
+    border-radius: 18px;
+    padding: 25px 15px 40px 40px;
+    height: 100%;
+}
+
+.heading-icon {
+    width: 48px;
+    height: 48px;
+    border-radius:50%;
+    background: #AD302D;
+    
+}
+
+.vision-mission-title {
+    color: #FFF;
+    font-family:'Figtree-Bold'; 
+font-size: 17px;
+font-style: normal;
+line-height: 204%; /* 34.68px */
+text-transform: uppercase;
+padding-left: 16px;
+}
+
+.vision-mission-content {
+    color: #FFF;
+    font-family:'Afacad-Regular'; 
+    font-size: 16px;
+    line-height: 145%; /* 20.3px */
+    letter-spacing: 0.14px;
+    padding-top: 20px;
+}
+
+.list-circle {
+    color: #FFF;
+    font-family:'Afacad-Regular'; 
+font-size: 16px;
+line-height: 145%; /* 20.3px */
+letter-spacing: 0.14px;
+}
+
+.list-circle img {
+    margin-top: 9px;
+    margin-right: 7px;
+}
+
+.vision-mission-listing {
+    padding-top: 20px !important;
+}
+
+
+
+.contact-name {
+    color: #282828;
+    font-family: 'Figtree-Bold';
+    font-size: 15px;
+    font-style: normal;
+    line-height: 180%;
+    text-transform: uppercase;
+    margin: 0;
+}
+
+.role {
+    color: #282828;
+    font-family: 'Afacad-Regular';
+    font-size: 16px;
+    font-style: normal;
+    line-height: 180%;
+    margin: 0;
+}
+
+.vision-mission-gap {
+    row-gap: 20px;
+}
+
+.vision-mission-full::after {
+    width: 15%;
+    height: 110%;
+    right: 0;
+    background-color: #1E2E60;
+    position: absolute;
+    content: "";
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: -1;
+}
+
+@media (min-width:2000px) {
+    .vision-mission-title {
+        font-size: 22px;
+    }
+
+    .vision-mission-content {
+        font-size: 21px;
+    }
+
+    .contact-name {
+        font-size: 21px;
+    }
+
+    .role {
+        font-size: 21px;
+    }
+}

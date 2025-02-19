@@ -144,6 +144,31 @@ public class pmistcentrecsas
         }
         return rowsAffected;
     }
+    public int UpdateimagesByID(pmistcentrecsas csas)
+    {
+        int Sno = 0;
+        string connetionString = null;
+        SqlConnection cnn;
+        connetionString = GetSqlConnection();
+        cnn = new SqlConnection(connetionString);
+        int rowsAffected = 0;
+        try
+        {
+            using (SqlCommand command = new SqlCommand("UpdateimagesByID", cnn))
+            {
+                cnn.Open();
+                command.CommandType = CommandType.StoredProcedure;
+                command.Parameters.Add(new SqlParameter("@TCCID", csas.intTCCID));               
+                command.Parameters.Add(new SqlParameter("@Imges", csas.strimages));              
+                rowsAffected = command.ExecuteNonQuery();
+            }
+            cnn.Close();
+        }
+        catch (Exception ex)
+        {
+        }
+        return rowsAffected;
+    }
 
 
 
@@ -225,6 +250,32 @@ public class pmistcentrecsas
             {
                 cnn.Open();
                 command.CommandType = CommandType.StoredProcedure;
+                SqlDataAdapter DA = new SqlDataAdapter(command);
+                DA.Fill(dt);
+            }
+        }
+        catch (Exception ex)
+        {
+
+        }
+        return dt;
+    }
+
+    public DataTable viewcentrenamesByID(string CID)
+    {
+        bool? boolValue = null;
+        DataTable dt = new DataTable();
+        string connetionString = null;
+        SqlConnection cnn;
+        connetionString = GetSqlConnection();
+        cnn = new SqlConnection(connetionString);
+        try
+        {
+            using (SqlCommand command = new SqlCommand("viewcentrenamesByID", cnn))
+            {
+                cnn.Open();
+                command.CommandType = CommandType.StoredProcedure;
+                command.Parameters.Add(new SqlParameter("@ID", CID));
                 SqlDataAdapter DA = new SqlDataAdapter(command);
                 DA.Fill(dt);
             }

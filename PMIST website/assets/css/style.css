@@ -1,0 +1,12 @@
+@import url('fonts.css');
+@import url('programmes-offered-sub-menu.css');
+@import url('academic-sub-menu.css');
+@import url('academic-banner.css');
+@import url('admission-banner.css');
+@import url('footer.css');
+ 
+* { margin: 0; padding: 0; box-sizing: border-box; }
+a{text-decoration: none;} 
+.custom-container{width: 90%; max-width: 90%; margin: 0 auto;}
+b, .b{font-family: 'Afacad-Bold';}
+.txt-sec-clr{color: #111;}

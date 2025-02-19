@@ -1,0 +1,101 @@
+.individual-Officer-sec h3 {
+    font-family: 'Figtree-Bold';
+    color: #102A82;
+    font-size: 17px;
+    font-style: normal;
+    line-height: 150%;
+    /* 25.5px */
+    letter-spacing: 0.51px;
+    text-transform: uppercase;
+}
+
+.individual-Officer-sec p,
+.individual-Officer-sec a {
+    font-family: 'Afacad-Regular';
+    color: #111;
+    font-size: 16px;
+    font-style: normal;
+    line-height: 143%;
+    /* 22.88px */
+    letter-spacing: 0.16px;
+}
+
+.individual-Officer-sec h5 {
+    font-family: 'Afacad-Semibold';
+    color: #000;
+    font-size: 18px;
+    font-style: normal;
+    line-height: 140%;
+    /* 27.2px */
+}
+
+.individual-Officer-sec h6 {
+    font-family: 'Afacad-Medium';
+    color: #000;
+    font-size: 17px;
+    font-style: normal;
+    line-height: 140%;
+    /* 27.2px */
+}
+
+.address-details-sec span {
+    font-family: 'Afacad-Medium';
+    color: #000;
+    font-size: 16px;
+    font-style: normal;
+    line-height: 160%;
+}
+
+.officer-listing-sec .border-btm-dash {
+    border-bottom: 1px dashed #111;
+}
+
+.border-btm-right {
+    border-right: 1px dashed #111;
+}
+
+.border-btm-circle {
+    position: relative;
+}
+
+.border-btm-circle::before {
+    content: "";
+    position: absolute;
+    bottom: -8px;
+    right: -8px;
+    width: 15px;
+    height: 15px;
+    background: #102A82;
+    border-radius: 30px;z-index: 1;
+}
+
+@media only screen and (max-width:767px) {
+    .border-btm-right {
+        border-right: 1px dashed transparent;
+    }
+
+    .border-btm-circle::before {
+        display: none;
+    }
+}
+
+@media only screen and (min-width:2000px) {
+    .individual-Officer-sec h3 {
+        font-size: 21px;
+    }
+
+    .individual-Officer-sec p,
+    .individual-Officer-sec a,
+    .address-details-sec span {
+        font-size: 19px;
+    }
+
+    .individual-Officer-sec h5 {
+        font-size: 23px;
+    }
+
+    .individual-Officer-sec h6 {
+        font-size: 22px;
+    }
+
+}

@@ -1,0 +1,153 @@
+.event-details {
+    width: 100%;
+    background: linear-gradient(104deg, #2F4088 0.77%, #181B61 50.61%, #2F4088 101.67%);
+    margin-top: -71px;
+    padding-top: 85px;
+}
+
+.main-image {
+    border-radius: 7px;
+    border: 0.5px solid #FFF;
+    box-shadow: 0px 2px 10px 0px rgba(82, 82, 82, 0.25);
+}
+
+.main-image img {
+    border-radius: 7px;
+}
+
+.department-name {
+    color: #EED15C;
+    font-family:'Afacad-Regular'; 
+    font-size: 16px;
+    line-height: 150%; /* 21px */
+    letter-spacing: 0.42px;
+}
+
+.details-heading{
+    color: #FFF;
+    font-family:'Figtree-Bold'; 
+    font-size: 20px;
+    line-height: 150%; /* 30px */
+    letter-spacing: 0.6px;
+    text-transform: uppercase;
+}
+
+.timetable-set {
+    border: 1px solid #fff;
+    width: max-content;
+    padding: 8px 17px;
+    border-radius: 38.255px;
+    gap: 6px;
+    margin-top: 17px;
+}
+
+.event-date {
+    color: #FFF;
+    font-size: 16px;
+    font-style: normal;
+    font-family: 'Afacad-Bold';
+    line-height: 137%;
+    letter-spacing: 0.3px;
+    text-transform: capitalize;
+}
+
+.timetable {
+    gap: 25px;
+    row-gap: 8px;
+}
+
+.details-top-heading {
+    padding-bottom: 25px;
+}
+
+.details-top-heading::after {
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(to right, white, #1A2066);
+    left: 0;
+    bottom: 0;
+}
+
+.sub-heading {
+    color: #FFF;
+    font-family:'Figtree-Medium'; 
+    font-size: 17px;
+    line-height: 150%; /* 24px */
+    letter-spacing: 0.48px;
+    padding-top: 25px;
+}
+
+.details-content {
+    color: #FFF;
+    font-family:'Afacad-Regular'; 
+    font-size: 15px;
+    line-height: 180%; /* 27px */
+    letter-spacing: 0.45px;
+    padding-top: 19px;
+}
+
+.view-pdf {
+    color: #FFF;
+    font-family:'Figtree-Medium'; 
+font-size: 13.181px;
+line-height: 180%; /* 23.726px */
+letter-spacing: 0.395px;
+text-decoration-line: underline;
+text-decoration-style: solid;
+text-decoration-skip-ink: none;
+text-decoration-thickness: auto;
+text-underline-offset: auto;
+text-underline-position: from-font;
+text-transform: uppercase;
+}
+
+.pdf-set {
+    text-align: right;
+}
+
+.emty-section::after {
+    position: absolute;
+    content: "";
+    bottom: 0;
+    left: 0;
+    background: linear-gradient(to right, white 0%, #23163D 51.8%, white 100%);
+    width: 100%;
+    height: 1px;
+}
+
+.back-event button a{
+    color: #070707;
+    font-family:'Figtree-Medium'; 
+    font-size: 16px;
+    line-height: 180%; /* 28.8px */
+    letter-spacing: 0.48px;
+}
+
+.back-event button{
+        
+    background: none;
+    padding: 5px 16px;
+    border: 1px solid #B22A00;
+}
+
+
+@media (max-width:991px) {
+    .all-details {
+        text-align: center;
+    }
+
+    .main-image {
+        width: 60%;
+        margin: 0 auto;
+    }
+
+    .timetable {
+        justify-content: center;
+    }
+
+    .pdf-set {
+        text-align: center;
+    }
+}

@@ -160,7 +160,7 @@ public partial class PMIST_Admin_Mcentre_CSAS : System.Web.UI.Page
         }
         else
         {
-            Response.Redirect("");
+            Response.Redirect("view-CSAS.aspx");
         }
     }
 
@@ -233,7 +233,7 @@ public partial class PMIST_Admin_Mcentre_CSAS : System.Web.UI.Page
                            "    confirmButton: 'handle-btn-success' " +
                            "  } " +
                            "}).then((result) => { " +
-                           "  window.location.href = '" + "add-CSAS.aspx" + "'; " +
+                           "  window.location.href = '" + "view-CSAS.aspx" + "'; " +
                            "});", true);
                 }
                 else

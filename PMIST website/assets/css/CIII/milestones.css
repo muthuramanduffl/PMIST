@@ -1,0 +1,157 @@
+.milestones-list-sec .main-ul {
+    list-style: none;
+    position: relative;
+}
+
+.milestones-list-sec .main-ul::before {
+    content: "";
+    position: absolute;
+    left: -1.5px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 2px;
+    height: 100%;
+    border-left: 1px dashed #872927CC;
+}
+
+.milestones-list-sec .main-ul .main-li div.title-div {
+    font-family: 'Figtree-Semibold';
+    color: #102A82;
+    font-size: 21px;
+    font-style: normal;
+    line-height: 150%;
+    text-transform: uppercase;
+    position: relative;
+}
+
+.milestones-list-sec .main-ul .main-li div.title-div::before {
+    content: "";
+    position: absolute;
+    left: -40px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 12px;
+    height: 12px;
+    background: #872927;
+    border-radius: 50%;
+    z-index: 1;
+}
+
+.milestones-list-sec .main-ul .main-li div.title-div::after {
+    content: "";
+    position: absolute;
+    left: -60px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 50px;
+    height: 1px;
+    background: linear-gradient(90deg, #fff 0%, #872927 60%, #fff 100%);
+}
+
+
+.milestones-list-sec .accordion-button:focus {
+    border-color: transparent;
+    box-shadow: none;
+}
+
+.milestones-list-sec .accordion-button:not(.collapsed) {
+    background-color: transparent;
+    box-shadow: none;
+}
+
+.milestones-list-sec .accordion-item {
+    border: none;
+}
+
+.milestones-list-sec .accordion-button {
+    position: relative;
+}
+
+.milestones-list-sec .accordion-button::before {
+    content: "";
+    position: absolute;
+    bottom: 0px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(90deg, #872927 41.9%, #FFF 100%);
+}
+
+.milestones-list-sec .accordion-button::after {
+    background-image: url(../../img/icon/plus.svg);
+}
+
+.milestones-list-sec .accordion-button:not(.collapsed)::after {
+    background-image: url(../../img/icon/minus.svg)
+}
+
+.milestones-list-sec .accordion-button,
+.milestones-list-sec .accordion-button:not(.collapsed) {
+    font-family: 'Afacad-Medium';
+    color: #191919;
+    font-size: 19px;
+    font-weight: 500;
+    line-height: 150%;
+    padding: 14px 0px;
+    letter-spacing: 0.4px;
+}
+
+.milestones-list-sec .accordion-button.last-child::before {
+    background: none;
+}
+
+.w-md-50-100 {
+    max-width: 300px;
+}
+
+.anchor-PDF {
+    font-family: 'Afacad-Regular';
+    color: #000;
+    font-size: 16px;
+    font-style: normal;
+    line-height: 140%;
+    display: flex;
+    align-items: self-start;
+}
+
+/* Media-Query */
+@media only screen and (max-width:767px) {
+    .w-md-50-100 {
+        width: 100%;
+    }
+}
+
+@media only screen and (max-width:567px) {
+
+    .milestones-list-sec .main-ul .main-li div.title-div::after {
+        left: -30px;
+        width: 25px;
+    }
+
+    .milestones-list-sec .main-ul .main-li div.title-div::before {
+        left: -23px;
+    }
+
+    .milestones-list-sec .main-ul {
+        padding-left: 1rem;
+    }
+
+
+}
+
+
+@media only screen and (min-width:2000px) {
+
+    .anchor-PDF {
+        font-size: 19px;
+    }
+
+    .milestones-list-sec .main-ul .main-li div.title-div,
+    .milestones-list-sec .accordion-button,
+    .milestones-list-sec .accordion-button:not(.collapsed) {
+        font-size: 23px;
+    }
+
+
+}

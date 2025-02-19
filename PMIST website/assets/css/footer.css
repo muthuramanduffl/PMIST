@@ -1,0 +1,120 @@
+
+/*  Footer section */
+
+
+.newfooter{
+
+    background-image: url('../img/footer/footer-bg.jpg');
+    background-repeat: no-repeat;
+    background-size: cover ;
+    background-position: top;
+    position: relative;
+    z-index: 1;
+    /* background: url('../images/footer-icon/footer-bg.jpg') lightgray 50% / cover no-repeat, linear-gradient(180deg, #172446 0%, #050811 100%); */
+}
+
+.newfooter h3{
+    color: #FFF;
+
+    font-family: 'Figtree-Bold';
+font-size: 16px;
+font-style: normal; 
+line-height: 180%; /* 28.8px */
+letter-spacing: 0.5px;
+text-align: center;
+}
+.whiteColor {
+    color: #fff;
+}
+.addressSection {
+    font-family: 'Afacad-Regular';
+}
+.social-links-group{
+    gap: 36px;
+    justify-content: center;
+   
+}
+.social-links-group a{
+    margin-bottom: 12px;
+}
+
+.social-links-group img{
+    max-width: 17px;
+}
+.social-links-group .facebook-img{
+    max-width: 10px;
+}
+.addressSection a,.addressSection{
+    font-size: 14px;
+}
+.footer-quick-links-sec a{
+    color: #FFF;
+    font-family: 'Afacad-Regular';
+font-size: 11.711px;
+font-style: normal; 
+line-height: 150%; /* 17.567px */
+letter-spacing: 0.3px;
+text-transform: uppercase;
+}
+.footer-btm{
+    font-family: 'Afacad-Regular';
+    font-size: 12px;
+    color: #fff;
+}
+.footer-btm a{
+color: #fff;
+}
+.footer-quick-links-sec{
+   row-gap: 8px;
+}
+.newfooter .footerBorderRight {
+    border-right: 1px solid #ffffffbd;
+}
+.footer-btm {    letter-spacing: 0.3px;
+    border-top: 1px solid #ffffff8a;
+}
+.footer-firstbg{
+    width: 100%;
+    height: 6px;
+    background: #364A78;
+  
+}
+.footer-secondbg{
+    width: 100%;
+    height: 6px;
+    background: #2B3C63;
+}
+/* .newfooter::after{
+    content: '';
+    position: absolute;
+    background: linear-gradient(180deg, #172446 0%, #050811 100%);
+    
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+} */
+.footer-left{
+    position: relative;
+}
+@media (min-width:1200px){
+    .footer-left::after{
+        content: '';
+        position: absolute;
+        width: 1px;
+        height: 100%;
+        top: 0px;
+        right: 0px;
+        
+        background: linear-gradient(188deg, #1C2742 0%, #FFF 48.5%, #101726 100%);
+    }
+}
+.newfooter .addressSection .footerBorderRight{
+  border-color:transparent;
+}
+@media (min-width: 768px) {
+    .newfooter .addressSection .footerBorderRight{
+        border-color:#fff ;
+      }
+}

@@ -1,0 +1,111 @@
+.anchor-PDF {
+    font-family: 'Afacad-Regular';
+    color: #000;
+    font-size: 16px;
+    font-style: normal;
+    line-height: 140%;
+    display: flex;
+  align-items: self-start;
+}
+
+.p-txt {
+    font-family: 'Afacad-Regular';
+    color: #000;
+    font-size: 16px;
+    font-style: normal;
+    line-height: 145%;
+    /* 23.2px */
+    letter-spacing: 0.32px;
+}
+
+.line-A-only {
+    position: relative;
+}
+
+.line-A-only::before {
+    content: "";
+    position: absolute;
+    left: 0px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 1px;
+    height: 100%;
+    background: linear-gradient(0deg, #FFF 3.5%, #888 45.5%, #FFF 100%);
+}
+
+.accordion-button:focus {
+    border-color: transparent;
+    box-shadow: none;
+}
+
+.accordion-button:not(.collapsed) {
+    background-color: transparent;
+    box-shadow: none;
+}
+
+.accordion-item {
+    border: none;
+}
+
+.accordion-button {
+    position: relative;
+}
+
+.accordion-button::before {
+    content: "";
+    position: absolute;
+    bottom: 0px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    height: 1px;
+    background: linear-gradient(90deg, #872927 41.9%, #FFF 100%);
+}
+
+.accordion-button::after {
+    background-image: url(../../img/icon/plus.svg);
+}
+
+.accordion-button:not(.collapsed)::after {
+    background-image: url(../../img/icon/minus.svg)
+}
+
+.accordion-button,
+.accordion-button:not(.collapsed) {
+    font-family: 'Afacad-Medium';
+    color: #191919;
+    font-size: 22px;
+    font-weight: 500;
+    line-height: 150%;
+    /* 30px */
+    letter-spacing: 0.4px;
+}
+
+.accordion-button.last-child::before {
+    background: none;
+}
+.academic-schedule-sec .accordion-button::before { width: 100%;}
+.academic-schedule-sec .accordion-button,.academic-schedule-sec .accordion-button:not(.collapsed) { 
+    font-size: 20px;
+}
+
+
+@media only screen and (max-width:768px) {
+
+    .line-A-only::before {
+        display: none;
+    }
+}
+
+@media only screen and (min-width:2000px) {
+
+    .accordion-button,
+    .accordion-button:not(.collapsed) {
+        font-size: 25px;
+    }
+
+    .anchor-PDF,
+    .p-txt {
+        font-size: 21px;
+    }
+}

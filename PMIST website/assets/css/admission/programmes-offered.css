@@ -1,0 +1,188 @@
+.po-heading h1, .right-tab-heading h1 {
+    color: #0F0F0F;
+    font-family:'Figtree-Medium'; 
+    font-size: 15.5px;
+    line-height: 150%; /* 23.25px */
+    letter-spacing: 0.31px;
+    text-transform: uppercase;
+    margin: 0;
+    padding-right: 15px;
+}
+
+.po-heading h1 span {
+    color: #808080;
+    font-family:'Figtree-Medium'; 
+font-size: 15.5px;
+line-height: 150%;
+letter-spacing: 0.31px;
+}
+
+.po-heading h6, .right-tab-heading h6 {
+    color: #111;
+    font-family:'Figtree-Medium'; 
+    font-size: 15px;
+    line-height: 150%; /* 22.5px */
+    letter-spacing: 0.3px;
+    margin: 0;
+    padding-left: 15px;
+    position: relative;
+    
+}
+
+.right-tab-heading h6 img, .right-tab-heading h1 img {
+    margin-bottom: 5px;
+}
+
+.po-heading h6::after,  .right-tab-heading h6::after {
+    position: absolute;
+    content: "";
+    width: 1px;
+    height: 100%;
+    background: linear-gradient(to bottom, #FFFAE5 0.5%, black 48.5%, #FFFAE5 100%);
+    top: 0;
+    left: 0;
+}
+
+.right-tab-heading h6::after {
+    background: linear-gradient(to bottom, #2A2A2A 9.6%, white 48.9%, #2A2A2A 89.1%) !important;
+}
+
+.programmes-Offered-SET {
+    border-left: 2px solid #B2B2B2;
+    position: relative;
+}
+
+.programmes-Offered-SET::before {
+    position: absolute;
+    content: "";
+    width: 4px;
+    height: 29px;
+    background: #FFC955;
+    left: -3px;
+    top: 0;
+}
+
+.accordion-button:focus {
+    box-shadow: unset;
+}
+
+.po-heading::after {
+    position: absolute;
+    content: "";
+    width: 23.057px;
+    height: 14px;
+    background-image: url(../../img/admission/programmes-offered/heading-cap-icon.svg);
+    background-size: cover;
+    background-position:center;
+    top: 50%;
+    transform: translateY(-50%);
+    left: -32px;
+}
+
+.btm-dot-line::after {
+    position: absolute;
+    content: "";
+    width: 50%;
+    height: 1px;
+    border: 1px dashed #A7A7A7;
+    bottom: -49px;
+    left: 0;
+}
+
+
+.accordion-button::after {
+    background-image: url("../../img/admission/programmes-offered/yellow-plus.svg");
+    transition: all 0.5s;
+  }
+  .accordion-button:not(.collapsed)::after {
+    background-image: url("../../img/admission/programmes-offered/yellow-minus.svg");
+  }
+  .accordion-button::after {
+    transition: all 0.5s;
+  }
+  
+
+  .accordion-button:not(.collapsed) {
+    background-color: #000000;
+}
+
+.accordion-button {
+    background: #000;
+}
+
+.accordion-body  {
+    width: 100%;
+    background: url(../../img/admission/programmes-offered/rigth-tab-bg.jpg);
+    background-size: cover;
+    background-position: center;
+    border-radius: 3px;
+    padding: 9px 32px 20px 32px;
+    border: 1px solid #f3efef;
+}
+
+.accordion-tab-content {
+    border-left: 1px dashed #7A7A7A;
+}
+
+.tab-sub-heading {
+    color: #212121;
+    font-family:'Figtree-Regular';
+    font-size: 16px;
+    line-height: 150%; /* 21px */
+}
+
+.tab-dark-heading {
+    color: #212121;
+    font-family:'Figtree-Bold'; 
+    font-size: 16px;
+    line-height: 150%; 
+}
+
+.accordion-tab-content {
+    padding-left: 33px;
+}
+
+.tab-sub-heading::before {
+    content: "";
+    position: absolute;
+    width: 45px;
+    height: 1px;
+    background: linear-gradient(90deg, #FFF 0%, #7A7A7A 45%, #FFF 100%);
+    top: 50%;
+    transform: translateY(-50%);
+    left: -56px;
+} 
+
+.tab-sub-heading::after {
+    content: "";
+    position: absolute;
+    width: 11px;
+    height: 11px;
+    background-color: #7A7A7A;
+    border-radius: 50%;
+    top: 50%;
+    transform: translateY(-50%);
+    left: -39px;
+}
+
+
+@media (max-width:400px) {
+    .po-heading {
+        flex-direction: column;
+    }
+
+    .po-heading h6 {
+        padding-left: 0;
+    }
+
+    .po-heading h6::after {
+        display: none;
+    }
+}
+
+@media (max-width:600px) {
+    .btm-dot-line::after {
+        width: 97%;
+        bottom: -33px;
+    }
+}

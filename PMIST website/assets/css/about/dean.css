@@ -1,0 +1,69 @@
+.individual-dean-sec h3 {
+    font-family: 'Figtree-Bold';
+    color: #872927;
+    text-align: center;
+    font-size: 16px;
+    padding-bottom: 10px;
+    font-style: normal;
+    line-height: normal;
+    text-transform: uppercase;
+}
+
+.individual-dean-sec h6 {
+    font-family: 'Afacad-Medium';
+    color: #0B0B0B;
+    text-align: center;
+    font-size: 17px;
+    font-style: normal;
+    line-height: 21px;
+    letter-spacing: 0.17px;
+}
+
+.individual-dean-sec p {
+    font-family: 'Afacad-Regular';
+    color: #0B0B0B;
+    font-size: 16px;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: 0.16px;
+}
+
+.individual-dean-sec .dean-name {
+    position: relative;
+}
+
+.individual-dean-sec .dean-name::before {
+    content: "";
+    position: absolute;
+    bottom: 0px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 75%;
+    height: 1px;
+    background: linear-gradient(90deg, #FFF 3.5%, #8C8C8C 49.4%, #FFF 100%);
+}
+
+.individual-dean-sec img {
+    width: 200px;
+    height: 190px;
+    object-fit: cover;
+    margin: 0 auto;
+    text-align: center;
+    border-radius: 2px;
+    border: 1px solid #FFF;
+    box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.25);
+}
+
+@media only screen and (min-width:2000px) {
+    .individual-dean-sec h3 {
+        font-size: 19px;
+    }
+
+    .individual-dean-sec h6 {
+        font-size: 21px;
+    }
+
+    .individual-dean-sec p {
+        font-size: 19px;
+    }
+}
