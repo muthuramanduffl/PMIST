@@ -118,7 +118,7 @@
                                                             <th class="w-sno">#</th>
                                                             <th class="min-w-300">Centre Name</th>
                                                             <th class="min-w-300">Title</th>
-                                                            <th class="min-w-300">Content</th>
+                                                            <th style="width:450px; display:none;">Content</th> 
                                                             <th class="min-w-150">Display Status</th>
                                                             <th class="min-w-150">Images </th>
                                                             <th class="min-w-150">Action </th>
@@ -140,7 +140,7 @@
                                                         <div class="view-paragraphs atag_link"><%# Eval("Title")%></div>
                                                     </td>
 
-                                                    <td>
+                                                    <td style="display:none">
                                                         <div class="view-paragraphs  atag_link"><%# Eval("Content")%></div>
                                                     </td>
 

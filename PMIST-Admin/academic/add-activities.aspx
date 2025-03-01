@@ -7,6 +7,22 @@
         }
     </style>
     <style>
+        .active-blue {
+            background-color: #575962;
+            color: white;
+        }
+
+        .active-black {
+            background-color: black;
+            color: #202225;
+        }
+
+    
+    .btn-view-pop {
+        top: 5px;
+    }
+    </style>
+    <style>
         /* Popup styling */
         .sweet-popup-style {
             max-width: 90%;
@@ -107,78 +123,147 @@
                     <div class="card">
                         <div class="card-body">
                             <div class="form-group">
-                                <div class="form-border margin-top20">
-                                    <div class="form-title">
-                                        <h3>Activities Details</h3>
+                                <div class="slider-section position-relative py-sm--5 py-5">
+                                    <div class="d-flex w-100">
+                                        <div id="box1" class="w-25 active-blue text-center p-3 ACD">Activities Details</div>
+                                        <div id="box2" class="w-25 text-center p-3 IVI">INDUSTRIAL VISITS/ INTERNSHIPS</div>
                                     </div>
-                                    <div class="row mx-0 margin-top20 mb-4">
-
-                                        <div class="col-sm-4 col-xl-3 pt-3">
-
-                                            <div class="input-icon input-icon-sm right">
-                                                <label>Department <span class="text-danger">*</span></label>
-                                                <i class="bi bi-journal-bookmark-fill b5-icon"></i>
-                                                <asp:DropDownList ID="ddldepartment" class="bs-select form-control input-sm" runat="server">
-                                                    <asp:ListItem Selected="True" Value=""></asp:ListItem>
-                                                </asp:DropDownList>
+                                    <div id="slider-container" class="slider">
+                                        <div class="form-border margin-top20" clientidmode="Static" runat="server" id="divACD" style="display: block">
+                                            <div class="form-title">
+                                                <h3>Activities Details</h3>
                                             </div>
+                                            <div class="row mx-0 margin-top20 mb-4">
+                                                <div class="col-sm-4 col-xl-3 pt-3">
+                                                    <div class="input-icon input-icon-sm right">
+                                                        <label>Department <span class="text-danger">*</span></label>
+                                                        <i class="bi bi-journal-bookmark-fill b5-icon"></i>
+                                                        <asp:DropDownList ID="ddldepartment" class="bs-select form-control input-sm" runat="server">
+                                                            <asp:ListItem Selected="True" Value=""></asp:ListItem>
+                                                        </asp:DropDownList>
+                                                    </div>
+                                                    <span class="error">
+                                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator1" ControlToValidate="ddldepartment" ValidationGroup="actval" InitialValue="" runat="server" ErrorMessage="Select department"></asp:RequiredFieldValidator>
+                                                    </span>
+                                                </div>
+                                                <asp:HiddenField ID="hdnID" ClientIDMode="Static" runat="server" />
+                                                <div class="col-sm-4 col-xl-3 pt-3">
+                                                    <div class="input-icon input-icon-sm right">
+                                                        <label>Title <span class="text-danger">*</span></label>
+                                                        <i class="bi bi-journal-text b5-icon"></i>
+                                                        <asp:TextBox runat="server" ID="txtTitle" MaxLength="50" class="form-control input-sm capitalize-input" autocomplete="off" placeholder=""></asp:TextBox>
+                                                    </div>
+                                                    <span class="error">
+                                                        <asp:RequiredFieldValidator ClientIDMode="Static" EnableClientScript="true" SetFocusOnError="true" ControlToValidate="txtTitle" Display="Dynamic" ValidationGroup="actval" ID="RequiredFieldValidator3" runat="server" ErrorMessage="Enter title"></asp:RequiredFieldValidator>
+                                                        <asp:RegularExpressionValidator ClientIDMode="Static" ID="RegularExpressionValidator1" Display="Dynamic" runat="server" ValidationGroup="actval" ControlToValidate="txtTitle" ValidationExpression="^[A-Za-z -]+$" ErrorMessage="Enter valid title"></asp:RegularExpressionValidator>
+                                                    </span>
+                                                </div>
+                                                <div class="col-sm-4 col-xl-3 pt-4">
+                                                    <div class="input-icon input-icon-sm right">
+                                                        <label>Activities Upload <span class="text-danger">*</span></label>
+                                                        <i class="bi bi-images b5-icon"></i>
+                                                        <asp:FileUpload ID="FileUpload" ClientIDMode="Static" runat="server" CssClass="form-control input-sm file-upload" accept=".pdf" />
+                                                        <span class="handle-file-request">(upload max file size,pdf-1 MB)</span>
+                                                        <asp:HiddenField ID="hdnFileUpload" runat="server" />
+                                                    </div>
+                                                    <span class="error">
+                                                        <asp:RequiredFieldValidator ClientIDMode="Static" EnableClientScript="true" SetFocusOnError="true" ControlToValidate="FileUpload" Display="Dynamic" ValidationGroup="actval" ID="RequiredFieldValidator2" runat="server" ErrorMessage="Upload File"></asp:RequiredFieldValidator>
 
-                                            <span class="error">
-                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator1" ControlToValidate="ddldepartment" ValidationGroup="actval" InitialValue="" runat="server" ErrorMessage="Select department"></asp:RequiredFieldValidator>
-                                            </span>
+                                                        <asp:Label ID="lblFileUpload" CssClass="lblFileUpload" runat="server" ForeColor="#d41111" Text=""></asp:Label>
+                                                    </span>
+                                                    <div class="btn-view btn-view-pop btn-view-pop" clientidmode="Static" id="DivSaleDeedDraft" style="display: none">
+                                                        <i class="bi bi-eye"></i>View 
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="card-footer mx-2 pb-4">
+                                                <div class="d-flex justify-content-center">
+                                                    <asp:Button
+                                                        ID="btnSave" ClientIDMode="Static"
+                                                        runat="server" OnClick="btnSave_Click"
+                                                        Text="Add" ValidationGroup="actval"
+                                                        class="btn btn-sm handle-btn-success me-1 swtAltSubmit btnSave"
+                                                        OnClientClick="if (validatePage()) { this.value='Please wait..'; this.style.display='none'; document.getElementById('bWait').style.display = ''; } else { return false; }" Style="min-width: 67px;" />
+                                                    <button type="button" style="display: none" id="bWait" class="btn btn-secondary btn-sm me-1"><i class='fa fa-spinner fa-spin'></i>Please wait</button>
+                                                    <div class="btn btn-sm handle-btn-danger swtAltCancel-Refresh">Cancel</div>
+                                                    <asp:Button ID="btnCancel" ClientIDMode="Static" runat="server" Text="Cancel Project" OnClick="btnCancel_Click" Style="display: none;" />
+                                                </div>
+                                            </div>
                                         </div>
-                                        <asp:HiddenField ID="hdnID" ClientIDMode="Static" runat="server" />
 
-                                        <div class="col-sm-4 col-xl-3 pt-3">
-
-                                            <div class="input-icon input-icon-sm right">
-                                                <label>Title <span class="text-danger">*</span></label>
-                                                <i class="bi bi-journal-text b5-icon"></i>
-                                                <asp:TextBox runat="server" ID="txtTitle" MaxLength="50" class="form-control input-sm capitalize-input" autocomplete="off" placeholder=""></asp:TextBox>
+                                        <div class="form-border margin-top20" runat="server" clientidmode="Static" id="divIVI" style="display: none">
+                                            <div class="form-title">
+                                                <h3>INDUSTRIAL VISITS/ INTERNSHIPS</h3>
                                             </div>
+                                            <div class="row mx-0 margin-top20 mb-4">
+                                                <div class="col-sm-4 col-xl-3 pt-3">
+                                                    <div class="input-icon input-icon-sm right">
+                                                        <label>Department <span class="text-danger">*</span></label>
+                                                        <i class="bi bi-journal-bookmark-fill b5-icon"></i>
+                                                        <asp:DropDownList ID="ddldepartmentIVI" ClientIDMode="Static" class="bs-select form-control input-sm" runat="server">
+                                                            <asp:ListItem Selected="True" Value=""></asp:ListItem>
+                                                        </asp:DropDownList>
+                                                    </div>
+                                                    <span class="error">
+                                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator101" ControlToValidate="ddldepartmentIVI" ValidationGroup="actvalIVI" InitialValue="" runat="server" ErrorMessage="Select department"></asp:RequiredFieldValidator>
+                                                    </span>
+                                                </div>
+                                                <asp:HiddenField ID="hdnID1" ClientIDMode="Static" runat="server" />
+                                                <div class="col-sm-4 col-xl-3 pt-3">
+                                                    <div class="input-icon input-icon-sm right">
+                                                        <label>Title <span class="text-danger">*</span></label>
+                                                        <i class="bi bi-journal-text b5-icon"></i>
+                                                        <asp:TextBox runat="server" ID="txtTitleIVI" MaxLength="50" class="form-control input-sm capitalize-input" autocomplete="off" placeholder=""></asp:TextBox>
+                                                    </div>
+                                                    <span class="error">
+                                                        <asp:RequiredFieldValidator ClientIDMode="Static" EnableClientScript="true" SetFocusOnError="true" ControlToValidate="txtTitleIVI" Display="Dynamic" ValidationGroup="actvalIVI" ID="RequiredFieldValidator301" runat="server" ErrorMessage="Enter title"></asp:RequiredFieldValidator>
+                                                        <asp:RegularExpressionValidator ClientIDMode="Static" ID="RegularExpressionValidator103" Display="Dynamic" runat="server" ValidationGroup="actvalIVI" ControlToValidate="txtTitleIVI" ValidationExpression="^[A-Za-z -]+$" ErrorMessage="Enter valid title"></asp:RegularExpressionValidator>
+                                                    </span>
+                                                </div>
+                                                <div class="col-md-5 pt-3">
+                                                    <div class="input-icon input-icon-sm right">
+                                                        <label>Content <span class="text-danger">*</span></label>
+                                                        <i class="bi bi-body-text b5-icon"></i>
+                                                        <asp:TextBox class="form-control capitalize-input editor" ClientIDMode="Static" ValidateRequestMode="Disabled" Rows="4" ID="txtContentIVI" cols="50" placeholder="" TextMode="MultiLine" runat="server"></asp:TextBox>
+                                                    </div>
+                                                    <span class="error">
+                                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator4" ControlToValidate="txtContentIVI" ValidationGroup="actvalIVI" runat="server" ErrorMessage="Enter content"></asp:RequiredFieldValidator>
+                                                    </span>
+                                                </div>
+                                                <div class="col-sm-4 col-xl-3 pt-4">
+                                                    <div class="input-icon input-icon-sm right">
+                                                        <label>Activities Upload <span class="text-danger">*</span></label>
+                                                        <i class="bi bi-images b5-icon"></i>
+                                                        <asp:FileUpload ID="FileUploadIVI" ClientIDMode="Static" runat="server" CssClass="form-control input-sm file-upload" accept=".pdf" />
+                                                        <span class="handle-file-request">(upload max file size,pdf-1 MB)</span>
+                                                        <asp:HiddenField ID="hdnFileUploadIVI" runat="server" />
+                                                    </div>
+                                                    <span class="error">
+                                                        <asp:RequiredFieldValidator ClientIDMode="Static" EnableClientScript="true" SetFocusOnError="true" ControlToValidate="FileUploadIVI" Display="Dynamic" ValidationGroup="actvalIVI" ID="RequiredFieldValidator202" runat="server" ErrorMessage="Upload File"></asp:RequiredFieldValidator>
 
-                                            <span class="error">
-                                                <asp:RequiredFieldValidator ClientIDMode="Static" EnableClientScript="true" SetFocusOnError="true" ControlToValidate="txtTitle" Display="Dynamic" ValidationGroup="actval" ID="RequiredFieldValidator3" runat="server" ErrorMessage="Enter title"></asp:RequiredFieldValidator>
-                                                <asp:RegularExpressionValidator ClientIDMode="Static" ID="RegularExpressionValidator1" Display="Dynamic" runat="server" ValidationGroup="actval" ControlToValidate="txtTitle" ValidationExpression="^[A-Za-z -]+$" ErrorMessage="Enter valid title"></asp:RegularExpressionValidator>
-                                            </span>
-                                        </div>
-
-                                        <div class="col-sm-4 col-xl-3 pt-4">
-                                            <div class="input-icon input-icon-sm right">
-                                                <label>Activities Upload</label>
-                                                <i class="bi bi-images b5-icon"></i>
-                                                <asp:FileUpload ID="FileUpload" ClientIDMode="Static" runat="server" CssClass="form-control input-sm file-upload" accept=".pdf" />
-                                                <span class="handle-file-request">(upload max file size,pdf-1 MB)</span>
-                                                <asp:HiddenField ID="hdnFileUpload" runat="server" />
+                                                        <asp:Label ID="lblFileUploadIVI" CssClass="lblFileUpload" runat="server" ForeColor="#d41111" Text=""></asp:Label>
+                                                    </span>
+                                                    <div class="btn-view btn-view-pop btn-view-pop btn-viewIVI" clientidmode="Static" id="DivSaleDeedDraftIVI" style="display: none">
+                                                        <i class="bi bi-eye"></i>View 
+                                                    </div>
+                                                </div>
                                             </div>
-                                            <span class="error">
-                                                <asp:RequiredFieldValidator ClientIDMode="Static" EnableClientScript="true" SetFocusOnError="true" ControlToValidate="FileUpload" Display="Dynamic" ValidationGroup="actval" ID="RequiredFieldValidator2" runat="server" ErrorMessage="Upload File"></asp:RequiredFieldValidator>
-
-                                                <asp:Label ID="lblFileUpload" CssClass="lblFileUpload" runat="server" ForeColor="#d41111" Text=""></asp:Label>
-                                            </span>
-                                            <div class="btn-view btn-view-pop" clientidmode="Static" id="DivSaleDeedDraft" style="display: none">
-                                                <i class="bi bi-eye"></i>View 
+                                            <div class="card-footer mx-2 pb-4">
+                                                <div class="d-flex justify-content-center">
+                                                    <asp:Button
+                                                        ID="btnSaveIVI" ClientIDMode="Static"
+                                                        runat="server" OnClick="btnSaveIVI_Click"
+                                                        Text="Add" ValidationGroup="actvalIVI"
+                                                        class="btn btn-sm handle-btn-success me-1 swtAltSubmit btnSave"
+                                                        OnClientClick="if (validatePageIVI()) { this.value='Please wait..'; this.style.display='none'; document.getElementById('bWait').style.display = ''; } else { return false; }" Style="min-width: 67px;" />
+                                                    <button type="button" style="display: none" id="bWaitIVI" class="btn btn-secondary btn-sm me-1"><i class='fa fa-spinner fa-spin'></i>Please wait</button>
+                                                    <div class="btn btn-sm handle-btn-danger swtAltCancel-RefreshIVI">Cancel</div>
+                                                    <asp:Button ID="btnCancelIVI" ClientIDMode="Static" runat="server" Text="Cancel Project" OnClick="btnCancelIVI_Click" Style="display: none;" />
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-
-                                    <div class="card-footer mx-2 pb-4">
-                                        <div class="d-flex justify-content-center">
-                                            <asp:Button
-                                                ID="btnSave" ClientIDMode="Static"
-                                                runat="server" OnClick="btnSave_Click"
-                                                Text="Add" ValidationGroup="actval"
-                                                class="btn btn-sm handle-btn-success me-1 swtAltSubmit btnSave"
-                                                OnClientClick="if (validatePage()) { this.value='Please wait..'; this.style.display='none'; document.getElementById('bWait').style.display = ''; } else { return false; }" Style="min-width: 67px;" />
-                                            <button type="button" style="display: none" id="bWait" class="btn btn-secondary btn-sm me-1"><i class='fa fa-spinner fa-spin'></i>Please wait</button>
-                                            <div class="btn btn-sm handle-btn-danger swtAltCancel-Refresh">Cancel</div>
-                                            <asp:Button ID="btnCancel" ClientIDMode="Static" runat="server" Text="Cancel Project" OnClick="btnCancel_Click" Style="display: none;" />
-                                        </div>
-                                    </div>
-
                                 </div>
-
-
                             </div>
                         </div>
                     </div>
@@ -204,6 +289,62 @@
             </div>
         </div>
     </footer>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $(".ACD").click(function () {
+                $("#divACD").show();
+                $("#divIVI").hide();
+            });
+
+            $(".IVI").click(function () {
+                $("#divACD").hide();
+                $("#divIVI").show();
+            });
+        });
+</script>
+
+
+
+
+    <script>
+        $(document).ready(function () {
+            $("#box1").click(function () {
+                $("#box2").addClass("active-black").removeClass("active-blue");
+                $("#box1").addClass("active-blue").removeClass("active-black");
+            });
+
+            $("#box2").click(function () {
+                $("#box1").addClass("active-black").removeClass("active-blue");
+                $("#box2").addClass("active-blue").removeClass("active-black");
+            });
+        });
+</script>
+
+
+    <script src="https://cdn.ckeditor.com/ckeditor5/32.0.0/classic/ckeditor.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            ClassicEditor
+                .create(document.querySelector('.editor'), {
+                    toolbar: [
+                        'bold', 'italic', 'link', 'undo', 'redo',
+                        'bulletedList', 'numberedList',
+                        'specialCharacters', 'code'
+                    ],
+                    language: 'en', // Ensure language support
+                    removePlugins: ['MediaEmbed'] // If media embedding causes issues
+                })
+                .then(editor => {
+                    editor.model.document.on('change:data', () => {
+                        document.getElementById('<%= txtContentIVI.ClientID %>').value = editor.getData();
+                    });
+                })
+                .catch(error => console.error(error));
+        });
+    </script>
 
 
     <script type="text/javascript">
@@ -243,12 +384,53 @@
 
     </script>
 
+      <script type="text/javascript">
+        function attachSweetAlert() {
+            const cancelButton = document.querySelector('.swtAltCancel-RefreshIVI');
+
+            if (cancelButton) {
+                cancelButton.addEventListener('click', function () {
+                    Swal.fire({
+                        title: 'Are you sure you want to cancel?',
+                        showCancelButton: true,
+                        confirmButtonText: 'Yes',
+                        cancelButtonText: 'No',
+                        customClass: {
+                            confirmButton: 'handle-btn-danger',
+                            cancelButton: 'handle-btn-success',
+                        }
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            const cancelBtn = document.getElementById('<%= btnCancelIVI.ClientID %>');
+                            if (cancelBtn) {
+                                cancelBtn.click();
+                            }
+                        }
+                    });
+                });
+            }
+        }
+
+        Sys.WebForms.PageRequestManager.getInstance().add_endRequest(function () {
+            attachSweetAlert();
+        });
+
+        document.addEventListener('DOMContentLoaded', function () {
+            attachSweetAlert();
+        });
+
+      </script>
+
 
 
 
     <script>
         function validatePage() {
             var flag = window.Page_ClientValidate('actval');
+            return flag;
+        }
+        function validatePageIVI() {
+            var flag = window.Page_ClientValidate('actvalIVI');
             return flag;
         }
 
@@ -356,6 +538,46 @@
     <script type="text/javascript">
         function bindImageToPreview(srclogo, index, fileType) {
             var viewLogoBtns = document.querySelectorAll('.btn-view');
+
+            if (index !== -1 && viewLogoBtns[index]) {
+                var viewLogoBtn = viewLogoBtns[index];
+
+                // Ensure button visibility is set correctly
+                viewLogoBtn.style.display = 'inline-block';
+
+                // Attach event listener only once
+                viewLogoBtn.removeEventListener('click', handleClick); // Remove any existing listeners
+                viewLogoBtn.addEventListener('click', handleClick);
+
+                function handleClick() {
+                    if (fileType === 'application/pdf') {
+                        setButtonStyle(viewLogoBtn); // Pass the actual button element
+                        window.open(srclogo, '_blank'); // Open the PDF in a new tab
+
+                        // Reload the page with query string
+                        var currentUrl = window.location.href;
+                        var newUrl = addQueryStringToUrl(currentUrl);
+                        window.location.href = newUrl; // Reload the page with updated URL
+                    }
+                }
+            }
+        }
+
+        function setButtonStyle(viewLogoBtn) {
+            // Apply the style to the passed button element
+            viewLogoBtn.style.display = 'inline-block';
+        }
+
+        function addQueryStringToUrl(url, queryString) {
+            var separator = url.indexOf('?') !== -1 ? '&' : '?';
+            return url + separator + queryString;
+        }
+    </script>
+    
+    
+    <script type="text/javascript">
+        function bindImageToPreviewIVI(srclogo, index, fileType) {
+            var viewLogoBtns = document.querySelectorAll('.btn-viewIVI');
 
             if (index !== -1 && viewLogoBtns[index]) {
                 var viewLogoBtn = viewLogoBtns[index];

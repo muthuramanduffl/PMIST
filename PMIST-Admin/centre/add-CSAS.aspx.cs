@@ -20,7 +20,6 @@ public partial class PMIST_Admin_Mcentre_CSAS : System.Web.UI.Page
     int retcount = 0;
     protected void Page_Load(object sender, EventArgs e)
     {
-    
 
 
         hdnID.Value = null;
@@ -73,7 +72,7 @@ public partial class PMIST_Admin_Mcentre_CSAS : System.Web.UI.Page
 
     public void Bind(int ID)
     {
-        DataTable Dt = csas.viewAllcentrecontenttype1("","",Convert.ToString(ID));
+        DataTable Dt = csas.viewAllcentrecontenttype1("", "", Convert.ToString(ID));
 
         if (Dt.Rows.Count > 0)
         {
@@ -141,14 +140,26 @@ public partial class PMIST_Admin_Mcentre_CSAS : System.Web.UI.Page
             {
                 txtC3Emailid.Text = Convert.ToString(Dt.Rows[0]["EmailID_three"]);
             }
+            if (!string.IsNullOrEmpty(Convert.ToString(Dt.Rows[0]["Address_one"])))
+            {
+                txtC1Address.Text = Convert.ToString(Dt.Rows[0]["Address_one"]);
+            }
+            if (!string.IsNullOrEmpty(Convert.ToString(Dt.Rows[0]["Address_two"])))
+            {
+                txtC2address.Text = Convert.ToString(Dt.Rows[0]["Address_two"]);
+            }
+            if (!string.IsNullOrEmpty(Convert.ToString(Dt.Rows[0]["Address_three"])))
+            {
+                txtC3Address.Text = Convert.ToString(Dt.Rows[0]["Address_three"]);
+            }
             if (!string.IsNullOrEmpty(Convert.ToString(Dt.Rows[0]["Imges"])))
             {
                 hdnimage.Value = Convert.ToString(Dt.Rows[0]["Imges"]);
                 Divimageupload.Style.Add("display", "none");
-                RequiredFieldValidator2.Enabled = false;
-                RequiredFieldValidator2.Visible = false;
+                //RequiredFieldValidator2.Enabled = false;
+                //RequiredFieldValidator2.Visible = false;
             }
-            
+
         }
     }
     protected void btnCancel_Click(object sender, EventArgs e)
@@ -206,7 +217,7 @@ public partial class PMIST_Admin_Mcentre_CSAS : System.Web.UI.Page
                     ScriptManager.RegisterStartupScript(this, this.GetType(), "alert",
       "Swal.fire({ " +
       "  title: 'Centre for students and administrative services details has not been added due to a server issue.', " +  // Corrected the title string
-      "  icon: 'success', " +
+      
       "  allowOutsideClick: true, " +  // No need for quotes around true
       "  customClass: { " +
       "    icon: 'handle-icon-clr', " +
@@ -222,10 +233,10 @@ public partial class PMIST_Admin_Mcentre_CSAS : System.Web.UI.Page
                 ret = Updatedata();
                 if (ret == 1)
                 {
-                   
+
                     ScriptManager.RegisterStartupScript(this, this.GetType(), "alert",
                            "Swal.fire({ " +
-                           "  title: 'Centre for students and administrative services details has been updated successfully.', " +
+                           "  title: 'Centre  details has been updated successfully.', " +
                            "  icon: 'success', " +
                            "  allowOutsideClick: 'true', " +
                            "  customClass: { " +
@@ -240,7 +251,7 @@ public partial class PMIST_Admin_Mcentre_CSAS : System.Web.UI.Page
                 {
                     ScriptManager.RegisterStartupScript(this, this.GetType(), "alert",
                           "Swal.fire({ " +
-                          "  title: 'Centre for students and administrative services details has not been update due to a server issue.', " +
+                          "  title: 'Centre  details has not been update due to a server issue.', " +
                           "  icon: 'success', " +
                           "  allowOutsideClick: 'true', " +
                           "  customClass: { " +
@@ -258,8 +269,8 @@ public partial class PMIST_Admin_Mcentre_CSAS : System.Web.UI.Page
     public int AddData()
     {
         int rowaffected = 0;
-        //try
-        //{
+        try
+        {
 
             csas.strcentreID = ddltype.SelectedValue;
             csas.strtitle = txtTitle.Text;
@@ -271,21 +282,20 @@ public partial class PMIST_Admin_Mcentre_CSAS : System.Web.UI.Page
             csas.strDesignationOne = txtC1Designation.Text;
             csas.strMobilenumberOne = txtC1MobileNo.Text;
             csas.strEmailiDOne = txtC1Emailid.Text;
-
+            csas.strAddressOne = txtC1Address.Text;
             csas.strCnametwo = txtC2Name.Text;
             csas.strDesignationtwo = txtC2Designation.Text;
             csas.strMobilenumbertwo = txtC2MobileNo.Text;
             csas.strEmailiDtwo = txtC2Emailid.Text;
-
+            csas.strAddresstwo = txtC2address.Text;
             csas.strCnamethree = txtC3Name.Text;
             csas.strDesignationthree = txtC3Designation.Text;
             csas.strMobilenumberthree = txtC3MobileNo.Text;
             csas.strEmailiDthree = txtC3Emailid.Text;
-
+            csas.strAddressthree = txtC3Address.Text;
             csas.strPageType = "type1";
 
             List<string> uploadedFileNames = new List<string>();
-
             if (flUpload.HasFiles)
             {
                 foreach (HttpPostedFile uploadedFile in flUpload.PostedFiles)
@@ -294,26 +304,25 @@ public partial class PMIST_Admin_Mcentre_CSAS : System.Web.UI.Page
                     {
                         // Get the file name and create a unique file name using a GUID
                         string fileName = Path.GetFileName(uploadedFile.FileName);
-
                         string strfilename = SaveFile(flUpload, "Centreimages", ddltype.SelectedValue);
                         uploadedFileNames.Add(strfilename);
                     }
                 }
-
-
                 string concatenatedFileNames = string.Join(",", uploadedFileNames);
                 string[] fileNamesArray = concatenatedFileNames.Split(',');
-
                 csas.strimages = concatenatedFileNames;
-
+            }
+            else
+            {
+                csas.strimages = "";
             }
             csas.straddedBy = "admin";
             rowaffected = csas.addcentrecontenttype1(csas);
-        //}
-        //catch (Exception ex)
-        //{
-        //    //
-        //}
+        }
+        catch (Exception ex)
+        {
+            //
+        }
 
         return rowaffected;
 
@@ -335,25 +344,21 @@ public partial class PMIST_Admin_Mcentre_CSAS : System.Web.UI.Page
             csas.strDesignationOne = txtC1Designation.Text;
             csas.strMobilenumberOne = txtC1MobileNo.Text;
             csas.strEmailiDOne = txtC1Emailid.Text;
-
+            csas.strAddressOne = txtC1Address.Text;
             csas.strCnametwo = txtC2Name.Text;
             csas.strDesignationtwo = txtC2Designation.Text;
             csas.strMobilenumbertwo = txtC2MobileNo.Text;
             csas.strEmailiDtwo = txtC2Emailid.Text;
-
+            csas.strAddresstwo = txtC2address.Text;
             csas.strCnamethree = txtC3Name.Text;
             csas.strDesignationthree = txtC3Designation.Text;
             csas.strMobilenumberthree = txtC3MobileNo.Text;
             csas.strEmailiDthree = txtC3Emailid.Text;
-
+            csas.strAddressthree = txtC3Address.Text;
             csas.strPageType = "type1";
             csas.strimages = hdnimage.Value;
             csas.straddedBy = "admin";
-
             rowaffected = csas.Updatecentrecontenttype1(csas);
-
-
-
         }
         catch (Exception ex)
         {

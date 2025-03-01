@@ -45,7 +45,7 @@
                                                 </asp:DropDownList>
                                             </div>
                                             <span class="error">
-                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator4" ControlToValidate="ddltype" ValidationGroup="CSASVals" InitialValue="" runat="server" ErrorMessage="Select centre type"></asp:RequiredFieldValidator>
+                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator4" ControlToValidate="ddltype" ValidationGroup="CSASVal" InitialValue="" runat="server" ErrorMessage="Select centre type"></asp:RequiredFieldValidator>
                                             </span>
                                         </div>
 
@@ -83,7 +83,6 @@
                                                 </div>
                                             </div>
                                         </div>
-
                                     </div>
                                 </div>
                                 <div class="form-border margin-top20">
@@ -137,6 +136,17 @@
                                                     ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" ErrorMessage="Enter valid email id" Display="Dynamic"></asp:RegularExpressionValidator>
                                             </span>
                                         </div>
+                                        <div class="col-md-3 col-6 pt-3">
+                                            <div class="input-icon input-icon-sm right">
+                                                <label>Address </label>
+                                                   <i class="bi bi-pin-map-fill b5-icon"></i>
+                                                <asp:TextBox ID="txtC1Address" class="form-control input-sm" runat="server"></asp:TextBox>
+                                            </div>
+                                            <span class="error">
+                                                <asp:RegularExpressionValidator ID="RegularExpressionValidator16" runat="server" ControlToValidate="txtC1Address" ValidationGroup="CSASVal"
+                                                    ValidationExpression="^[A-Za-z0-9\s,.\-#/']+$" ErrorMessage="Enter valid address" Display="Dynamic"></asp:RegularExpressionValidator>
+                                            </span>
+                                        </div>
 
                                         <div class="col-md-3 pt-3">
                                             <div class="input-icon input-icon-sm right">
@@ -182,6 +192,17 @@
                                             <span class="error">
                                                 <asp:RegularExpressionValidator ID="RegularExpressionValidator5" runat="server" ControlToValidate="txtC2Emailid" ValidationGroup="CSASVal"
                                                     ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" ErrorMessage="Enter valid email id" Display="Dynamic"></asp:RegularExpressionValidator>
+                                            </span>
+                                        </div>
+                                        <div class="col-md-3 col-6 pt-3">
+                                            <div class="input-icon input-icon-sm right">
+                                                <label>Address </label>
+                                               <i class="bi bi-pin-map-fill b5-icon"></i>
+                                                <asp:TextBox ID="txtC2address" class="form-control input-sm"  runat="server"></asp:TextBox>
+                                            </div>
+                                            <span class="error">
+                                                <asp:RegularExpressionValidator ID="RegularExpressionValidator13" runat="server" ControlToValidate="txtC2address" ValidationGroup="CSASVal"
+                                                    ValidationExpression="^[A-Za-z0-9\s,.\-#/']+$" ErrorMessage="Enter valid address" Display="Dynamic"></asp:RegularExpressionValidator>
                                             </span>
                                         </div>
 
@@ -231,17 +252,27 @@
                                                     ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" ErrorMessage="Enter valid email id" Display="Dynamic"></asp:RegularExpressionValidator>
                                             </span>
                                         </div>
+                                        <div class="col-md-3 col-6 pt-3">
+                                            <div class="input-icon input-icon-sm right">
+                                                <label>Address </label>
+                                                  <i class="bi bi-pin-map-fill b5-icon"></i>
+                                                <asp:TextBox ID="txtC3Address" class="form-control input-sm"  runat="server"></asp:TextBox>
+                                            </div>
+                                            <span class="error">
+                                                <asp:RegularExpressionValidator ID="RegularExpressionValidator14" runat="server" ControlToValidate="txtC3Address" ValidationGroup="CSASVal"
+                                                    ValidationExpression="^[A-Za-z0-9\s,.\-#/']+$" ErrorMessage="Enter valid address" Display="Dynamic"></asp:RegularExpressionValidator>
+                                            </span>
+                                        </div>
+
                                     </div>
                                 </div>
 
 
 
 
-
-
                                 <div class="form-border margin-top20" runat="server" clientidmode="static" id="Divimageupload" style="display: block">
                                     <div class="form-title">
-                                        <h3>Upload images <span class="text-danger">*</span></h3>
+                                        <h3>Upload images <span class="text-danger"></span></h3>
                                     </div>
                                     <div class="row mx-0 margin-top20 mb-4">
                                         <div class="col-md-4 pt-3">
@@ -276,7 +307,7 @@
                                     </div>
 
                                     <span class="error">
-                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator2" ValidationGroup="CSASVal" ControlToValidate="flUpload" ForeColor="Red" runat="server" ErrorMessage="Upload images"></asp:RequiredFieldValidator>
+                                        <%--                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator2" ValidationGroup="CSASVal" ControlToValidate="flUpload" ForeColor="Red" runat="server" ErrorMessage="Upload images"></asp:RequiredFieldValidator>--%>
                                         <%--  <span id="Requiredsingle" style="display: none;">upload image</span>--%>
                                             
                                     </span>

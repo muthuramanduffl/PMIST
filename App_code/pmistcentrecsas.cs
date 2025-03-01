@@ -20,16 +20,20 @@ public class pmistcentrecsas
     public string strDesignationOne { get; set; }
     public string strMobilenumberOne { get; set; }
     public string strEmailiDOne { get; set; }
+    public string strAddressOne { get; set; }
 
     public string strCnametwo { get; set; }
     public string strDesignationtwo { get; set; }
     public string strMobilenumbertwo { get; set; }
     public string strEmailiDtwo { get; set; }
+    public string strAddresstwo { get; set; }
 
     public string strCnamethree { get; set; }
     public string strDesignationthree { get; set; }
     public string strMobilenumberthree { get; set; }
     public string strEmailiDthree { get; set; }
+    public string strAddressthree { get; set; }
+
 
     public string strimages { get; set; }
     public string strPageType { get; set; }
@@ -76,14 +80,20 @@ public class pmistcentrecsas
                 command.Parameters.Add(new SqlParameter("@Cname_one", csas.strCnameOne));
                 command.Parameters.Add(new SqlParameter("@Mobilenumber_one", csas.strMobilenumberOne));
                 command.Parameters.Add(new SqlParameter("@EmailID_one", csas.strEmailiDOne));
+                command.Parameters.Add(new SqlParameter("@Address_one", csas.strAddressOne));
+
                 command.Parameters.Add(new SqlParameter("@Cname_two", csas.strCnametwo));
                 command.Parameters.Add(new SqlParameter("@Designamtion_two", csas.strDesignationtwo));
                 command.Parameters.Add(new SqlParameter("@Mobilenumber_two", csas.strMobilenumbertwo));
                 command.Parameters.Add(new SqlParameter("@EmailID_two", csas.strEmailiDtwo));
+                command.Parameters.Add(new SqlParameter("@Address_two", csas.strAddresstwo));
+
                 command.Parameters.Add(new SqlParameter("@Cname_three", csas.strCnamethree));
                 command.Parameters.Add(new SqlParameter("@Designamtion_three", csas.strDesignationthree));
                 command.Parameters.Add(new SqlParameter("@Mobilenumber_three", csas.strMobilenumberthree));
                 command.Parameters.Add(new SqlParameter("@EmailID_three", csas.strEmailiDthree));
+                command.Parameters.Add(new SqlParameter("@Address_three", csas.strAddressthree));
+              
                 command.Parameters.Add(new SqlParameter("@Imges", csas.strimages));
                 command.Parameters.Add(new SqlParameter("@PageType", csas.strPageType));
                 command.Parameters.Add(new SqlParameter("@AddedBy", csas.straddedBy));
@@ -122,14 +132,17 @@ public class pmistcentrecsas
                 command.Parameters.Add(new SqlParameter("@Cname_one", csas.strCnameOne));
                 command.Parameters.Add(new SqlParameter("@Mobilenumber_one", csas.strMobilenumberOne));
                 command.Parameters.Add(new SqlParameter("@EmailID_one", csas.strEmailiDOne));
+                command.Parameters.Add(new SqlParameter("@Address_one", csas.strAddressOne));
                 command.Parameters.Add(new SqlParameter("@Cname_two", csas.strCnametwo));
                 command.Parameters.Add(new SqlParameter("@Designamtion_two", csas.strDesignationtwo));
                 command.Parameters.Add(new SqlParameter("@Mobilenumber_two", csas.strMobilenumbertwo));
                 command.Parameters.Add(new SqlParameter("@EmailID_two", csas.strEmailiDtwo));
+                command.Parameters.Add(new SqlParameter("@Address_two", csas.strAddresstwo));
                 command.Parameters.Add(new SqlParameter("@Cname_three", csas.strCnamethree));
                 command.Parameters.Add(new SqlParameter("@Designamtion_three", csas.strDesignationthree));
                 command.Parameters.Add(new SqlParameter("@Mobilenumber_three", csas.strMobilenumberthree));
                 command.Parameters.Add(new SqlParameter("@EmailID_three", csas.strEmailiDthree));
+                command.Parameters.Add(new SqlParameter("@Address_three", csas.strAddressthree));
                 command.Parameters.Add(new SqlParameter("@Imges", csas.strimages));
                 command.Parameters.Add(new SqlParameter("@PageType", csas.strPageType));
                 command.Parameters.Add(new SqlParameter("@UpdatedBy", csas.straddedBy));

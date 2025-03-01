@@ -13,8 +13,10 @@ public class pmistactivities
     public int intACTID { get; set; }
     public string strDepartment { get; set; }
     public bool ActivitiyStatus { get; set; }
+    public bool AVIStatus { get; set; }
     public string strTitle { get; set; }
     public string strPdfFilename { get; set; }
+    public string strContent { get; set; }
     public string strAddedBy { get; set; }
     public string strUpdatedBy { get; set; }
 
@@ -50,6 +52,8 @@ public class pmistactivities
                 command.Parameters.Add(new SqlParameter("@Department", PQ.strDepartment));
                 command.Parameters.Add(new SqlParameter("@Title", PQ.strTitle));
                 command.Parameters.Add(new SqlParameter("@ActivitiyStatus",PQ.ActivitiyStatus));
+                command.Parameters.Add(new SqlParameter("@Content", PQ.strContent));
+                command.Parameters.Add(new SqlParameter("@AVI", PQ.AVIStatus));
                 command.Parameters.Add(new SqlParameter("@PdfFilename", PQ.strPdfFilename));
                 command.Parameters.Add(new SqlParameter("@Addedate", Utility.IndianTime));
                 command.Parameters.Add(new SqlParameter("@AddedBy", PQ.strAddedBy));
@@ -81,6 +85,7 @@ public class pmistactivities
                 command.Parameters.Add(new SqlParameter("@Department", PQ.strDepartment));
                 command.Parameters.Add(new SqlParameter("@Title", PQ.strTitle));
                 command.Parameters.Add(new SqlParameter("@ActivitiyStatus", PQ.ActivitiyStatus));
+                command.Parameters.Add(new SqlParameter("@Content", PQ.strContent));
                 command.Parameters.Add(new SqlParameter("@PdfFilename", PQ.strPdfFilename));
                 command.Parameters.Add(new SqlParameter("@UpdatedBy", PQ.strUpdatedBy));
                 command.Parameters.Add(new SqlParameter("@UpdatedDate", Utility.IndianTime));

@@ -220,21 +220,29 @@
 
                                                             <h3 class="contact-name"><%#!string.IsNullOrEmpty(Eval("Cname_one").ToString())? Eval("Cname_one").ToString() :" " %></h3>
                                                             <h2 class="Research"><%#!string.IsNullOrEmpty(Eval("Designamtion_one").ToString())? Eval("Designamtion_one").ToString() :" " %></h2>
-                                                            <h6 class="mbl-number" runat="server" visible='<%#!string.IsNullOrEmpty(Eval("Mobilenumber_one").ToString())%>'>Mobile Number: <span><%#Eval("Mobilenumber_one")%> </span></h6>
-                                                            <h6 class="mbl-number" runat="server" visible='<%#!string.IsNullOrEmpty(Eval("EmailID_one").ToString())%>'>Email Address: <span><%# Eval("EmailID_one") %></span></h6>
+                                                            <h6 class="mbl-number" runat="server" visible='<%#!string.IsNullOrEmpty(Eval("Address_one").ToString())%>'><span><%# Eval("Address_one") %></span></h6>
+                                                            <h6 class="mbl-number" runat="server" visible='<%#!string.IsNullOrEmpty(Eval("Mobilenumber_one").ToString())%>'><span>PH:<%#Eval("Mobilenumber_one")%> </span></h6>
+                                                            <h6 class="mbl-number" runat="server" visible='<%#!string.IsNullOrEmpty(Eval("EmailID_one").ToString())%>'><span>EID:<%# Eval("EmailID_one") %></span></h6>
+
                                                         </div>
                                                         <div class="col-xl-4" runat="server">
 
                                                             <h3 class="contact-name"><%#!string.IsNullOrEmpty(Eval("Cname_two").ToString())? Eval("Cname_two").ToString() :" " %> </h3>
                                                             <h2 class="Research"><%#!string.IsNullOrEmpty(Eval("Designamtion_two").ToString())? Eval("Designamtion_two").ToString() :" " %>  </h2>
-                                                            <h6 class="mbl-number" runat="server" visible='<%#!string.IsNullOrEmpty(Eval("Mobilenumber_two").ToString())%>'>Mobile Number: <span><%# Eval("Mobilenumber_two")%></span></h6>
-                                                            <h6 class="mbl-number" runat="server" visible='<%#!string.IsNullOrEmpty(Eval("EmailID_two").ToString())%>'>Email Address: <span><%# Eval("EmailID_two")%> </span></h6>
+                                                            <h6 class="mbl-number" runat="server" visible='<%#!string.IsNullOrEmpty(Eval("Address_two").ToString())%>'><span><%# Eval("Address_two") %></span></h6>
+
+                                                            <h6 class="mbl-number" runat="server" visible='<%#!string.IsNullOrEmpty(Eval("Mobilenumber_two").ToString())%>'><span>PH:<%# Eval("Mobilenumber_two")%></span></h6>
+                                                            <h6 class="mbl-number" runat="server" visible='<%#!string.IsNullOrEmpty(Eval("EmailID_two").ToString())%>'> <span>EID:<%# Eval("EmailID_two")%> </span></h6>
+
                                                         </div>
                                                         <div class="col-xl-4" runat="server">
                                                             <h3 class="contact-name"><%#!string.IsNullOrEmpty(Eval("Cname_three").ToString())? Eval("Cname_three").ToString() :" " %></h3>
                                                             <h2 class="Research"><%#!string.IsNullOrEmpty(Eval("Designamtion_three").ToString())? Eval("Designamtion_three").ToString() :" " %> </h2>
-                                                            <h6 class="mbl-number" runat="server" visible='<%#!string.IsNullOrEmpty(Eval("Mobilenumber_three").ToString())%>'>Mobile Number: <span><%#Eval("Mobilenumber_three")%> </span></h6>
-                                                            <h6 class="mbl-number" runat="server" visible='<%#!string.IsNullOrEmpty(Eval("EmailID_three").ToString())%>'>Email Address: <span><%# Eval("EmailID_three").ToString() %></span></h6>
+                                                            <h6 class="mbl-number" runat="server" visible='<%#!string.IsNullOrEmpty(Eval("Address_three").ToString())%>'><span><%# Eval("Address_three") %></span></h6>
+                                                            <h6 class="mbl-number" runat="server" visible='<%#!string.IsNullOrEmpty(Eval("Mobilenumber_three").ToString())%>'><span>PH:<%#Eval("Mobilenumber_three")%> </span></h6>
+                                                            <h6 class="mbl-number" runat="server" visible='<%#!string.IsNullOrEmpty(Eval("EmailID_three").ToString())%>'> <span>EID:<%# Eval("EmailID_three").ToString() %></span></h6>
+
+
                                                         </div>
                                                     </ItemTemplate>
                                                 </asp:Repeater>
