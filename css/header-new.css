@@ -1,0 +1,152 @@
+.navbar-expand-lg .navbar-collapse.dNone {
+    display: none !important;
+  }
+  .navbar-expand-lg .navbar-toggler.dBlockClass {
+    display: block;
+    position: absolute;
+    right: 5px;
+    top: 32%;
+}
+.navbar-expand-lg .navbar-toggler.dBlockClass:before {
+    content: 'Menu';
+    position: absolute;
+    left: -35px;
+    font-size: 16px;
+    color: #00498E;
+}
+
+.logoBg .logo.logoScroll {
+    height: 78px !important;
+    margin-top: 0 !important;
+    width: 100% !important;
+    transition: .3s;
+  }
+  .logoBg.logoBgScroll::after {
+    content: '';
+    border-top: 0 solid #fff;
+  }
+  .toggleIcon div {
+    display: block;
+    width: 30px;
+    height: 2.5px;
+  }
+  .close.push_left {
+    margin-right: 15px;
+  }
+  .admin__btn {
+    margin: auto 120px auto auto;
+    display: none;
+}
+.admin__btn a {
+    background: transparent linear-gradient(-360deg, #f15654 0%, #f42c29 100%) 0% 0% no-repeat padding-box;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-size: 17px;
+    border: 1px solid #f42c29;
+}
+.phdAppl__btn {
+    display: block;
+    margin: 6px 7%;
+}
+.phdAppl__btn a {
+    background: transparent linear-gradient(-360deg, #f15654 0%, #f42c29 100%) 0% 0% no-repeat padding-box !important;
+    color: #fff !important;
+    padding: 5px 10px !important;
+    border-radius: 30px;
+    text-decoration: none !important;
+    font-size: 13px !important;
+    border: 1px solid #f42c29;
+    transform: unset !important;
+    height: auto !important;
+    width: auto !important;
+    display: inline-block !important;
+}
+.phdAppl__btn a:hover {
+    background: transparent linear-gradient(-360deg, #f15654 0%, #f42c29 100%) 0% 0% no-repeat padding-box !important;
+}
+.panel-accordion .phdAppl__btn {
+    margin: 6px 0px;
+}
+.panel-accordion .phdAppl__btn a {
+    padding: 1px 10px !important;    
+}
+#chat-bot-launcher {
+    background-color: rgb(255, 22, 22);
+}
+  @media (max-width: 360px) {
+    .ad-btn a {
+      font-size: 16px;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .navbar-expand-lg .navbar-toggler.dBlockClass::before { 
+        content: '';
+    }
+    .navbar-expand-lg .navbar-toggler.dBlockClass {
+        top: -12%;
+      }
+    .logoBg .logo.logoScroll {
+        height: 61px !important;
+        margin-top: 0 !important;
+        width: 100% !important;
+      }
+      .logo, .logoBg {
+        width: 230px;
+        height: auto;
+        margin-top: auto;
+      }
+      .hamburgerIcon {
+  margin-top: 30px !important;
+}
+.ad-btn a {
+    font-size: 18px;
+  }
+  .admin__btn {
+    margin: auto 68px auto auto;
+    position: absolute;
+    top: 30%;
+    z-index: 111;
+    right: 0%;
+}
+.admin__btn a {
+    padding: 4px 10px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-size: 13px;
+}
+.admin__btn a span {
+    display: none !important;
+}
+  }
+
+  @media screen and (min-width: 600px) and (max-width: 767px) {
+
+    .navbar-expand-lg .navbar-toggler.dBlockClass {
+        top: -7%;
+      }
+    }
+
+    @media screen and (min-width: 767px) and (max-width: 992px) {
+
+        .navbar-expand-lg .navbar-toggler.dBlockClass {
+            top: -7%;
+          }
+        }
+
+        @media screen and (min-width: 992px) and (max-width: 1199px) {
+            .navbar-expand-lg .navbar-toggler.dBlockClass {
+                top: -7%;
+              }
+            }
+
+            @media screen and (min-width: 1199px) and (max-width: 1365px) {
+
+                  .navbar-expand-lg .navbar-toggler.dBlockClass {
+                    top: -7%;
+                  }
+                }
+
+.w-33{width: 33%;} 

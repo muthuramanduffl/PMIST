@@ -8,7 +8,7 @@ using System.Web.UI.WebControls;
 using System.IO;
 using System.Collections.Generic;
 
-public partial class adminkey2hcom_activities : System.Web.UI.Page
+public partial class activities : System.Web.UI.Page
 {
 
     Bindddl Ddl = new Bindddl();
@@ -219,7 +219,7 @@ public partial class adminkey2hcom_activities : System.Web.UI.Page
                                 confirmButton: 'handle-btn-success' 
                             }} 
                         }}).then((result) => {{  
-                                window.location.href = 'add-floor-plan.aspx';  
+                                window.location.href = 'add-activities.aspx';  
                             }} 
                         }});
                         </script>");
@@ -257,7 +257,7 @@ public partial class adminkey2hcom_activities : System.Web.UI.Page
                                 confirmButton: 'handle-btn-success' 
                             }} 
                         }}).then((result) => {{  
-                                window.location.href = 'add-activities.aspx';  
+                                window.location.href = 'view-activities.aspx';  
                             }} 
                         }});
                         </script>");

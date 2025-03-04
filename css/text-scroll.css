@@ -1,0 +1,49 @@
+.marquee-container {
+    height: 50px;
+    overflow: hidden;
+    line-height: 30px;
+    /* background: linear-gradient(to right, #05315b, #014c90); */
+    background: transparent linear-gradient(270deg, #16ACCD 0%, #00498E 100%) 0% 0% no-repeat padding-box;
+  
+  }
+  .marquee {
+    color: #fff;
+    padding-top: 10px;
+  }
+  .marquee span a {
+    color: #fff !important;
+    text-decoration: none !important;
+  }
+
+  /* @keyframes marquee {
+    0% { left: 0; }
+    100% { left: -100%; }
+  } */
+
+
+  .marquee {
+    /* top: 9px; */
+    left: 100%;
+    width: 100%;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap;
+    animation: marquee 30s linear infinite;
+    padding-left: 3px;
+  }
+  .marquee1 {
+    /* animation-delay: 0s; */
+  }
+  .marquee2 {
+    animation-delay: 15s;
+  }
+
+
+@keyframes marquee {
+  0% {
+    left: 100%;
+  }
+  100% {
+    left: -100%
+  }
+}

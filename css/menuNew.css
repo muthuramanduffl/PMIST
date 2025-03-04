@@ -1,0 +1,35 @@
+.menuHeight {
+    padding-left: 0px !important;
+ }
+ @media (max-width: 1289px) {
+.logodef {
+    display: none !important
+ }
+  .logoScl {
+    display: block !important
+ }
+ }
+ @media (min-width: 1290px) {
+    .addBg {
+    background: #004a8f;
+ }
+ .logoBg {
+    display: grid;
+    height: 102px;
+ }
+ .logodef {
+    margin-top: 0 !important;
+    width: 265px !important;
+    height: auto !important;
+ }
+ .logoBg::after {
+    display: none;
+
+ }
+ .logodef {
+    display: block
+ }
+ .logoScl {
+    display: none
+ }
+ }

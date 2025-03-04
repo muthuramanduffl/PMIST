@@ -61,7 +61,7 @@ public partial class PMIST_Admin_placements : System.Web.UI.Page
 
     public void Bind(int ID)
     {
-        DataTable Dt = PMP.ViewAllPlacements("", "", Convert.ToString(ID));
+        DataTable Dt = PMP.ViewAllPlacements("", "", Convert.ToString(ID), "placement");
 
         if (Dt.Rows.Count > 0)
         {
@@ -196,6 +196,7 @@ public partial class PMIST_Admin_placements : System.Web.UI.Page
             string encodedText = HttpUtility.HtmlEncode(txtcontent.Text);
             string decodedText = HttpUtility.HtmlDecode(encodedText);
             PMP.strcontent = decodedText;
+            PMP.strpagename = "placement";
             PMP.strAddedBy = "admin";
             rowaffected = PMP.AddPMISTplacements(PMP);
         }
@@ -221,6 +222,7 @@ public partial class PMIST_Admin_placements : System.Web.UI.Page
             string encodedText = HttpUtility.HtmlEncode(txtcontent.Text);
             string decodedText = HttpUtility.HtmlDecode(encodedText);
             PMP.strcontent = decodedText;
+            PMP.strpagename = "placement";
             PMP.strUpdatedBy = "admin";
             rowaffected = PMP.updatePMISTplacements(PMP);
         }

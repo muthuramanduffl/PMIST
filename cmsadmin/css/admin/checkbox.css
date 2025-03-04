@@ -1,0 +1,114 @@
+﻿/*Styles to Checkbox*/
+input[type=checkbox] {
+    position: absolute;
+    z-index: -1000;
+    left: -1000px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    width: 1px;
+    margin: -1px;
+    padding: 0;
+    border: 0; float:left;
+    transition:background 300ms ease-in;
+}
+
+input[type=checkbox] + label, input[type=checkbox] + label.clr {
+    padding-left: 23px;
+    height: 18px;
+    display: inline-block;
+    line-height: 18px;
+    background-repeat: no-repeat;
+    background-position: 0px -19px;   
+    font-size: 17px;
+    vertical-align: middle;
+    cursor: pointer;
+    font-size: 98%;
+    color: #6b6b6b; float:left; font-weight:100;
+}
+
+input[type=checkbox] + label:hover, input[type=checkbox] + label.clr {    
+    background-position: 0px -19px;   
+}
+
+input[type=checkbox]:checked + label, input[type=checkbox] + label.chk {
+    background-position: 0px -39px;
+    font-size: 98%;
+    color: #6b6b6b;
+}
+
+input[type=checkbox] + label {
+    background-image: url('../../images/admin/green.png');
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    margin: 3px 0px 5px 0px;
+    padding: 0px; padding-left: 20px;
+}
+
+/*Styles to Radiobutton*/
+input[type=radio] {
+    position: absolute;
+    z-index: -1000;
+    left: -1000px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    width: 1px;
+    margin: -1px;
+    padding: 0;
+    border: 0; float:left;
+}
+
+input[type=radio] + label, input[type=radio] + label.clr {
+    padding-left: 23px;
+    height: 18px;
+    display: inline-block;
+    line-height: 18px;
+    background-repeat: no-repeat;
+    background-position: 0px -100px;
+    font-size: 17px;
+    vertical-align: middle;
+    cursor: pointer;
+    font-size: 110%;
+    color: #6b6b6b; float:left;
+}
+
+input[type=radio]:checked + label, input[type=radio] + label.chk {
+    background-position: 0px -120px;
+    font-size: 110%;
+    color: #6b6b6b;
+}
+
+input[type=radio] + label {
+    background-image: url('../../images/admin/green.png');
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    margin: 16px 5px 5px 5px;
+    padding: 0px; padding-left:22px;
+}
+
+select::-ms-expand{
+    display:none;
+}
+
+
+.select-list{
+    -webkit-appearance:none;
+    -moz-appearance:none;
+    background-image:url('../../images/admin/select-img.jpg') !important;
+    padding:6px 4px !important;    
+    background-repeat:no-repeat !important; background-position:right center !important;
+    cursor:pointer !important;
+    width:100%;
+    border:none;
+    border:solid thin #ddd;
+}
+

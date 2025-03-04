@@ -1,0 +1,93 @@
+.professional-bodiesImages {
+    height: 170px !important;
+    background-size: 55% !important;
+    background-repeat: no-repeat !important;
+    background-position: center !important;
+    /* width: 215px; */
+  }
+
+  .recruiterstabs{
+    font-size:15px;
+    padding:0px;
+    list-style:none;
+    background:#fff;
+    box-shadow:0px 5px 20px rgba(0,0,0,0.1);
+    display:inline-block;
+    /* border-radius:5px; */
+    position:relative;
+    margin: auto auto 3%;
+    height: 33px !important;
+  }
+  
+  .recruiterstabs a{
+    text-decoration:none;
+    color: #000;
+    text-transform:uppercase;
+    padding: 8px 6px;
+    display:inline-block;
+    position:relative;
+    z-index:1;
+    transition-duration:0.6s;
+    font-family: 'Oswald', sans-serif !important;
+    letter-spacing: .5px;
+    font-size: 15px;
+    width: 185px;
+    text-align: center;
+  }
+  
+  .recruiterstabs a.active{
+    color:#fff;
+  }
+  .recruiterstabs a.active::after {
+      content: '';
+  }
+  .recruiterstabs a i{
+    margin-right:5px;
+  }
+  
+  .recruiterstabs .selector{
+    height:100%;
+    display:inline-block;
+    position:absolute;
+    left:0px;
+    top:0px;
+    z-index:1;
+    /* border-radius:5px; */
+    transition-duration:0.6s;
+    transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    
+    background: #05abe0;
+    /* background: -moz-linear-gradient(45deg, #05abe0 0%, #8200f4 100%); */
+    /* background: -webkit-linear-gradient(45deg, #f59360 0%,#ef5108 100%); */
+    background: transparent linear-gradient(270deg, #063C48 0%, #00498E 100%) 0% 0% no-repeat padding-box;
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#05abe0', endColorstr='#8200f4',GradientType=1 );
+  }
+
+  #owl-demo2 .item img {
+    display: block;
+    width: 115px;
+    height: auto;
+    margin: auto;
+  }
+  .splide__slide img {
+    display: block;
+    width: 140px;
+    height: auto;
+    margin: auto;
+  }
+  .splide__pagination {
+      display: none !important;
+  }
+
+  @media (max-width: 359px) {
+    .recruiterstabs a {
+        font-size: 11px !important;
+    }
+  }
+  @media (max-width: 600px) {
+    .recruiterstabs a {
+        font-size: 12px;
+        padding: 8px 3px;
+        width: 155px;
+    }
+  }

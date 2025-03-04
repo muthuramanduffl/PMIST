@@ -20,6 +20,7 @@ public class pmistplacements
     public string strcontent { get; set; }
     public string strAddedBy { get; set; }
     public string strUpdatedBy { get; set; }
+    public string strpagename { get; set; }
 
 
     public string GetSqlConnection()
@@ -53,6 +54,8 @@ public class pmistplacements
                 command.Parameters.Add(new SqlParameter("@Department", PQ.strDepartment));
                 command.Parameters.Add(new SqlParameter("@Content", PQ.strcontent));
                 command.Parameters.Add(new SqlParameter("@PStatus", PQ.boolPStatus));
+                command.Parameters.Add(new SqlParameter("@PageName", PQ.strpagename));
+
                 command.Parameters.Add(new SqlParameter("@AddedDate", Utility.IndianTime));
                 command.Parameters.Add(new SqlParameter("@AddedBy", PQ.strAddedBy));
                 rowsAffected = command.ExecuteNonQuery();
@@ -63,7 +66,8 @@ public class pmistplacements
         {
         }
         return rowsAffected;
-    } public int updatePMISTplacements(pmistplacements PQ)
+    }
+    public int updatePMISTplacements(pmistplacements PQ)
     {
         int Sno = 0;
         string connetionString = null;
@@ -81,6 +85,7 @@ public class pmistplacements
                 command.Parameters.Add(new SqlParameter("@Department", PQ.strDepartment));
                 command.Parameters.Add(new SqlParameter("@Content", PQ.strcontent));
                 command.Parameters.Add(new SqlParameter("@PStatus", PQ.boolPStatus));
+                command.Parameters.Add(new SqlParameter("@PageName", PQ.strpagename));
                 command.Parameters.Add(new SqlParameter("@UpdatedDate", Utility.IndianTime));
                 command.Parameters.Add(new SqlParameter("@UpdatedBy", PQ.strUpdatedBy));
                 rowsAffected = command.ExecuteNonQuery();
@@ -93,7 +98,7 @@ public class pmistplacements
         return rowsAffected;
     }
 
-   
+
 
     public int DeletePMISTPlacementsByID(int FAQ)
     {
@@ -122,7 +127,7 @@ public class pmistplacements
 
 
 
-    public DataTable ViewAllPlacements(string Department, string status, string PID)
+    public DataTable ViewAllPlacements(string Department, string status, string PID,string strpagename)
     {
         bool? boolValue = null;
         DataTable dt = new DataTable();
@@ -138,6 +143,7 @@ public class pmistplacements
                 command.CommandType = CommandType.StoredProcedure;
                 command.Parameters.Add(new SqlParameter("@Department", Department));
                 command.Parameters.Add(new SqlParameter("@PID", string.IsNullOrWhiteSpace(PID) ? (object)DBNull.Value : Convert.ToInt32(PID)));
+                command.Parameters.Add(new SqlParameter("@PageName", strpagename));
                 if (!string.IsNullOrWhiteSpace(status))
                 {
                     if (status == "1" || status.ToLower() == "true")

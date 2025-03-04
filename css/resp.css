@@ -1,0 +1,76 @@
+@media screen and (min-width: 600px) and (max-width: 992px) {
+    .homeSlider {
+        height: 300px !important;
+    }    
+    .topRecruiterBorder h4 span {
+        font-size: 18px;
+    }
+    .topRecruiterBorder .headingTextAfterOne {
+        width: 74%;
+    }
+    .quickLinks h4 span {
+        font-size: 18px;
+    }
+    .quickLinks .headingTextAfter {
+        width: 74%;
+    }
+    .addressSection .margin0Responsive {
+        margin: auto !important;
+    }
+    .newsSection h5 {
+        font-size: 23px !important;
+    }
+    .blueBorderAbout .aboutImage {
+        width: 145px;
+    }
+    .aboutSectionMargin1 {
+        margin-top: 40px;
+    }
+    .placementSlider {
+        height: 300px;
+    }
+    .bannerImage {
+        background-position: bottom !important;
+    }
+    .margin-5 {
+        margin-top: 105px;
+    }
+    .seminarBg_list {
+        display: flex;
+        justify-content: space-evenly;
+    }
+    .resPaddingLeft {
+        padding-left: 20px !important;
+    }
+    .resPaddingLeft ul {
+        padding-left: 10px;
+    }
+    .recruiterImages {
+        background-size: 100% !important;
+    }
+    .staffProfileImage {
+        left: 28%;
+    }
+}
+
+@media (width: 1024px) {
+    .homeSlider {
+        height: 420px !important;
+    }    
+    .topRecruiterBorder h4 span {
+        font-size: 18px;
+    }
+    .topRecruiterBorder .headingTextAfterOne {
+        width: 74%;
+    }
+    .quickLinks h4 span {
+        font-size: 18px;
+    }
+    .quickLinks .headingTextAfter {
+        width: 74%;
+    }
+    .newsSection h5 {
+        font-size: 23px !important;
+    }
+}
+.w-33{width: 33%;} 

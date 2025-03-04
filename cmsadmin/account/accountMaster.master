@@ -1,0 +1,516 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="accountMaster.master.cs" Inherits="account_accountMaster" %>
+<%@ Register src="../account/parts/UCLogin.ascx" tagname="header" tagprefix="uc1" %>
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1" runat="server">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="initial-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- Remove Tap Highlight on Windows Phone IE -->
+    <meta name="msapplication-tap-highlight" content="no" />
+
+    <link rel="icon" type="image/png" href="/images/fav-icon.png" sizes="16x16" />
+    <link rel="icon" type="image/png" href="/images/fav-icon.png" sizes="32x32" />
+
+    <title>PMU CMS - Dashboard</title>
+
+    <link href='https://fonts.googleapis.com/css?family=Roboto:300,400,500' rel='stylesheet' type='text/css' />
+
+    <!-- uikit -->
+    <link rel="stylesheet" href="/cmsadmin/css/admin/uikit.almost-flat.min.css" />
+
+    <link rel="stylesheet" href="/cmsadmin/css/admin/checkbox.css" />
+    <link rel="stylesheet" href="/cmsadmin/css/admin/main.min.css" />
+    <link rel="stylesheet" href="/cmsadmin/css/admin/util.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" />
+
+    <asp:ContentPlaceHolder ID="head" runat="server">
+   
+    </asp:ContentPlaceHolder>
+
+</head>
+
+<body class="sidebar_main_open sidebar_main_swipe">
+ <form id="form1" runat="server">
+    <header id="header_main">
+        <div class="header_main_content">
+            <nav class="uk-navbar">
+                <!-- main sidebar switch -->
+                <a href="#" id="sidebar_main_toggle" class="sSwitch sSwitch_left">
+                    <span class="sSwitchIcon"></span>
+                </a>
+                <!-- secondary sidebar switch -->
+                <a href="#" id="sidebar_secondary_toggle" class="sSwitch sSwitch_right sidebar_secondary_check">
+                    <span class="sSwitchIcon"></span>
+                </a>
+             <%--   <div id="menu_top" class="uk-float-left uk-hidden-small">
+                    <div class="uk-button-dropdown" data-uk-dropdown="{mode:'click'}">
+                        <a href="#" class="top_menu_toggle"><i class="fa fa-th-large"></i></a>
+                        <div class="uk-dropdown uk-dropdown-width-3">
+                            <div class="uk-grid uk-dropdown-grid">
+                                <div class="uk-width-2-3">
+                                    <div class="uk-grid uk-grid-width-medium-1-3 uk-margin-top uk-margin-bottom uk-text-center">
+                                        <a href="javascript:void(0);">
+                                            <i class="material-icons md-36">&#xE158;</i>
+                                            <span class="uk-text-muted uk-display-block">Mailbox</span>
+                                        </a>
+                                        <a href="javascript:void(0);">
+                                            <i class="material-icons md-36">&#xE53E;</i>
+                                            <span class="uk-text-muted uk-display-block">Invoices</span>
+                                        </a>
+                                        <a href="javascript:void(0);">
+                                            <i class="material-icons md-36 md-color-red-600">&#xE0B9;</i>
+                                            <span class="uk-text-muted uk-display-block">Chat</span>
+                                        </a>
+                                        <a href="javascript:void(0);">
+                                            <i class="material-icons md-36">&#xE85C;</i>
+                                            <span class="uk-text-muted uk-display-block">Scrum Board</span>
+                                        </a>
+                                        <a href="javascript:void(0);">
+                                            <i class="material-icons md-36">&#xE86F;</i>
+                                            <span class="uk-text-muted uk-display-block">Snippets</span>
+                                        </a>
+                                        <a href="javascript:void(0);">
+                                            <i class="material-icons md-36">&#xE87C;</i>
+                                            <span class="uk-text-muted uk-display-block">User profile</span>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="uk-width-1-3">
+                                    <ul class="uk-nav uk-nav-dropdown uk-panel">
+                                        <li class="uk-nav-header">Components</li>
+                                        <li><a href="javascript:void(0);">Accordions</a></li>
+                                        <li><a href="javascript:void(0);">Buttons</a></li>
+                                        <li><a href="javascript:void(0);">Notifications</a></li>
+                                        <li><a href="javascript:void(0);">Sortable</a></li>
+                                        <li><a href="javascript:void(0);">Tabs</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>--%>
+                <div class="uk-navbar-flip">
+                    <ul class="uk-navbar-nav user_actions">
+                        <%--<li><a href="#" id="main_search_btn" class="user_action_icon">
+                            <i class="fa fa-search" style="font-size: 18px;"></i></a></li>--%>
+                        <%--<li data-uk-dropdown="{mode:'click'}">
+                            <a href="#" class="user_action_icon"><i class="fa fa-bell"></i><span class="uk-badge">16</span></a>
+                            <div class="uk-dropdown uk-dropdown-xlarge uk-dropdown-flip">
+                                <div class="md-card-content">
+                                    <ul class="uk-tab uk-tab-grid" data-uk-tab="{connect:'#header_alerts',animation:'slide-horizontal'}">
+                                        <li class="uk-width-1-2 uk-active"><a href="#" class="js-uk-prevent uk-text-small">Messages (12)</a></li>
+                                        <li class="uk-width-1-2"><a href="#" class="js-uk-prevent uk-text-small">Alerts (4)</a></li>
+                                    </ul>
+                                    <ul id="header_alerts" class="uk-switcher uk-margin">
+                                        <li>
+                                            <ul class="md-list md-list-addon">
+                                                <li>
+                                                    <div class="md-list-addon-element">
+                                                        <span class="md-user-letters md-bg-cyan">ao</span>
+                                                    </div>
+                                                    <div class="md-list-content">
+                                                        <span class="md-list-heading"><a href="javascript:void(0);">Magni quam sed.</a></span>
+                                                        <span class="uk-text-small uk-text-muted">Quia unde porro dicta vel deleniti.</span>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="md-list-addon-element">
+                                                        <img class="md-user-image md-list-addon-avatar" src="../../../images/admin/user.png" alt="" />
+                                                    </div>
+                                                    <div class="md-list-content">
+                                                        <span class="md-list-heading"><a href="javascript:void(0);">Iste vel.</a></span>
+                                                        <span class="uk-text-small uk-text-muted">Veniam natus enim quas ea dolore a quam a et distinctio.</span>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="md-list-addon-element">
+                                                        <span class="md-user-letters md-bg-light-green">ym</span>
+                                                    </div>
+                                                    <div class="md-list-content">
+                                                        <span class="md-list-heading"><a href="javascript:void(0);">Id adipisci.</a></span>
+                                                        <span class="uk-text-small uk-text-muted">Eos exercitationem tempora totam consequatur corporis nostrum et id ipsum doloremque.</span>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="md-list-addon-element">
+                                                        <img class="md-user-image md-list-addon-avatar" src="../../../images/admin/user.png" alt="" />
+                                                    </div>
+                                                    <div class="md-list-content">
+                                                        <span class="md-list-heading"><a href="javascript:void(0);">Sit itaque.</a></span>
+                                                        <span class="uk-text-small uk-text-muted">Consequatur sit recusandae et ratione vitae quasi est sed est totam.</span>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="md-list-addon-element">
+                                                        <img class="md-user-image md-list-addon-avatar" src="../../../images/admin/user.png" alt="" />
+                                                    </div>
+                                                    <div class="md-list-content">
+                                                        <span class="md-list-heading"><a href="javascript:void(0);">Labore voluptatem qui.</a></span>
+                                                        <span class="uk-text-small uk-text-muted">Eligendi illo eligendi sequi et fugit quia qui accusamus necessitatibus est.</span>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                            <div class="uk-text-center uk-margin-top uk-margin-small-bottom">
+                                                <a href="javascript:void(0);" class="md-btn md-btn-flat md-btn-flat-primary js-uk-prevent">Show All</a>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <ul class="md-list md-list-addon">
+                                                <li>
+                                                    <div class="md-list-addon-element">
+                                                        <i class="md-list-addon-icon material-icons uk-text-warning">&#xE8B2;</i>
+                                                    </div>
+                                                    <div class="md-list-content">
+                                                        <span class="md-list-heading">Soluta quidem.</span>
+                                                        <span class="uk-text-small uk-text-muted uk-text-truncate">Aut impedit nam vero veritatis perspiciatis praesentium.</span>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="md-list-addon-element">
+                                                        <i class="md-list-addon-icon material-icons uk-text-success">&#xE88F;</i>
+                                                    </div>
+                                                    <div class="md-list-content">
+                                                        <span class="md-list-heading">Voluptatem culpa asperiores.</span>
+                                                        <span class="uk-text-small uk-text-muted uk-text-truncate">Magni sunt quis fugit in qui molestiae dolorum et.</span>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="md-list-addon-element">
+                                                        <i class="md-list-addon-icon material-icons uk-text-danger">&#xE001;</i>
+                                                    </div>
+                                                    <div class="md-list-content">
+                                                        <span class="md-list-heading">Aspernatur ipsam nostrum.</span>
+                                                        <span class="uk-text-small uk-text-muted uk-text-truncate">Enim consequatur deleniti quo autem amet delectus earum.</span>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="md-list-addon-element">
+                                                        <i class="md-list-addon-icon material-icons uk-text-primary">&#xE8FD;</i>
+                                                    </div>
+                                                    <div class="md-list-content">
+                                                        <span class="md-list-heading">Eligendi porro adipisci.</span>
+                                                        <span class="uk-text-small uk-text-muted uk-text-truncate">Repellendus voluptatem voluptas nihil necessitatibus et repellendus optio.</span>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </li>--%>
+                        <li data-uk-dropdown="{mode:'click'}" style="padding-top:12px">
+                        <uc1:header id="header1" runat="server" />
+                          
+                        </li>
+                        <li id="lklogout" runat="server">
+                         <asp:LinkButton ID="lnkSignOut" style="padding-top:1px" runat="server" onclick="lnkSignOut_Click" ForeColor="White">Log Out</asp:LinkButton>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+        <%--<div class="header_main_search_form">
+            <i class="md-icon header_main_search_close material-icons fa fa-close"></i>
+            <form class="uk-form">
+                <input type="text" class="header_main_search_input" />
+                <button class="header_main_search_btn uk-button-link"><i class="md-icon material-icons fa fa-search"></i></button>
+            </form>
+        </div>--%>
+    </header>
+    <!-- main header end -->
+
+    <!-- main sidebar -->
+    <aside id="sidebar_main">
+        <div class="sidebar_main_header">
+            <div class="sidebar_logo">
+                <a class="sSidebar_hide">
+                    <img src="/images/Logo.png" alt="PMU-Logo" />
+                </a>
+
+            </div>
+
+        </div>
+        <div class="menu_section">
+            <ul id ="ulAdminMenu" runat="server">
+                <li class="current_section" title="Dashboard">
+                    <a href="/cmsadmin/account/Dashboard/default.aspx">
+                        <span class="menu_icon"><i class="material-icons fa fa-dashboard"></i></span>
+                        <span class="menu_title">Dashboard</span>
+                    </a>
+                </li>
+                <li class="<%= GetCss("events") %>" title="Home">
+                    <a href="javascript:void(0);">
+                        <span class="menu_icon"><i class="material-icons fa fa-newspaper-o"></i></span>
+                        <span class="menu_title">Events</span>
+                    </a>
+                    <ul id="ulEvents" runat="server">
+                        <li><a href="/cmsadmin/account/events/addevents.aspx">Add / Edit Events</a></li>
+                        <li><a href="/cmsadmin/account/events/viewevents.aspx">View Events</a></li>
+                        
+                       </ul>
+                </li>
+                <li class="<%= GetCss("gallery") %>" title="Home">
+                    <a href="javascript:void(0);">
+                        <span class="menu_icon"><i class="material-icons fa fa-picture-o"></i></span>
+                        <span class="menu_title">Gallery</span>
+                    </a>
+                    <ul id="ulGallery" runat="server">
+                        <li><a href="/cmsadmin/account/gallery/AddAlbum.aspx">Add/Edit Album</a></li>
+                        <li><a href="/cmsadmin/account/gallery/AddGallery.aspx">Add Gallery</a></li>
+                        <li><a href="/cmsadmin/account/gallery/ViewGallery.aspx">View Gallery</a></li>
+                       </ul>
+                </li>
+
+              <li class="<%= GetCss("achievement") %>" title="Home">
+                    <a href="javascript:void(0);">
+                        <span class="menu_icon"><i class="material-icons fa fa-picture-o"></i></span>
+                        <span class="menu_title">Achievement Corner</span>
+                    </a>
+                    <ul id="ulAchievement" runat="server">
+                        <li><a href="/cmsadmin/account/achievement-corner/addachievementcorner.aspx">Add / Edit Achievement Corner</a></li>
+                        <li><a href="/cmsadmin/account/achievement-corner/viewachievementcorner.aspx">View Achievement Corner</a></li>
+                       </ul>
+                </li>
+
+                 <li class="<%= GetCss("video") %>" title="Home">
+                    <a href="javascript:void(0);">
+                        <span class="menu_icon"><i class="material-icons fa fa-play-circle-o"></i></span>
+                        <span class="menu_title">Video</span>
+                    </a>
+                    <ul id="ulVideo" runat="server">
+                        <li><a href="/cmsadmin/account/video/addvideo.aspx">Add / Edit Video</a></li>
+                        <li><a href="/cmsadmin/account/video/viewvideo.aspx">View Video</a></li>
+                       </ul>
+                </li>
+                <li class="<%= GetCss("news") %>" title="Home">
+                    <a href="javascript:void(0);">
+                        <span class="menu_icon"><i class="material-icons fa fa-newspaper-o"></i></span>
+                        <span class="menu_title">News Update</span>
+                    </a>
+                    <ul id="ulNews" runat="server">
+                        <li><a href="/cmsadmin/account/news/addnewsslider.aspx">Add / Edit News</a></li>
+                        <li><a href="/cmsadmin/account/news/viewnewsslider.aspx">View News</a></li>
+                       </ul>
+                </li>
+                <li class="<%= GetCss("slider") %>" title="Home">
+                    <a href="javascript:void(0);">
+                        <span class="menu_icon"><i class="material-icons fa fa-sliders"></i></span>
+                        <span class="menu_title">Sliders</span>
+                    </a>
+                    <ul id="ulSlider" runat="server">
+                        <li><a href="/cmsadmin/account/slider/AddSlider.aspx">Add / Edit Slider</a></li>
+                        <li><a href="/cmsadmin/account/slider/Viewslider.aspx">View Slider</a></li>
+                       </ul>
+                </li>
+                <li class="<%= GetCss("faculty") %>" title="Home">
+                    <a href="javascript:void(0);">
+                        <span class="menu_icon"><i class="material-icons fa fa-user"></i></span>
+                        <span class="menu_title">Faculty</span>
+                    </a>
+                    <ul id="ulfaculty" runat="server">
+                        <li><a href="/cmsadmin/account/faculty/addfaculty.aspx">Add / Edit Faculty</a></li>
+                        <li><a href="/cmsadmin/account/faculty/viewfaculty.aspx">View Faculty</a></li>
+                       </ul>
+                </li>
+                <li class="<%= GetCss("department") %>" title="Home">
+                    <a href="javascript:void(0);">
+                        <span class="menu_icon"><i class="material-icons fa fa-user"></i></span>
+                        <span class="menu_title">Department</span>
+                    </a>
+                    <ul id="uldepartment" runat="server">
+                        <li><a href="/cmsadmin/account/Department/AddDepartment.aspx">Add / Edit Department</a></li>
+                        <li><a href="/cmsadmin/account/Department/viewDepartment.aspx">View Department</a></li>
+                       </ul>
+                </li>
+                <li class="<%= GetCss("about") %>" title="Home">
+                    <a href="javascript:void(0);">
+                        <span class="menu_icon"><i class="material-icons fa fa-user"></i></span>
+                        <span class="menu_title">Department About</span>
+                    </a>
+                    <ul id="uldepartmentAbout" runat="server">
+                        <li><a href="/cmsadmin/account/Department/add-about.aspx">Add Department About</a></li>
+                        <li><a href="/cmsadmin/account/Department/viewabout.aspx">View / Edit Department about</a></li>
+                       </ul>
+                </li>
+                 <li class="<%= GetCss("courses") %>" title="Home">
+                    <a href="javascript:void(0);">
+                        <span class="menu_icon"><i class="material-icons fa fa-user"></i></span>
+                        <span class="menu_title">Department Courses</span>
+                    </a>
+                    <ul id="ulcourses" runat="server">
+                        <li><a href="/cmsadmin/account/Department/Add-Departmentcourses.aspx">Add Department Courses</a></li>
+                        <li><a href="/cmsadmin/account/Department/viewDepartmentcourses.aspx">View / Edit Department Courses</a></li>
+                    </ul>
+                </li>
+               
+                <li class="<%= GetCss("naac") %>" title="Home">
+                    <a href="javascript:void(0);">
+                        <span class="menu_icon"><i class="material-icons fa fa-user"></i></span>
+                        <span class="menu_title">Naac</span>
+                    </a>
+                    <ul id="ulNaac" runat="server">
+                        <li><a href="/cmsadmin/account/naac/criteria.aspx">Add / Edit Criteria</a></li>
+                        <li><a href="/cmsadmin/account/naac/metric.aspx">Add / Edit Metric</a></li>
+                         <li><a href="/cmsadmin/account/naac/submetric.aspx">Add / Edit Sub Metric</a></li>
+                         <li><a href="/cmsadmin/account/naac/Addnaac.aspx">Add Naac</a></li>
+                        <li><a href="/cmsadmin/account/naac/View.aspx">View / Edit Naac</a></li>
+                       </ul>
+                </li>
+                 <li class="<%= GetCss("aqar") %>" title="Home">
+                    <a href="javascript:void(0);">
+                        <span class="menu_icon"><i class="material-icons fa fa-user"></i></span>
+                        <span class="menu_title">AQAR</span>
+                    </a>
+                    <ul id="ulaqar" runat="server">
+                        <li><a href="/cmsadmin/account/aqar/criteria.aspx">Add / Edit Criteria</a></li>
+                        <li><a href="/cmsadmin/account/aqar/metric.aspx">Add / Edit Metric</a></li>
+                         <li><a href="/cmsadmin/account/aqar/submetric.aspx">Add / Edit Sub Metric</a></li>
+                         <li><a href="/cmsadmin/account/aqar/Addaqar.aspx">Add AQAR</a></li>
+                        <li><a href="/cmsadmin/account/aqar/View.aspx">View / Edit AQAR</a></li>
+                       </ul>
+                </li>
+                 <li class="<%= GetCss("iqac") %>" title="Home">
+                    <a href="javascript:void(0);">
+                        <span class="menu_icon"><i class="material-icons fa fa-user"></i></span>
+                        <span class="menu_title">Iqac</span>
+                    </a>
+                    <ul id="uliqac" runat="server">
+                         <li><a href="/cmsadmin/account/iqac/section.aspx">Add / Edit Section</a></li>
+                        <li><a href="/cmsadmin/account/iqac/add.aspx">Add</a></li>
+                        <li><a href="/cmsadmin/account/iqac/view.aspx">View</a></li>
+                         <li><a href="/cmsadmin/account/iqac/addalbum.aspx">Add / Edit Album</a></li>
+                        <li><a href="/cmsadmin/account/iqac/addiqacgallery.aspx">Add Gallery</a></li>
+                        <li><a href="/cmsadmin/account/iqac/viewiqacgallery.aspx">View / Edit Gallery</a></li>
+                       </ul>
+                </li>
+                <li class="<%= GetCss("recuritment") %>" title="Home">
+                    <a href="javascript:void(0);">
+                        <span class="menu_icon"><i class="material-icons fa fa-user"></i></span>
+                        <span class="menu_title">Recuritment</span>
+                    </a>
+                    <ul id="ulrecuritment" runat="server">
+                       
+                        <li><a href="/cmsadmin/account/recuritment/View.aspx">View</a></li>
+                        
+                       </ul>
+                </li>
+                <li class="<%= GetCss("internships") %>" title="Home">
+                    <a href="javascript:void(0);">
+                        <span class="menu_icon"><i class="material-icons fa fa-user"></i></span>
+                        <span class="menu_title">Internships</span>
+                    </a>
+                    <ul id="ulinternships" runat="server">
+                       
+                        <li><a href="/cmsadmin/account/internships/View.aspx">View</a></li>
+                        
+                       </ul>
+                </li>
+                 <li class="<%= GetCss("alumni") %>" title="Home">
+                    <a href="javascript:void(0);">
+                        <span class="menu_icon"><i class="material-icons fa fa-user"></i></span>
+                        <span class="menu_title">Alumni</span>
+                    </a>
+                    <ul id="ulalumni" runat="server">
+                         <li><a href="/cmsadmin/account/alumni/Add.aspx">Add / Edit alumni</a></li>
+                        <li><a href="/cmsadmin/account/alumni/View.aspx">View</a></li>
+                         <li><a href="/cmsadmin/account/alumni/addalbum.aspx">Add / Edit Album</a></li>
+                        <li><a href="/cmsadmin/account/alumni/Addalumnigallery.aspx">Add Gallery</a></li>
+                        <li><a href="/cmsadmin/account/alumni/Viewalumnigallery.aspx">View / Edit Gallery</a></li>
+                       </ul>
+                </li>
+                 <li class="<%= GetCss("settings") %>" title="Home">
+                    <a href="javascript:void(0);">
+                        <span class="menu_icon"><i class="material-icons fa fa-user"></i></span>
+                        <span class="menu_title">Settings</span>
+                    </a>
+                    <ul id="ulUser" runat="server">
+                        <li><a href="/cmsadmin/account/User/changepassword.aspx">Change Password</a></li>
+                        
+                       </ul>
+                </li>
+              
+            </ul>
+            
+            <div style="height: 50px;">
+                &nbsp;
+            </div>
+        </div>
+    </aside>
+    <!-- main sidebar end -->
+    <div id="page_content">
+
+
+        <div id="page_heading">
+            <asp:ContentPlaceHolder ID="PageHeading" runat="server">
+            </asp:ContentPlaceHolder>
+
+        </div>
+
+
+        <div id="page_content_inner">
+
+            <asp:ContentPlaceHolder ID="PageContent" runat="server">
+            </asp:ContentPlaceHolder>
+
+        </div>
+    </div>
+
+<%--    <script src="/Etihad/admin/js/admin/jquery-1.8.2.min.js"></script>--%>
+
+    <!-- common functions -->
+    <script src="/cmsadmin/js/admin/common.min.js"></script>
+
+    <!-- uikit functions -->
+    <script src="/cmsadmin/js/admin/uikit_custom.min.js"></script>
+
+    <!-- core functions -->
+    <script src="/cmsadmin/js/admin/altair_admin_common.min.js"></script>
+
+    <!-- Forms Advanced -->
+    <%--<script src="../../../js/admin/forms_advanced.min.js"></script>
+
+    <script src="../../../js/admin/jquery.easypiechart.min.js"></script>--%>
+     
+    <script>
+
+        $(document).ready(function () {
+
+            $(".menu_section ul li").click(function () {
+                $(".current_section").removeClass("current_section");
+                $(this).addClass("current_section");
+            });
+        });
+
+        function addZero(i) {
+            if (i < 10) {
+                i = "0" + i;
+            }
+            return i;
+        }
+        function getActualHour() {
+            var d = new Date();
+            var h = addZero(d.getHours());
+            var m = addZero(d.getMinutes());
+//            var s = addZero(d.getSeconds());
+            return h + ":" + m;
+        }
+        function getActualDate() {
+            var d = new Date();
+            var day = addZero(d.getDate());
+            var month = addZero(d.getMonth()+1);
+            var year = addZero(d.getFullYear());
+            return day + "/" + month + "/" + year;
+        }
+        $(document).ready(function(){
+            $("#date").html(getActualDate());
+            $("#hour").html(getActualHour());
+        });
+    </script>
+    <asp:ContentPlaceHolder ID="PageScript" runat="server">
+    
+    </asp:ContentPlaceHolder>
+   </form>
+</body>
+</html>

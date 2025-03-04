@@ -73,7 +73,7 @@ public partial class PMIST_Admin_view_placements : System.Web.UI.Page
         DataTable dt = new DataTable();
         try
         {
-            dt = PMP.ViewAllPlacements(ddldepartment.SelectedValue, ddlstatus.SelectedValue, "");
+            dt = PMP.ViewAllPlacements(ddldepartment.SelectedValue, ddlstatus.SelectedValue, "", "placement");
         }
         catch (Exception ex)
         {

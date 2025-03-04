@@ -1,0 +1,182 @@
+.navbar-expand-lg .navbar-toggler.dBlockClass {
+    display: block;
+    position: absolute;
+    right: 5px;
+    top: 32%;
+}
+.navbar-expand-lg .navbar-toggler.dBlockClass:before {
+    content: 'Menu';
+    position: absolute;
+    left: -35px;
+    font-size: 16px;
+    color: #00498E;
+}
+
+.logoBg .logo.logoScroll {
+    height: 78px !important;
+    margin-top: 0 !important;
+    width: 100% !important;
+    transition: .3s;
+  }
+  .logoBg.logoBgScroll::after {
+    content: '';
+    border-top: 0 solid #fff;
+  }
+  .footerLogo::after {
+    position: absolute;
+    content: "";
+    border-top: 1px solid #fff;
+    width: 31%;
+    top: 50%;
+    left: 14%;
+  }
+  .footerLogo::before {
+    position: absolute;
+    content: "";
+    border-top: 1px solid #fff;
+    width: 30%;
+    top: 50%;
+    right: 15%;
+  }
+  .toggleIcon div {
+    display: block;
+    width: 30px;
+    height: 2.5px;
+  }
+  .close.push_left {
+    margin-right: 15px;
+  }
+  .logoBg::after {
+    content: " ";
+    position: absolute;
+    width: 400px;
+    height: 0;
+    border-top: 103px solid #fff;
+    border-right: 60px solid transparent;
+    top: 0;
+    right: -65px;
+    z-index: 0;
+  }
+  .admin__btn {
+    margin: auto 120px auto auto;
+}
+.admin__btn a {
+    background: transparent linear-gradient(-360deg, #f15654 0%, #f42c29 100%) 0% 0% no-repeat padding-box;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-size: 17px;
+    border: 1px solid #f42c29;
+}
+
+@media (max-width: 600px) {
+    .admin__btn {
+        margin: auto 68px auto auto;
+        position: absolute;
+        top: 30%;
+        z-index: 111;
+        right: 0%;
+    }
+    .admin__btn a {
+        padding: 4px 10px;
+        border-radius: 30px;
+        text-decoration: none;
+        font-size: 13px;
+    }
+    .admin__btn a span {
+        display: none !important;
+    }
+    .navbar-expand-lg .navbar-toggler.dBlockClass::before { 
+        content: '';
+    }
+    .logoBg .logo.logoScroll {
+        height: 61px !important;
+        margin-top: 0 !important;
+        width: 100% !important;
+      }
+      .logo, .logoBg {
+        width: 230px;
+        height: auto;
+        margin-top: auto;
+      }
+      .hamburgerIcon {
+  margin-top: 30px !important;
+}
+.navbar-expand-lg .navbar-toggler.dBlockClass {
+    top: -12%;
+  }
+  .footerLogo::before {
+    right: 0;
+  }
+  .footerLogo::after {
+    left: 0;
+  }
+  .footerBg h3 {
+    font-size: 20px !important;
+  }
+}
+
+@media screen and (min-width: 600px) and (max-width: 767px) {
+    .navbar-expand-lg .navbar-toggler.dBlockClass {
+        top: -7%;
+      }
+      .footerLogo::before {
+        right: 13%;
+      }
+      .footerLogo::after {
+        left: 12%;
+      }
+      .footerBg h3 {
+        font-size: 20px !important;
+      }
+      .marquee-container {
+        width: 82%;
+      }
+}
+
+@media screen and (min-width: 767px) and (max-width: 992px) {
+
+    .navbar-expand-lg .navbar-toggler.dBlockClass {
+        top: -7%;
+      }
+      .footerLogo::before {
+        right: 13%;
+      }
+      .footerLogo::after {
+        left: 12%;
+      }
+      .footerBg h3 {
+        font-size: 20px !important;
+      }
+    }
+
+    @media screen and (min-width: 992px) and (max-width: 1199px) {
+        .navbar-expand-lg .navbar-toggler.dBlockClass {
+            top: -7%;
+          }
+          .footerLogo::before {
+            right: 13%;
+          }
+          .footerLogo::after {
+            left: 12%;
+          }
+        }
+
+        @media screen and (min-width: 1199px) and (max-width: 1365px) {
+              .navbar-expand-lg .navbar-toggler.dBlockClass {
+                top: -7%;
+              }
+        }
+        
+
+        @media (max-width: 575px) {
+            .placementSlider {
+            margin-top: auto;
+            }
+        }
+        @media screen and (min-width: 600px) and (max-width: 992px) {
+            .margin-5 {
+            margin-top: auto !important;
+            }
+        }

@@ -1,0 +1,19 @@
+@media (max-width: 767px) {
+    .admissionBanner{
+        background-position: unset !important;
+        background-size: 100% 100% !important;
+    }
+    .green__campus {
+        margin-top: 10%;
+    }
+}
+@media (min-width: 992px) {
+.adbg-mobile-view {
+    display: none;
+  }
+}
+@media (max-width: 991px) {
+	.adbg {
+	    display: none !important;
+	  }
+}

@@ -15,6 +15,7 @@ public class pmistactivities
     public bool ActivitiyStatus { get; set; }
     public bool AVIStatus { get; set; }
     public string strTitle { get; set; }
+   
     public string strPdfFilename { get; set; }
     public string strContent { get; set; }
     public string strAddedBy { get; set; }

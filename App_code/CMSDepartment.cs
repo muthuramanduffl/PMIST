@@ -55,9 +55,6 @@ public class CMSDepartment
             cnn.Open();
             using (SqlCommand command = new SqlCommand("AddCMSDepartment", cnn))
             {
-
-
-
                 command.CommandType = CommandType.StoredProcedure;
                 command.Parameters.Add(
             new SqlParameter("@FacultyID", D.Facultyid));
@@ -68,10 +65,6 @@ public class CMSDepartment
                 command.Parameters.Add(
             new SqlParameter("@AddedDate", Utility.IndianTime));
                 rowaffected = command.ExecuteNonQuery();
-
-
-
-
             }
             cnn.Close();
         }

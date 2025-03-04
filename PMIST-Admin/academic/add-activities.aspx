@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/PMIST-Admin/Admin.master" AutoEventWireup="true" CodeFile="add-activities.aspx.cs" Inherits="adminkey2hcom_activities" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/PMIST-Admin/Admin.master" AutoEventWireup="true" CodeFile="add-activities.aspx.cs" Inherits="activities" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
     <style>
@@ -352,6 +352,7 @@
             const cancelButton = document.querySelector('.swtAltCancel-Refresh');
 
             if (cancelButton) {
+                
                 cancelButton.addEventListener('click', function () {
                     Swal.fire({
                         title: 'Are you sure you want to cancel?',
@@ -385,7 +386,7 @@
     </script>
 
       <script type="text/javascript">
-        function attachSweetAlert() {
+        function attachSweetAlertIVI() {
             const cancelButton = document.querySelector('.swtAltCancel-RefreshIVI');
 
             if (cancelButton) {
@@ -412,11 +413,11 @@
         }
 
         Sys.WebForms.PageRequestManager.getInstance().add_endRequest(function () {
-            attachSweetAlert();
+            attachSweetAlertIVI()
         });
 
         document.addEventListener('DOMContentLoaded', function () {
-            attachSweetAlert();
+            attachSweetAlertIVI()
         });
 
       </script>

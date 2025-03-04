@@ -1,0 +1,381 @@
+﻿<%@ Page Title="" Language="C#" MasterPageFile="../accountMaster.master" AutoEventWireup="true" CodeFile="submetric.aspx.cs" Inherits="admin_account_naac_submetric" ValidateRequest="false" %>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="PageHeading" runat="Server">
+    <h1><asp:Label ID="lblSchoolName" runat="server"></asp:Label> Sub Metric </h1>
+</asp:Content>
+
+
+<asp:Content ID="Content3" ContentPlaceHolderID="PageContent" runat="Server">
+   <script type="text/javascript">
+       function confirmDelete() {
+           return confirm('Are you sure you wish to delete this entry?');
+
+       }
+       
+</script>
+<style>
+    table tbody tr th {
+        padding-left: 10px;
+        text-align:center;
+        padding-top: 12px;
+   padding-bottom: 12px;
+   padding-right: 10px;
+   }
+    table tbody tr td {
+        /* padding-left: 11px; */
+        text-align:center;
+        word-break: break-word;
+        padding: 15px 0px;
+   }
+   table {
+       border-collapse: separate !important;
+       border-spacing: 2px 0;
+       width: 100%;
+   }
+   table table {
+       width: auto;
+       margin-top: 2%;
+       margin-bottom: 3%;
+   }
+   .table-responsive {
+       display: block;
+       width: 100%;
+       overflow-x: auto;
+       /* height: 50vh; */
+       /* overflow-y: hidden; */
+   }
+   /* .uk-width-large-3-3, .uk-width-large-2-3 {
+       width: 100%;
+   } */
+   tr:last-child td {
+       padding: 0px !important;
+       margin: auto 2px;
+   }
+   tr:last-child td a {
+       color: #000;
+       padding: .5rem .75rem;
+       border: 1px solid #e2e5e9;
+       border-radius: 100px;
+   }
+   tr:last-child td span {
+       background: #004A8F;
+       color: #fff;
+       padding: .5rem .75rem;
+       border: 1px solid #004A8F;
+       border-radius: 100px;
+   }
+</style>
+        <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+        <asp:ValidationSummary ID="ValidationSummary1" runat="server" CssClass="errormsg" ShowSummary="false" ShowMessageBox="true" Display="None" ValidationGroup="val"/>
+        <%--<asp:UpdatePanel ID="UpdatePanel1" runat="server" RenderMode="Inline">
+            <ContentTemplate>--%>
+
+                <div class="uk-grid">
+
+                    <div class="uk-width-xLarge-1-1  uk-width-large-1-1">
+                        <div class="md-card">
+                            <div class="md-card-toolbar">
+                                <h3 class="md-card-toolbar-heading-text"><asp:Label ID="lblDisplayText" runat="server"></asp:Label>
+                                <b style="padding-left:420px"><asp:Label  ID="lblStatus" runat="server"></asp:Label></b>
+                                <asp:PlaceHolder ID="phLiveUrl" runat="server"></asp:PlaceHolder>
+                               
+                                </h3>
+                            </div>
+                            <div class="md-card-content large-padding">
+                                <div class="uk-grid uk-grid-divider uk-grid-medium">
+                                    <div class="uk-width-large-2-3">
+                                        <div class="uk-grid uk-grid-small">
+                                            <div class="uk-width-large-3-3">
+                                                <div class="md-input-wrapper" >
+                                                    <asp:PlaceHolder ID="PhImg" runat="server"></asp:PlaceHolder>
+                                                    <div class="md-input-wrapper md-input-filled" style="">
+                                                     Criteria:
+                                                        <asp:DropDownList ID="ddlFilter" runat="server" AutoPostBack="true" CssClass="select-list" Width="50px" OnSelectedIndexChanged="ddlFilter_SelectedIndexChanged">
+                                                         <asp:ListItem Value="All">All</asp:ListItem>
+                                                            <asp:ListItem Value="1">1</asp:ListItem>
+                                                        <asp:ListItem Value="2">2</asp:ListItem>
+                                                            <asp:ListItem Value="3">3</asp:ListItem>
+                                                        <asp:ListItem Value="4">4</asp:ListItem> 
+                                                        <asp:ListItem Value="5">5</asp:ListItem>
+                                                        <asp:ListItem Value="6">6</asp:ListItem>
+                                                        <asp:ListItem Value="7">7</asp:ListItem>
+                                                        <asp:ListItem Value="8">8</asp:ListItem>
+                                                        <asp:ListItem Value="9">9</asp:ListItem>
+                                                        <asp:ListItem Value="10">10</asp:ListItem>
+                                                        </asp:DropDownList>
+                                                        Metric:
+                                                        <asp:DropDownList ID="ddlFilterMetric" runat="server" AutoPostBack="true" CssClass="select-list" Width="50px" OnSelectedIndexChanged="ddlMetric_SelectedIndexChanged">
+                                                         <asp:ListItem Value="All">All</asp:ListItem>  
+                                                        </asp:DropDownList>
+                                                        <br />
+                                                         <br />
+                                                         <asp:Label ID="lblcheck" runat="server"></asp:Label>
+                                                         <div class="table-responsive">
+                                                <asp:GridView ID="grvCriteria" runat="server"  DataKeyNames="Sno" AllowPaging="True" AutoGenerateColumns="False"
+                            CellPadding="4" PagerSettings-Mode="NumericFirstLast"  GridLines="None"
+                             onrowcancelingedit="grvCriteria_RowCancelingEdit"
+ onrowediting="grvCriteria_RowEditing"
+onrowupdating="grvCriteria_RowUpdating"
+                            PageSize="10"  OnPageIndexChanging="OnPaging" onrowdatabound="gv_RowDataBound">
+                             <AlternatingRowStyle BackColor="White" ForeColor="#284775" Width="720px" />
+        <EditRowStyle BackColor="#F7F6F3" />
+        <FooterStyle BackColor="#a59c85" Font-Bold="True" ForeColor="White" />
+        <HeaderStyle BackColor="#004a8f" Font-Bold="True" ForeColor="White" Font-Size="13px"  />
+        <PagerStyle BackColor="White" ForeColor="#00000" HorizontalAlign="Center" />
+        <RowStyle BackColor="#F7F6F3" ForeColor="#333333" Font-Size="13px" />
+        <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" />
+       
+              <Columns>   
+                  <asp:TemplateField AccessibleHeaderText="Criteria" HeaderText="Criteria" >
+                <ItemTemplate>
+              <asp:Label ID="lblCriteria" runat="server" Text='<%# Eval("CriteriaId")%>'></asp:Label>
+                </ItemTemplate>
+                 <EditItemTemplate>
+                     <asp:DropDownList ID="ddlUpdateCriteria" runat="server" CssClass="select-list">
+                                                        <asp:ListItem Value="1">1</asp:ListItem>
+                                                        <asp:ListItem Value="2">2</asp:ListItem>
+                                                            <asp:ListItem Value="3">3</asp:ListItem>
+                                                        <asp:ListItem Value="4">4</asp:ListItem> 
+                                                        <asp:ListItem Value="5">5</asp:ListItem>
+                                                        <asp:ListItem Value="6">6</asp:ListItem>
+                                                        <asp:ListItem Value="7">7</asp:ListItem>
+                                                        <asp:ListItem Value="8">8</asp:ListItem>
+                                                        <asp:ListItem Value="9">9</asp:ListItem>
+                                                        <asp:ListItem Value="10">10</asp:ListItem>
+                                                        </asp:DropDownList>
+                  </EditItemTemplate>
+                 </asp:TemplateField>
+                  <asp:TemplateField AccessibleHeaderText="Criteria" HeaderText="Metric No" >
+                <ItemTemplate>
+              <asp:Label ID="lblMetric" runat="server" Text='<%# Eval("MetricNo")%>'></asp:Label>
+                </ItemTemplate>
+                 <EditItemTemplate>
+                     <asp:DropDownList ID="ddlUpdateMetricNo" runat="server" CssClass="select-list">
+                
+                                                        </asp:DropDownList>
+                  </EditItemTemplate>
+                 </asp:TemplateField>
+                  <asp:TemplateField AccessibleHeaderText="MetricNo" HeaderText="Sub Metric No" >
+                <ItemTemplate>
+              <asp:Label ID="lblMetricNo" runat="server" Text='<%# Eval("SubMetricNo")%>'></asp:Label>
+                </ItemTemplate>
+                 <EditItemTemplate>
+                   <asp:HiddenField ID="hiddenMetricNo" runat="server" Value='<%#Eval("SubMetricNo") %>' />
+                  <asp:TextBox ID="txtEditMetricNo" MaxLength="150" Width="100px" runat="server" Text='<%#Eval("SubMetricNo") %>'/>
+                    
+                </EditItemTemplate>
+                 </asp:TemplateField>
+                   <asp:TemplateField AccessibleHeaderText="MetricName" HeaderText="Sub Metric Name" >
+                <ItemTemplate>
+              <asp:Label ID="lblTitle" runat="server" style="word-wrap: break-word;" Text='<%# Eval("SubMetricName")%>'></asp:Label>
+                </ItemTemplate>
+                 <EditItemTemplate>
+                   <asp:HiddenField ID="hiddenTitle" runat="server" Value='<%#Eval("SubMetricName") %>' />
+                   <asp:HiddenField ID="hiddenStatus" runat="server" Value='<%#Eval("Active") %>' />
+                  <asp:TextBox ID="txtEditTitle" MaxLength="150" Width="100px" runat="server" Text='<%#Eval("SubMetricName") %>'/>
+                    
+                </EditItemTemplate>
+                 </asp:TemplateField>
+                  
+                   <asp:TemplateField AccessibleHeaderText="Archive" HeaderText="Status" >
+                <ItemTemplate>
+                   <asp:ImageButton ID="Archiveimg" ImageUrl='<%# bindImage( System.Convert.ToInt16(DataBinder.Eval(Container.DataItem, "Active"))) %>' CommandArgument='<%# Eval("Sno")%>'  OnClick="Statusimg_click" runat="server"></asp:ImageButton>
+                   </ItemTemplate>
+                   </asp:TemplateField>  
+                 <asp:TemplateField AccessibleHeaderText="Name" HeaderText="Created On" >
+                <ItemTemplate>
+                    <asp:Label ID="lblDateTime" runat="server" Text='<%# bindDate( System.Convert.ToDateTime(DataBinder.Eval(Container.DataItem, "AddedDateTime"))) %>'></asp:Label>
+                </ItemTemplate>
+                
+                 </asp:TemplateField>
+                   <asp:TemplateField AccessibleHeaderText="Name" HeaderText="Created By" >
+                <ItemTemplate>
+                    <asp:Label ID="lblPostedBy" runat="server" Text='<%# Eval("AddedBy")%>'></asp:Label>
+                </ItemTemplate>
+                
+                 </asp:TemplateField>
+                 <asp:TemplateField AccessibleHeaderText="Name" HeaderText="Updated On" >
+                <ItemTemplate>
+                    <asp:Label ID="lblUpdatedDateTime" runat="server" Text='<%# bindDate( System.Convert.ToDateTime(DataBinder.Eval(Container.DataItem, "UpdatedDateTime"))) %>'></asp:Label>
+                </ItemTemplate>
+                
+                 </asp:TemplateField>
+                   <asp:TemplateField AccessibleHeaderText="Name" HeaderText="Updated By" >
+                <ItemTemplate>
+                    <asp:Label ID="lblUpdatedBy" runat="server" Text='<%# Eval("UpdatedBy")%>'></asp:Label>
+                </ItemTemplate>
+                
+                 </asp:TemplateField>
+               <asp:TemplateField AccessibleHeaderText="Archive" HeaderText="Edit" >
+          <ItemTemplate>
+        <asp:Button ID="btn_Edit"  CssClass="body" runat="server" Text="Edit" CommandName="Edit" />  
+  
+</ItemTemplate>
+ <EditItemTemplate>
+  <asp:TemplateField AccessibleHeaderText="Archive" HeaderText="Edit" >
+          <ItemTemplate>
+          <asp:LinkButton ID="lnkUpdatee" runat="server"
+          CommandName="Update"
+    
+        Text = "Update"  ></asp:LinkButton>
+           <asp:LinkButton ID="lnkCancel" runat="server"
+          CommandName="Cancel"
+    
+        Text = "Cancel" ></asp:LinkButton>
+</EditItemTemplate>
+   </asp:TemplateField>
+                <asp:TemplateField AccessibleHeaderText="" HeaderText="Delete" >
+                <ItemTemplate>
+              
+                   <asp:LinkButton ID="lbdel" runat="server" CssClass="body" CommandArgument='<%# Eval("Sno")%>' OnClientClick="javascript:return confirmDelete();" Font-Underline="false" CommandName="deleterow" Text="Delete" OnClick="Button_Click">Delete</asp:LinkButton>
+                   </ItemTemplate>
+                   </asp:TemplateField> 
+                
+            </Columns>
+        </asp:GridView></div>
+        <div style="padding-top:25px"></div>
+        <div class="uk-grid uk-grid-small">
+                                         
+                                        </div>
+        
+                                                </div>
+                                                    <span class="md-input-bar"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+
+                                        <hr class="uk-grid-divider uk-hidden-large">
+                                    </div>
+
+
+                                    <!--Right Side Contents-->
+                                    <div class="uk-width-large-1-3">
+                                        <div class="uk-grid uk-grid-small">
+                                            <div class="uk-width-large-3-3">
+                                                <div class="md-input-wrapper" id="dvCriteria" runat="server" style="padding-top:12px">
+                                                    <asp:DropDownList ID="ddlCriteria" runat="server" CssClass="select-list" AutoPostBack="true" OnSelectedIndexChanged="ddlCriteria_SelectedIndexChanged">
+                                                            <asp:ListItem Value="Select Criteria">Select Criteria</asp:ListItem>
+                                                        <asp:ListItem Value="1">1</asp:ListItem>
+                                                        <asp:ListItem Value="2">2</asp:ListItem>
+                                                         <asp:ListItem Value="3">3</asp:ListItem>
+                                                        <asp:ListItem Value="4">4</asp:ListItem> 
+                                                        <asp:ListItem Value="5">5</asp:ListItem>
+                                                        <asp:ListItem Value="6">6</asp:ListItem>
+                                                        <asp:ListItem Value="7">7</asp:ListItem>
+                                                        <asp:ListItem Value="8">8</asp:ListItem>
+                                                        <asp:ListItem Value="9">9</asp:ListItem>
+                                                        <asp:ListItem Value="10">10</asp:ListItem>
+                                                        </asp:DropDownList>
+                                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ErrorMessage="Please select criteria"
+                                                        Display="None" ControlToValidate="ddlCriteria" InitialValue="Select Criteria"  ValidationGroup="val"></asp:RequiredFieldValidator>
+                                                    <span class="md-input-bar"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <asp:UpdatePanel ID="UpdatePanel1" runat="server" ChildrenAsTriggers="true">
+                                                          <ContentTemplate>
+                                        <div class="uk-grid uk-grid-small">
+                                            <div class="uk-width-large-3-3">
+                                                <div class="md-input-wrapper" id="dvMetric" runat="server" style="padding-top:12px">
+                                                    <asp:DropDownList ID="ddlMetricNo" runat="server" CssClass="select-list">
+                                                        <asp:ListItem Value="Select Metric">Select Metric</asp:ListItem>
+                                                        </asp:DropDownList>
+                                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="Please select metric no"
+                                                        Display="None" ControlToValidate="ddlMetricNo" InitialValue="Select Metric"  ValidationGroup="val"></asp:RequiredFieldValidator>
+                                                    <span class="md-input-bar"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                                              </ContentTemplate>
+                              <Triggers>
+       
+          <asp:AsyncPostBackTrigger ControlID="ddlCriteria" EventName="SelectedIndexChanged" />
+                    
+      </Triggers>
+                             </asp:UpdatePanel> 
+                                        <div class="uk-grid uk-grid-small">
+                                            <div class="uk-width-large-3-3">
+                                                <br />
+                                                <br />
+                                                <label>Sub Metric No *</label>
+                                                <div class="md-input-wrapper" id="dvMetricNo" runat="server" style="padding-top:19px">
+                                                    
+                                                    <asp:TextBox ID="txtMetricNo" MaxLength="10" runat="server" CssClass="md-input" style="border-width:2px 2px 2px;"></asp:TextBox>
+                                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="Please enter sub metric no" Display="None" ControlToValidate="txtMetricNo" ValidationGroup="val">
+                                                     </asp:RequiredFieldValidator>
+                                                     <asp:RegularExpressionValidator Id="RegularExpressionValidator2" Display="None" SetFocusOnError="true" RunAt="server" ValidationGroup="val" ControlToValidate="txtMetricNo" ErrorMessage="Please enter a valid sub metric no" ValidationExpression="^([0-9-.\s]*)$">
+</asp:RegularExpressionValidator>
+                                                    <span class="md-input-bar"></span>
+                                                </div>
+                                               
+                                                
+                                            </div>
+                                        </div>
+                                    <div class="uk-grid uk-grid-small">
+                                            <div class="uk-width-large-3-3">
+                                                <label>Title *</label>
+                                                <div class="md-input-wrapper" id="dvTitle" runat="server" style="padding-top:19px">
+                                                    
+                                                    <asp:TextBox ID="txtTitle" MaxLength="150" runat="server" CssClass="md-input" style="border-width:2px 2px 2px;"></asp:TextBox>
+                                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="Please enter title" Display="None" ControlToValidate="txtTitle" ValidationGroup="val">
+                                                     </asp:RequiredFieldValidator>
+                                                    <%-- <asp:RegularExpressionValidator Id="RegularExpressionValidator1" Display="None" SetFocusOnError="true" RunAt="server" ValidationGroup="val" ControlToValidate="txtTitle" ErrorMessage="Please enter a valid title" ValidationExpression="^([a-zA-Z0-9-_.\-\s]*)$">
+</asp:RegularExpressionValidator>--%>
+                                                    <span class="md-input-bar"></span>
+                                                </div>
+                                               
+                                                
+                                            </div>
+                                        </div>
+
+                                        <div class="uk-grid uk-grid-small">
+                                            <div class="uk-width-medium-3-3">
+                                            <asp:CheckBox ID="chkStatus" runat="server" Text="Status" data-switchery="false" Checked="true" />
+                                                <%--<input type="checkbox" data-switchery="false" id="chkStatus" runat="server" style="display: none;" checked="checked" />--%>
+                                                
+                                                <br />
+                                            </div>
+                                        </div>
+                                         
+                                                                           
+                                       
+                                        
+                                        <div class="uk-grid uk-grid-small">
+                                            <div class="uk-width-large-3-3" style="width:1500px">
+                                                <asp:Button ID="btnPublish" runat="server" 
+                                                    CssClass="md-btn md-btn-small md-btn-flat md-btn-primary" Text=" Save " 
+                                                    onclick="btnPublish_Click"  ValidationGroup="val"  />
+                                                  <asp:Button ID="btnClear" runat="server" 
+                                                    CssClass="md-btn md-btn-small md-btn-flat md-btn-warning" Text=" Clear " 
+                                                    onclick="btnClear_Click" />
+                                                    
+                                               
+                                            </div>                                        </div>
+
+                                    </div>
+                                    
+                                    <!--End of Right Side-->
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+
+                </div>
+           <%-- </ContentTemplate>
+        </asp:UpdatePanel>--%>
+   
+</asp:Content>
+
+
+<asp:Content ID="Content4" ContentPlaceHolderID="PageScript" runat="Server">
+
+   
+
+</asp:Content>
+

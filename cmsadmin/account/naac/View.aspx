@@ -1,0 +1,222 @@
+﻿<%@ Page Title="" Language="C#" MasterPageFile="../accountMaster.master" AutoEventWireup="true" CodeFile="View.aspx.cs" Inherits="admin_account_slider_Viewslider" %>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="PageHeading" Runat="Server">
+<h1>Naac <small>(Page View)</small> </h1>
+</asp:Content>
+<asp:Content ID="Content3" ContentPlaceHolderID="PageContent" Runat="Server">
+<script type="text/javascript">
+    function confirmDelete() {
+        return confirm('Are you sure you wish to delete this entry?');
+
+    }
+    function newPopup(url) {
+        popupWindow = window.open(
+        url, 'popUpWindow', 'height=700,width=800,left=10,top=10,resizable=yes,scrollbars=no,toolbar=no,menubar=no,location=no,directories=no,status=yes')
+    }
+</script>
+<style>
+table tbody tr th {
+        padding-left: 10px;
+        text-align:center;
+        padding-top: 12px;
+   padding-bottom: 12px;
+   padding-right: 10px;
+   }
+    table tbody tr td {
+        /* padding-left: 11px; */
+        text-align:center;
+        word-break: break-word;
+        padding: 15px 0px;
+   }
+   table {
+       border-collapse: separate !important;
+       border-spacing: 2px 0;
+       width: 100%;
+   }
+   table table {
+       width: auto;
+       margin-top: 2%;
+       margin-bottom: 3%;
+   }
+   .table-responsive {
+       display: block;
+       width: 100%;
+       overflow-x: auto;
+       /* height: 50vh; */
+       /* overflow-y: hidden; */
+   }
+   .uk-width-large-3-3, .uk-width-large-2-3 {
+       width: 100%;
+   }
+   tr:last-child td {
+       padding: 0px !important;
+       margin: auto 2px;
+   }
+   tr:last-child td a {
+       color: #000;
+       padding: .5rem .75rem;
+       border: 1px solid #e2e5e9;
+       border-radius: 100px;
+   }
+   tr:last-child td span {
+       background: #004A8F;
+       color: #fff;
+       padding: .5rem .75rem;
+       border: 1px solid #004A8F;
+       border-radius: 100px;
+   }
+</style>
+
+<div class="uk-grid">
+
+                    <div class="uk-width-xLarge-1-1  uk-width-large-1-1">
+                        <div class="md-card">
+                            <div class="md-card-toolbar">
+                                <h3 class="md-card-toolbar-heading-text">Dashboard - Naac - <b>View</b>
+                                </h3>
+                            </div>
+                            <div class="md-card-content large-padding" height="750px">
+                                <div class="uk-grid uk-grid-divider uk-grid-medium">
+                                    <div class="uk-width-large-2-3">
+                                          Criteria:
+                                                        <asp:DropDownList ID="ddlFilter" runat="server" AutoPostBack="true" CssClass="select-list" Width="50px" OnSelectedIndexChanged="ddlFilter_SelectedIndexChanged">
+                                                         <asp:ListItem Value="All">All</asp:ListItem>
+                                                            <asp:ListItem Value="1">1</asp:ListItem>
+                                                        <asp:ListItem Value="2">2</asp:ListItem>
+                                                            <asp:ListItem Value="3">3</asp:ListItem>
+                                                        <asp:ListItem Value="4">4</asp:ListItem> 
+                                                        <asp:ListItem Value="5">5</asp:ListItem>
+                                                        <asp:ListItem Value="6">6</asp:ListItem>
+                                                        <asp:ListItem Value="7">7</asp:ListItem>
+                                                        <asp:ListItem Value="8">8</asp:ListItem>
+                                                        <asp:ListItem Value="9">9</asp:ListItem>
+                                                        <asp:ListItem Value="10">10</asp:ListItem>
+                                                        </asp:DropDownList>
+                                                        Metric:
+                                                        <asp:DropDownList ID="ddlFilterMetric" runat="server" AutoPostBack="true" CssClass="select-list" Width="70px" OnSelectedIndexChanged="ddlMetric_SelectedIndexChanged">
+                                                         <asp:ListItem Value="All">All</asp:ListItem>  
+                                                        </asp:DropDownList>
+                                                       Sub Metric:
+                                                        <asp:DropDownList ID="ddlFilterSubMetric" runat="server" AutoPostBack="true" CssClass="select-list" Width="80px" OnSelectedIndexChanged="ddlSubMetric_SelectedIndexChanged">
+                                                         <asp:ListItem Value="All">All</asp:ListItem>  
+                                                        </asp:DropDownList>
+                                        <div class="uk-grid uk-grid-small">
+                                            <div class="uk-width-large-3-3">
+                                                <div class="md-input-wrapper md-input-filled" style="">
+                                               <asp:Label ID="lblcheck" runat="server"></asp:Label>
+                                                    <br />
+                                                     <br />
+                                                     <div class="table-responsive">
+                                                <asp:GridView ID="grvContent" runat="server"  DataKeyNames="Sno" AllowPaging="True" AutoGenerateColumns="False"
+                            CellPadding="4" PagerSettings-Mode="NumericFirstLast"  GridLines="None"
+                             CssClass="PrettyGridView"
+                            PageSize="5"  OnPageIndexChanging="OnPaging"  >
+                             <AlternatingRowStyle BackColor="White" ForeColor="#284775"  />
+        <EditRowStyle BackColor="#999999" />
+        <FooterStyle BackColor="#a59c85" Font-Bold="True" ForeColor="White" />
+        <HeaderStyle BackColor="#004a8f" Font-Bold="True" ForeColor="White" Font-Size="13px"  />
+        <PagerStyle BackColor="White" ForeColor="#00000" HorizontalAlign="Center" />
+        <RowStyle BackColor="#F7F6F3" ForeColor="#333333" Font-Size="13px" />
+        <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" />
+       
+              <Columns> 
+                  <asp:TemplateField AccessibleHeaderText="Criteria" HeaderText="Criteria">
+                <ItemTemplate>
+                   <asp:Label ID="lblCriteria" runat="server" Text='<%# Eval("CriteriaId")%>'></asp:Label>
+                </ItemTemplate>
+                
+                 </asp:TemplateField>
+
+                  <asp:TemplateField AccessibleHeaderText="Metric" HeaderText="Metric">
+                <ItemTemplate>
+                   <asp:Label ID="lblMetric" runat="server" Text='<%# Eval("MetricNo")%>'></asp:Label>
+                </ItemTemplate>
+                
+                 </asp:TemplateField>
+                 <asp:TemplateField AccessibleHeaderText="Sub Metric" HeaderText="Sub Metric">
+                <ItemTemplate>
+                   <asp:Label ID="lblSubMetricNo" runat="server" Text='<%# Eval("SubMetricNo")%>'></asp:Label>
+                </ItemTemplate>
+                
+                 </asp:TemplateField>
+                    <asp:TemplateField AccessibleHeaderText="File Type" HeaderText="File Type">
+                <ItemTemplate>
+                   <asp:Label ID="lblType" runat="server" Text='<%# Eval("Type")%>'></asp:Label>
+                </ItemTemplate>
+                
+                 </asp:TemplateField>
+                  <asp:TemplateField AccessibleHeaderText="Name" HeaderText="File">
+                <ItemTemplate>
+                    <a id="A1" target="_blank" href='<%# bindImageHref(System.Convert.ToString(DataBinder.Eval(Container.DataItem, "Type")),System.Convert.ToString(DataBinder.Eval(Container.DataItem, "Url")))%>' runat="server">
+                         <asp:Label ID="lblFile" runat="server" Text='<%# bindImageTitle(System.Convert.ToString(DataBinder.Eval(Container.DataItem, "Title")))%>' Width="70px"></asp:Label>
+                       </a>
+                </ItemTemplate>
+                
+                 </asp:TemplateField>
+                  <asp:TemplateField AccessibleHeaderText="Archive" HeaderText="Status" >
+                <ItemTemplate>
+                   <asp:ImageButton ID="Archiveimg" ImageUrl='<%# bindImage( System.Convert.ToInt16(DataBinder.Eval(Container.DataItem, "Active"))) %>' CommandArgument='<%# Eval("Sno")+";"+ Eval("Active") %>'  OnClick="Publishimg_click" runat="server"></asp:ImageButton>
+                   </ItemTemplate>
+                   </asp:TemplateField>  
+                      <asp:TemplateField AccessibleHeaderText="Name" HeaderText="DisplayOrder">
+                <ItemTemplate>
+                    <asp:Label ID="lblDisplayOrder" runat="server" Text='<%# Eval("DisplayOrder")%>' Width="70px"></asp:Label>
+                </ItemTemplate>
+                
+                 </asp:TemplateField>
+                 <asp:TemplateField AccessibleHeaderText="Name" HeaderText="Added On">
+                <ItemTemplate>
+                    <asp:Label ID="lblDateTime" runat="server" Text='<%# bindDate( System.Convert.ToDateTime(DataBinder.Eval(Container.DataItem, "AddedDateTime"))) %>' Width="70px"></asp:Label>
+                </ItemTemplate>
+                
+                 </asp:TemplateField>
+                   <asp:TemplateField AccessibleHeaderText="Name" HeaderText="Added By">
+                <ItemTemplate>
+                    <asp:Label ID="lblPostedBy" runat="server" Text='<%# Eval("AddedBy")%>' Width="70px"></asp:Label>
+                </ItemTemplate>
+                
+                 </asp:TemplateField>
+                  <asp:TemplateField AccessibleHeaderText="" HeaderText="Edit" >
+                <ItemTemplate>
+                   <a href='Addnaac.aspx?ID=<%# Eval("Sno") %>'">Edit</a>
+                   </ItemTemplate>
+                   </asp:TemplateField>
+                <asp:TemplateField AccessibleHeaderText="" HeaderText="Delete">
+                <ItemTemplate>
+                   <asp:LinkButton ID="lbdel" runat="server" CssClass="body" CommandArgument='<%# Eval("Sno") +"," + Eval("DisplayOrder")+"," + Eval("CriteriaId")+"," + Eval("MetricId")+"," + Eval("SubMetricId") %>' OnClientClick="javascript:return confirmDelete();" Font-Underline="false" CommandName="deleterow" Text="Delete" OnClick="Button_Click">Delete</asp:LinkButton>
+                   </ItemTemplate>
+                   </asp:TemplateField> 
+                
+            </Columns>
+        </asp:GridView></div>
+        <div style="padding-top:25px"></div>
+        <div class="uk-grid uk-grid-small">
+                                            <div class="uk-width-large-3-3">
+                                                <asp:Button ID="btnAdd" runat="server" CssClass="md-btn md-btn-small md-btn-flat md-btn-success" Text=" Add " OnClick="btnAdd_Click" ValidationGroup="val" />
+                                               <asp:Button ID="btnView" runat="server" CssClass="md-btn md-btn-small md-btn-flat md-btn-success" Text=" Live View " OnClick="btnLiveView_Click" OnClientClick="target ='_blank';"  />
+                                            </div>
+                                        </div>
+        
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+
+
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+
+                </div>
+                 
+</asp:Content>
+<asp:Content ID="Content4" ContentPlaceHolderID="PageScript" Runat="Server">
+</asp:Content>
+
