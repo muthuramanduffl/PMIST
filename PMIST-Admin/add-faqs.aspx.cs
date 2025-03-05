@@ -152,7 +152,7 @@ public partial class PMIST_Admin_Default : System.Web.UI.Page
                     Clear();
                     ScriptManager.RegisterStartupScript(this, this.GetType(), "alert",
                            "Swal.fire({ " +
-                           "  title: 'FAQ\\'s details has been added successfully.', " +
+                           "  title: 'FAQ\\'s details has been updated successfully.', " +
                            "  icon: 'success', " +
                            "  allowOutsideClick: 'true', " +
                            "  customClass: { " +

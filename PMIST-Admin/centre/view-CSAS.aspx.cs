@@ -141,7 +141,7 @@ public partial class PMIST_Admin_view_faqs : System.Web.UI.Page
                     UpdatePanel5.GetType(),
                     "alert",
                     "Swal.fire({" +
-                    "  title: 'Centre for students and administrative services details has been deleted successfully.', " +
+                    "  title: 'Centre details has been deleted successfully.', " +
                     "  confirmButtonText: 'OK', " + // Add the missing comma here
                     "  customClass: {" +
                     "    confirmButton: 'handle-btn-success'" +
@@ -157,7 +157,7 @@ public partial class PMIST_Admin_view_faqs : System.Web.UI.Page
                     ScriptManager.RegisterStartupScript(UpdatePanel5, UpdatePanel5.GetType(),
                     "alert",
                     "Swal.fire({" +
-                    "  title: 'Centre for students and administrative services details has been not deleted due to a server issue.', " +
+                    "  title: 'Centre details has been not deleted due to a server issue.', " +
                     "  confirmButtonText: 'OK', " + // Add the missing comma here
                     "  customClass: {" +
                     "    confirmButton: 'handle-btn-success'" +

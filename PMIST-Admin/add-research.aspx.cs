@@ -89,7 +89,7 @@ public partial class addresearch : System.Web.UI.Page
         }
         else
         {
-            Response.Redirect("view-placements.aspx");
+            Response.Redirect("view-research.aspx");
         }
     }
 

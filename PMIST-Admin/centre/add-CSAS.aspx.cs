@@ -30,7 +30,7 @@ public partial class PMIST_Admin_Mcentre_CSAS : System.Web.UI.Page
             {
                 //edit
                 btnSave.Text = "Update";
-                lbldisplayText.Text = "Edit Centre For Students and Administrative Services";
+                lbldisplayText.Text = "Edit Centre";
                 hdnID.Value = Convert.ToString(value);
             }
             else
@@ -52,7 +52,7 @@ public partial class PMIST_Admin_Mcentre_CSAS : System.Web.UI.Page
         }
         else
         {
-            lbldisplayText.Text = "Add Centre For Students and Administrative Services";
+            lbldisplayText.Text = "Add Centre";
             btnSave.Text = "Submit";
             //add
         }
@@ -201,7 +201,7 @@ public partial class PMIST_Admin_Mcentre_CSAS : System.Web.UI.Page
                 {
                     ScriptManager.RegisterStartupScript(this, this.GetType(), "alert",
                             "Swal.fire({ " +
-                            "  title: 'Centre for students and administrative services details has been added successfully.', " +
+                            "  title: 'Centre details has been added successfully.', " +
                             "  icon: 'success', " +
                             "  allowOutsideClick: 'true', " +
                             "  customClass: { " +
@@ -216,7 +216,7 @@ public partial class PMIST_Admin_Mcentre_CSAS : System.Web.UI.Page
                 {
                     ScriptManager.RegisterStartupScript(this, this.GetType(), "alert",
       "Swal.fire({ " +
-      "  title: 'Centre for students and administrative services details has not been added due to a server issue.', " +  // Corrected the title string
+      "  title: 'Centre details has not been added due to a server issue.', " +  // Corrected the title string
       
       "  allowOutsideClick: true, " +  // No need for quotes around true
       "  customClass: { " +
@@ -356,7 +356,11 @@ public partial class PMIST_Admin_Mcentre_CSAS : System.Web.UI.Page
             csas.strEmailiDthree = txtC3Emailid.Text;
             csas.strAddressthree = txtC3Address.Text;
             csas.strPageType = "type1";
+
+
             csas.strimages = hdnimage.Value;
+
+
             csas.straddedBy = "admin";
             rowaffected = csas.Updatecentrecontenttype1(csas);
         }

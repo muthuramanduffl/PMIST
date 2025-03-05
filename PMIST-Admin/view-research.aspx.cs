@@ -95,7 +95,7 @@ public partial class viewresearch : System.Web.UI.Page
             try
             {
                 int ID = Convert.ToInt32(e.CommandArgument);
-                Response.Redirect("add-placements.aspx?PID=" + ID, false);
+                Response.Redirect("add-research.aspx?PID=" + ID, false);
                 HttpContext.Current.ApplicationInstance.CompleteRequest();
             }
             catch (Exception ex)

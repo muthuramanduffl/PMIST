@@ -117,7 +117,7 @@
 
                                             <asp:Repeater ID="rpruser" OnItemCommand="Repeater1_ItemCommand" runat="server">
                                                 <HeaderTemplate>
-                                                    <table class="display table table-head-bg-info dataTable no-footer" id="basic-datatables" role="grid" aria-describedby="basic-datatables_info">
+                                                    <table class="display table table-head-bg-info dataTable no-footer" id="tblUsers role="grid" aria-describedby="basic-datatables_info">
                                                         <thead>
                                                             <tr>
                                                                 <th class="sorting_asc" style="width: 31.0625px;">S.No</th>
@@ -159,9 +159,6 @@
 
                                                             <asp:LinkButton title="Edit" ID="lkedit" CssClass="md-btn md-btn-small md-btn-flat md-btn-success" runat="server" CommandName="Edit" Text="Edit"
                                                                 CommandArgument='<%# DataBinder.Eval(Container.DataItem, "DepartmentID") %>'>
-
-
-
                                                             </asp:LinkButton>
 
 
@@ -196,6 +193,42 @@
         </div>
 
     </div>
+
+
+
+
+
+     <script src="https://demo.pmu.edu/PMIST-admin/assets/js/core/jquery.3.2.1.min.js"></script> 
+ <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+     <script type="text/javascript">
+         var $jq = jQuery.noConflict();
+         $jq(document).ready(function () {
+             function initDataTable() {
+                 var table = $jq('#tblUsers').DataTable({
+                     "pageLength": 10,
+                     "bSort": false,
+                     "paging": true
+                 });
+
+                 $jq('#tblUsers_info').hide();
+                 var rowCount = table.rows().count();
+                 if (rowCount <= 10) {
+                     table.page.len(rowCount).draw();
+                     $jq('.dataTables_paginate').hide();
+                 } else {
+                     $jq('.dataTables_paginate').show();
+                 }
+             }
+             initDataTable();
+             var prm = Sys.WebForms.PageRequestManager.getInstance();
+             prm.add_endRequest(function (sender, args) {
+                 // Re-initialize the DataTable after UpdatePanel update
+                 setTimeout(function () {
+                     initDataTable();
+                 }, 100);
+             });
+         });
+     </script>
 
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="PageScript" runat="Server">

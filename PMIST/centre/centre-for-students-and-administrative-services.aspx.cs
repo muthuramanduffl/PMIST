@@ -30,9 +30,10 @@ public partial class PMIST_website_centre_centre_for_students_and_administrative
                 repContact.Visible = true;
                 repContact.DataSource = dt;
                 repContact.DataBind();
-
+                int count = 0;
                 if (dt.Rows.Count > 0)
                 {
+                    
                     string filepath = System.Configuration.ConfigurationManager.AppSettings["Centreimages"];
                     string[] imagePaths =  dt.Rows[0]["Imges"].ToString().Split(',');
 
@@ -41,17 +42,38 @@ public partial class PMIST_website_centre_centre_for_students_and_administrative
 
                     foreach (string img in imagePaths)
                     {
-                        dtImages.Rows.Add(filepath + img); // Append path to image name
+                        if (!string.IsNullOrEmpty(img))
+                        {
+                            dtImages.Rows.Add(filepath + img);
+
+                            count++;
+                        }
+                        // Append path to image name
                     }
+
                     Repimage.Visible = true;
                     Repimage.DataSource = dtImages;
                     Repimage.DataBind();
                 }
+                else
+                {
+                    Repimage.Visible = false;
+                }
 
 
 
+                if (count == 0)
+                {
+                    Repimage.Visible = false;
+                    Panel1.Visible = false;
 
-                
+
+                }
+                else
+                {
+                    Panel1.Visible = true;     
+                }
+
 
                 Repeater1.Visible = true;
                 Repeater1.DataSource = dt;
@@ -60,6 +82,7 @@ public partial class PMIST_website_centre_centre_for_students_and_administrative
             else
             {
                 Repeater1.Visible = false;
+                Repimage.Visible = false;
             }
         }
         catch (Exception ex)

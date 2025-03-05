@@ -1,5 +1,3 @@
-
-
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,14 +8,11 @@ using System.Net;
 using System.Data;
 
 
-public partial class academic_research : System.Web.UI.Page
+public partial class infrastructure : System.Web.UI.Page
 {
-
-    pmistplacements PMP = new pmistplacements();
+    pmistinfrastruncture PMIF = new pmistinfrastruncture();
     protected void Page_Load(object sender, EventArgs e)
     {
-
-
         Bind();
     }
 
@@ -29,16 +24,13 @@ public partial class academic_research : System.Web.UI.Page
             DataTable dt = Get();
             if (dt != null && dt.Rows.Count > 0)
             {
-                rprresearch.Visible = true;
-                rprresearch.DataSource = dt;
-                rprresearch.DataBind();
-
-            
+                rprinfrastructure.Visible = true;
+                rprinfrastructure.DataSource = dt;
+                rprinfrastructure.DataBind();
             }
             else
             {
-                rprresearch.Visible = false;
-    
+                rprinfrastructure.Visible = false;
             }
         }
         catch (Exception ex)
@@ -52,7 +44,7 @@ public partial class academic_research : System.Web.UI.Page
         DataTable dt = new DataTable();
         try
         {
-            dt = PMP.ViewAllPlacements("5", "", "", "Research");//computer science id 5 only shows
+            dt = PMIF.ViewAllInfrastructure("5", "1", ""); // department ID is Computer science.
         }
         catch (Exception ex)
         {

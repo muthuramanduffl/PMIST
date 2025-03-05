@@ -49,7 +49,7 @@
                                             <div class="input-icon input-icon-sm right">
                                                 <label>Content <span class="text-danger">*</span></label>
                                                 <i class="bi bi-body-text b5-icon"></i>
-                                                <asp:TextBox ID="txtcontent" CssClass="form-control capitalize-input " TextMode="MultiLine" cols="50" Rows="4" runat="server"></asp:TextBox>
+                                                <asp:TextBox ID="txtcontent" CssClass="form-control capitalize-input editor" TextMode="MultiLine" cols="50" Rows="4" runat="server"></asp:TextBox>
 
                                             </div>
                                             <span class="error">
@@ -75,7 +75,7 @@
                             </div>
                         </div>
                         <div class="card-footer">
-                            <div class="d-flex justify-content-center"> 
+                            <div class="d-flex justify-content-center">
                                 <asp:Button
                                     ID="btnSave" ClientIDMode="Static"
                                     runat="server"
@@ -92,17 +92,41 @@
             </div>
         </div>
     </div>
- 
+
+
+    <script src="https://cdn.ckeditor.com/ckeditor5/32.0.0/classic/ckeditor.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            ClassicEditor
+                .create(document.querySelector('.editor'), {
+                    toolbar: [
+                        'bold', 'italic', 'link', 'undo', 'redo',
+                        'bulletedList', 'numberedList',
+                        'specialCharacters', 'code'
+                    ],
+                    language: 'en', // Ensure language support
+                    removePlugins: ['MediaEmbed'] // If media embedding causes issues
+                })
+                .then(editor => {
+                    editor.model.document.on('change:data', () => {
+                        document.getElementById('<%= txtcontent.ClientID %>').value = editor.getData();
+                   });
+               })
+               .catch(error => console.error(error));
+       });
+    </script>
+
     <script type="text/javascript">
         function validatePage() {
             var flag = Page_ClientValidate('FaqsVal')
             return flag;
         }
     </script>
- 
+
     <script type="text/javascript">
         document.addEventListener('DOMContentLoaded', function () {
-            const cancelButton = document.querySelector('.swtAltCancel'); 
+            const cancelButton = document.querySelector('.swtAltCancel');
             cancelButton.addEventListener('click', function () {
                 Swal.fire({
                     title: 'Are you sure you want to cancel?',
@@ -146,6 +170,6 @@
             updateToggleText();
         });
     </script>
- 
+
 </asp:Content>
 

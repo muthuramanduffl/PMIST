@@ -1,4 +1,5 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="centre-for-students-and-administrative-services.aspx.cs" Inherits="PMIST_website_centre_centre_for_students_and_administrative_services" %>
+
 <%@ Register Src="~/PMIST/assets/includes/UCheader.ascx" TagName="UCheader" TagPrefix="UCheader" %>
 <%@ Register Src="~/PMIST/assets/includes/UCCentreSubmenu.ascx" TagName="UCCentreSubmenu" TagPrefix="UCCentreSubmenu" %>
 
@@ -66,11 +67,11 @@
 
 <body>
     <form id="form1" runat="server">
-        <asp:ScriptManager ID="ScriptManager1" runat="server"> </asp:ScriptManager>
-           <!-- HEADER -->
-           <UCheader:UCheader id="header" runat="server" />
-           <!-- END: HEADER -->
-    
+        <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+        <!-- HEADER -->
+        <UCheader:UCheader ID="header" runat="server" />
+        <!-- END: HEADER -->
+
         <!-- banner section start  -->
         <section class="faculty banner-section">
             <img src="../assets/img/centre/banner.jpg" class="img-fluid w-100">
@@ -85,9 +86,9 @@
                         <div class="col-md-3 p-0 pb-md-0 pb-sm-5 pb-4">
                             <h1 class="page-heading btn-line position-relative">Centre For Students and Administrative Services
                             </h1>
-                             <!-- sub menu list START -->
-                     <UCCentreSubmenu:UCCentreSubmenu id="UCCentreSubmenu" runat="server"/>
-                     <!-- sub menu list END -->
+                            <!-- sub menu list START -->
+                            <UCCentreSubmenu:UCCentreSubmenu ID="UCCentreSubmenu" runat="server" />
+                            <!-- sub menu list END -->
                         </div>
                         <div class="col-md-9 p-0 ">
                             <div class="centre-content-side">
@@ -98,59 +99,12 @@
 
                                         <asp:Repeater ID="Repeater1" ClientIDMode="Static" runat="server">
                                             <ItemTemplate>
-                                                <div class="d-flex BindToBackend align-items-start list-tick mb-3">
+                                                <div class=" BindToBackend align-items-start list-tick mb-3">
                                                     <%# Eval("Content")%>
                                                 </div>
                                             </ItemTemplate>
                                         </asp:Repeater>
-                                        <%--  <div class="d-flex align-items-start list-tick mb-3">
-                                            <img src="../assets/img/academic/home-page/blue-tick.svg">
-                                            <li class="">Conduct students' activities for the development of personality, organizing skills and leadership skills through clubs and societies.</li>
-                                        </div>
-                                        <div class="d-flex align-items-start list-tick mb-3">
-                                            <img src="../assets/img/academic/home-page/pink-tick.svg">
-                                            <li class="">Organize competitions, workshops, lectures and other programmes through clubs and societies.</li>
-                                        </div>
-                                        <div class="d-flex align-items-start list-tick mb-3">
-                                            <img src="../assets/img/academic/home-page/blue-tick.svg">
-                                            <li class="">Address the students' grievances through the Grievances and Redressal Committee.</li>
-                                        </div>
-                                        <div class="d-flex align-items-start list-tick mb-3">
-                                            <img src="../assets/img/academic/home-page/pink-tick.svg">
-                                            <li class="">Form committees to ensure discrimination and ragging free campus.</li>
-                                        </div>
-                                        <div class="d-flex align-items-start list-tick mb-3">
-                                            <img src="../assets/img/academic/home-page/blue-tick.svg">
-                                            <li class="">Conduct of students' council election in a democratic way each year.</li>
-                                        </div>
-                                        <div class="d-flex align-items-start list-tick mb-3">
-                                            <img src="../assets/img/academic/home-page/pink-tick.svg">
-                                            <li class="">Assist students in obtaining passports.</li>
-                                        </div>
-                                        <div class="d-flex align-items-start list-tick mb-3">
-                                            <img src="../assets/img/academic/home-page/blue-tick.svg">
-                                            <li class="">Prepare bi-monthly news bulletin and monthly e-news bulletin.</li>
-                                        </div>
-                                        <div class="d-flex align-items-start list-tick mb-3">
-                                            <img src="../assets/img/academic/home-page/pink-tick.svg">
-                                            <li class="">Collaborate with various professional bodies like ISTE, NSSW, INTACH, IEEE, SESI, AeSI, BES, INS, and CSI in conducting activities for the benefit of students and faculty.</li>
-                                        </div>
-                                        <div class="d-flex align-items-start list-tick mb-3">
-                                            <img src="../assets/img/academic/home-page/blue-tick.svg">
-                                            <li class="">Provide identification cards to students and employees of the institution.</li>
-                                        </div>
-                                        <div class="d-flex align-items-start list-tick mb-3">
-                                            <img src="../assets/img/academic/home-page/pink-tick.svg">
-                                            <li class="">Conduct institute level annual cultural festivals.</li>
-                                        </div>
-                                        <div class="d-flex align-items-start list-tick mb-3">
-                                            <img src="../assets/img/academic/home-page/blue-tick.svg">
-                                            <li class="">Work in tandem with student counsellor.</li>
-                                        </div>
-                                        <div class="d-flex align-items-start list-tick mb-3">
-                                            <img src="../assets/img/academic/home-page/pink-tick.svg">
-                                            <li class="">Form Student Discipline Committee and conduct enquiry whenever a student breaches the institute code of conduct.</li>
-                                        </div>--%>
+
                                     </ul>
                                 </div>
                                 <div class="pe-3 pe-sm-5 pb-sm-4 pb-4">
@@ -219,7 +173,7 @@
                                                             <h6 class="mbl-number" runat="server" visible='<%#!string.IsNullOrEmpty(Eval("Address_two").ToString())%>'><span><%# Eval("Address_two") %></span></h6>
 
                                                             <h6 class="mbl-number" runat="server" visible='<%#!string.IsNullOrEmpty(Eval("Mobilenumber_two").ToString())%>'><span>PH:<%# Eval("Mobilenumber_two")%></span></h6>
-                                                            <h6 class="mbl-number" runat="server" visible='<%#!string.IsNullOrEmpty(Eval("EmailID_two").ToString())%>'> <span>EID:<%# Eval("EmailID_two")%> </span></h6>
+                                                            <h6 class="mbl-number" runat="server" visible='<%#!string.IsNullOrEmpty(Eval("EmailID_two").ToString())%>'><span>EID:<%# Eval("EmailID_two")%> </span></h6>
 
                                                         </div>
                                                         <div class="col-xl-4" runat="server">
@@ -227,7 +181,7 @@
                                                             <h2 class="Research"><%#!string.IsNullOrEmpty(Eval("Designamtion_three").ToString())? Eval("Designamtion_three").ToString() :" " %> </h2>
                                                             <h6 class="mbl-number" runat="server" visible='<%#!string.IsNullOrEmpty(Eval("Address_three").ToString())%>'><span><%# Eval("Address_three") %></span></h6>
                                                             <h6 class="mbl-number" runat="server" visible='<%#!string.IsNullOrEmpty(Eval("Mobilenumber_three").ToString())%>'><span>PH:<%#Eval("Mobilenumber_three")%> </span></h6>
-                                                            <h6 class="mbl-number" runat="server" visible='<%#!string.IsNullOrEmpty(Eval("EmailID_three").ToString())%>'> <span>EID:<%# Eval("EmailID_three").ToString() %></span></h6>
+                                                            <h6 class="mbl-number" runat="server" visible='<%#!string.IsNullOrEmpty(Eval("EmailID_three").ToString())%>'><span>EID:<%# Eval("EmailID_three").ToString() %></span></h6>
 
 
                                                         </div>
@@ -257,50 +211,26 @@
                                     </div>
                                 </div>
                                 <div class="slider-section position-relative py-sm--5 py-5">
+                                    <asp:Panel ID="Panel1" runat="server">
+                                        <div class="slider-section position-relative py-sm--5 py-5">
+                                            <div id="slideridcontainer" class="slider">
+                                                <asp:Repeater ID="Repimage" runat="server">
+                                                    <ItemTemplate>
+                                                        <div class="image-container slide">
+                                                            <img src='<%# Eval("Images") %>' class="slider-image" />
+                                                        </div>
+                                                    </ItemTemplate>
+                                                </asp:Repeater>
 
-                                    <div id="slider-container" class="slider">
-                                        <asp:Repeater ID="Repimage" runat="server">
-                                            <ItemTemplate>
-                                                <div class="image-container slide">
-                                                    <asp:Image ID="imgDisplay" runat="server" ImageUrl='<%# Eval("Images") %>' />
-                                                    <asp:HiddenField ID="hdnsingleimage" Value='<%# Eval("Images") %>' runat="server" />
+                                                <div onclick="prev()" class="control-prev-btn">
+                                                    <img src="../assets/img/centre/left-arrow.svg">
                                                 </div>
-                                            </ItemTemplate>
-                                        </asp:Repeater>
-
-
-
-                                        <%--<a class="slide" data-fancybox="hostel-slider" href="../assets/img/centre/slider01.jpg">
-                                            <img src="../assets/img/centre/slider01.jpg" alt="">
-                                        </a>
-                                        <a class="slide" data-fancybox="hostel-slider" href="../assets/img/centre/slider02.jpg">
-                                            <img src="../assets/img/centre/slider02.jpg" alt="">
-                                        </a>
-                                        <a class="slide" data-fancybox="hostel-slider" href="../assets/img/centre/slider03.jpg">
-                                            <img src="../assets/img/centre/slider03.jpg" alt="">
-                                        </a>
-                                        <a class="slide" data-fancybox="hostel-slider" href="../assets/img/centre/slider01.jpg">
-                                            <img src="../assets/img/centre/slider01.jpg" alt="">
-                                        </a>
-                                        <a class="slide" data-fancybox="hostel-slider" href="../assets/img/centre/slider02.jpg">
-                                            <img src="../assets/img/centre/slider02.jpg" alt="">
-                                        </a>
-                                        <a class="slide" data-fancybox="hostel-slider" href="../assets/img/centre/slider03.jpg">
-                                            <img src="../assets/img/centre/slider03.jpg" alt="">
-                                        </a>
-                                        <a class="slide" data-fancybox="hostel-slider" href="../assets/img/centre/slider01.jpg">
-                                            <img src="../assets/img/centre/slider01.jpg" alt="">
-                                        </a>
-                                        <a class="slide" data-fancybox="hostel-slider" href="../assets/img/centre/slider02.jpg">
-                                            <img src="../assets/img/centre/slider02.jpg" alt="">
-                                        </a>--%>
-                                        <div onclick="prev()" class="control-prev-btn">
-                                            <img src="../assets/img/centre/left-arrow.svg">
+                                                <div onclick="next()" class="control-next-btn">
+                                                    <img src="../assets/img/centre/right-arrow.svg">
+                                                </div>
+                                            </div>
                                         </div>
-                                        <div onclick="next()" class="control-next-btn">
-                                            <img src="../assets/img/centre/right-arrow.svg">
-                                        </div>
-                                    </div>
+                                    </asp:Panel>
                                 </div>
                             </div>
                         </div>
@@ -323,6 +253,8 @@
                 document.getElementById('slider-container').scrollLeft += 270;
             }
         </script>
+
+
 
 
         <script>

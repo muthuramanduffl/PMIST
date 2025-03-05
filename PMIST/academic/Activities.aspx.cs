@@ -22,6 +22,9 @@ public partial class PMIST_website_academic_Activities : System.Web.UI.Page
             DataTable dt = Get();
             if (dt != null && dt.Rows.Count > 0)
             {
+
+                lbltitle.Text = dt.Rows[0]["Title"].ToString();
+
                 Repeater1.Visible = true;
                 Repeater1.DataSource = dt;
                 Repeater1.DataBind();
@@ -47,7 +50,7 @@ public partial class PMIST_website_academic_Activities : System.Web.UI.Page
         DataTable dt = new DataTable();
         try
         {
-            dt = PMA.ViewAllDepartmentActivities("2", "", "");//centre type based bind ex: centre id 3 only shows
+            dt = PMA.ViewAllDepartmentActivities("5", "", "");//Department Computer science. id=5
         }
         catch (Exception ex)
         {

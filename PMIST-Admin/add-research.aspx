@@ -36,7 +36,7 @@
                             <div class="form-group">
                                 <div class="form-border margin-top20">
                                     <div class="form-title">
-                                        <h3>Placements Details</h3>
+                                        <h3>Research Details</h3>
                                     </div>
                                     <div class="row mx-0 margin-top20 mb-4">
                                         <div class="col-md-3 pt-3">

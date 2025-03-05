@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="activities.aspx.cs" Inherits="PMIST_website_academic_Activities" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="activities1.aspx.cs" Inherits="PMIST_website_academic_Activities1" %>
 
 <%@ Register Src="~/PMIST/assets/includes/UCheader.ascx" TagName="UCheader" TagPrefix="UCheader" %>
 <%@ Register Src="~/PMIST/assets/includes/UCDepartmentSubmenu.ascx" TagName="UCDepartmentSubmenu" TagPrefix="UCDepartmentSubmenu" %>
@@ -103,42 +103,24 @@
 
         <section class="Activities  py-md-5  ">
             <div class="custom-container">
-              
-                    <div class="full-page position-relative">
-                        <h1 class="activities-heading">
-                            <asp:Label ID="lbltitle" runat="server" Text=""></asp:Label>
-                        </h1>
-                        <asp:Repeater ID="Repeater1" ClientIDMode="Static" runat="server">
-                            <ItemTemplate>
-                                <div class="align-items-start BindToBackend list-tick mb-3">
-                                    <%# Eval("Content")%>
-                                </div>
-                            </ItemTemplate>
-                        </asp:Repeater>
+                <div class="full-page position-relative">
 
+                    <h1 class="activities-heading">Activities</h1>
 
+                    <div class="pt-3">
+                        <div class="d-flex align-items-start list-tick mb-2">
+                            <img src="../assets/img/academic/home-page/blue-tick.svg">
+                            <h1 class="activities-sub-heading">B.Sc. - Animation and Multimedia</h1>
+                        </div>
+                        <p class="activities-content">The department of Aerospace arranged Industrial visit from 23.02.2019 to 25.02.2019 (3 days).Among all our visits to other industries in this period, the visit to VSSC (Vikram Sarabhai Space Center) Trivandrum, Kerala holds a greater importance as it provided a good exposure to the current trends in aerospace industry. We were a crew consisting of 26 boys and 12 girls with two faculty members. We arrived there approximately by 10:00 AM and after undergoing all the security procedures, we finally went into their premises by 11:00 AM.</p>
+                    </div>
 
-
-                        <div class="pt-3">
-                            <div class="d-flex align-items-start list-tick mb-2">
-                                <img src="../assets/img/academic/home-page/pink-tick.svg" />
-                                <h1 class="activities-sub-heading">Activities </h1>
-                            </div>
-
-                            <asp:Repeater ID="rprcontentpdf" ClientIDMode="Static" runat="server">
-                                <ItemTemplate>
-                                    <div class="pb-3">
-
-
-
-                                        <div class="BindToBackend">
-
-                                            <%# bindMore(System.Convert.ToString(DataBinder.Eval(Container.DataItem, "PdfFilename")))%>
-                                        </div>
-                                    </div>
-                                </ItemTemplate>
-                            </asp:Repeater>
-                            <%--                        <div class="pb-3 ">
+                    <div class="pt-3">
+                        <div class="d-flex align-items-start list-tick mb-2">
+                            <img src="../assets/img/academic/home-page/pink-tick.svg">
+                            <h1 class="activities-sub-heading">Activities</h1>
+                        </div>
+                        <div class="pb-3 ">
                             <a href="" class="anchor-PDF">
                                 <img src="../assets/img/academic/activities/pdf-icon.svg" alt="img" class="img-fluid pe-2">FDP on Python</a>
                         </div>
@@ -156,26 +138,26 @@
                         <div class="pb-3 ">
                             <a href="" class="anchor-PDF">
                                 <img src="../assets/img/academic/activities/pdf-icon.svg" alt="img" class="img-fluid pe-2">SWARD</a>
-                        </div>--%>
                         </div>
                     </div>
                 </div>
+            </div>
         </section>
+
+
+
+
+
+
 
         <script src="../assets/js/jquery.min.js"></script>
         <script src="../assets/js/bootstrap-bundle.min.js"></script>
         <script src="../assets/js/jquery.fancybox.min.js"></script>
         <script src="../assets/js/aos.js"></script>
+
         <script src="../assets/js/swiper.min.js"></script>
         <script src="../assets/js/owl.carousel.min.js"></script>
         <script src="../assets/js/main.js"></script>
-
-        <script>
-            document.addEventListener("DOMContentLoaded", function () {
-
-                document.querySelector(".atag_link a").setAttribute("target", "_blank");
-            });
-        </script>
     </form>
 </body>
 </html>
