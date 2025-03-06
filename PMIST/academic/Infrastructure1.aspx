@@ -1,4 +1,4 @@
-<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Infrastructure.aspx.cs" Inherits="academic_infrastructure" %>
+<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Infrastructure1.aspx.cs" Inherits="academic_infrastructure1" %>
 <%@ Register Src="~/PMIST/assets/includes/UCheader.ascx" TagName="UCheader" TagPrefix="UCheader" %>
 <%@ Register Src="~/PMIST/assets/includes/UCDepartmentSubmenu.ascx" TagName="UCDepartmentSubmenu" TagPrefix="UCDepartmentSubmenu" %>
  

@@ -155,7 +155,7 @@
                                                     </div>
                                                     <span class="error">
                                                         <asp:RequiredFieldValidator ClientIDMode="Static" EnableClientScript="true" SetFocusOnError="true" ControlToValidate="txtTitle" Display="Dynamic" ValidationGroup="actval" ID="RequiredFieldValidator3" runat="server" ErrorMessage="Enter title"></asp:RequiredFieldValidator>
-                                                        <asp:RegularExpressionValidator ClientIDMode="Static" ID="RegularExpressionValidator1" Display="Dynamic" runat="server" ValidationGroup="actval" ControlToValidate="txtTitle" ValidationExpression="^[A-Za-z -]+$" ErrorMessage="Enter valid title"></asp:RegularExpressionValidator>
+<%--                                                        <asp:RegularExpressionValidator ClientIDMode="Static" ID="RegularExpressionValidator1" Display="Dynamic" runat="server" ValidationGroup="actval" ControlToValidate="txtTitle" ValidationExpression="^[A-Za-z -]+$" ErrorMessage="Enter valid title"></asp:RegularExpressionValidator>--%>
                                                     </span>
                                                 </div>
                                                 <div class="col-sm-4 col-xl-3 pt-4">
@@ -163,7 +163,7 @@
                                                         <label>Activities Upload <span class="text-danger">*</span></label>
                                                         <i class="bi bi-images b5-icon"></i>
                                                         <asp:FileUpload ID="FileUpload" ClientIDMode="Static" runat="server" CssClass="form-control input-sm file-upload" accept=".pdf" />
-                                                        <span class="handle-file-request">(upload max file size,pdf-1 MB)</span>
+                                                        <span class="handle-file-request">(upload max file size,pdf-2 MB)</span>
                                                         <asp:HiddenField ID="hdnFileUpload" runat="server" />
                                                     </div>
                                                     <span class="error">
@@ -220,7 +220,7 @@
                                                         <asp:RegularExpressionValidator ClientIDMode="Static" ID="RegularExpressionValidator103" Display="Dynamic" runat="server" ValidationGroup="actvalIVI" ControlToValidate="txtTitleIVI" ValidationExpression="^[A-Za-z -]+$" ErrorMessage="Enter valid title"></asp:RegularExpressionValidator>
                                                     </span>
                                                 </div>
-                                                <div class="col-md-5 pt-3">
+                                                <div class="col-md-7 pt-3">
                                                     <div class="input-icon input-icon-sm right">
                                                         <label>Content <span class="text-danger">*</span></label>
                                                         <i class="bi bi-body-text b5-icon"></i>
@@ -235,7 +235,7 @@
                                                         <label>Activities Upload <span class="text-danger">*</span></label>
                                                         <i class="bi bi-images b5-icon"></i>
                                                         <asp:FileUpload ID="FileUploadIVI" ClientIDMode="Static" runat="server" CssClass="form-control input-sm file-upload" accept=".pdf" />
-                                                        <span class="handle-file-request">(upload max file size,pdf-1 MB)</span>
+                                                        <span class="handle-file-request">(upload max file size,pdf-2 MB)</span>
                                                         <asp:HiddenField ID="hdnFileUploadIVI" runat="server" />
                                                     </div>
                                                     <span class="error">
@@ -325,26 +325,32 @@
 
     <script src="https://cdn.ckeditor.com/ckeditor5/32.0.0/classic/ckeditor.js"></script>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            ClassicEditor
-                .create(document.querySelector('.editor'), {
-                    toolbar: [
-                        'bold', 'italic', 'link', 'undo', 'redo',
-                        'bulletedList', 'numberedList',
-                        'specialCharacters', 'code'
-                    ],
-                    language: 'en', // Ensure language support
-                    removePlugins: ['MediaEmbed'] // If media embedding causes issues
-                })
-                .then(editor => {
-                    editor.model.document.on('change:data', () => {
-                        document.getElementById('<%= txtContentIVI.ClientID %>').value = editor.getData();
-                    });
-                })
-                .catch(error => console.error(error));
-        });
-    </script>
+      <script>
+          document.addEventListener('DOMContentLoaded', function () {
+              ClassicEditor
+                  .create(document.querySelector('.editor'), {
+                      toolbar: [
+                          'heading', '|', 'bold', 'italic', 'link', 'undo', 'redo',
+                          'bulletedList', 'numberedList', 'specialCharacters', 'code'
+                      ],
+                      heading: {
+                          options: [
+                              { model: 'paragraph', title: 'Paragraph', class: 'ck-heading_paragraph' },
+                              { model: 'heading1', view: 'h1', title: 'Heading 1', class: 'ck-heading_heading1' },
+                             
+                          ]
+                      },
+                      language: 'en',
+                      removePlugins: ['MediaEmbed']
+                  })
+                  .then(editor => {
+                      editor.model.document.on('change:data', () => {
+                          document.getElementById('<%= txtContentIVI.ClientID %>').value = editor.getData();
+                   });
+               })
+               .catch(error => console.error(error));
+       });
+      </script>
 
 
     <script type="text/javascript">
@@ -435,11 +441,11 @@
             return flag;
         }
 
-        document.getElementById('<%= txtTitle.ClientID %>').addEventListener('keypress', function (e) {
+       <%-- document.getElementById('<%= txtTitle.ClientID %>').addEventListener('keypress', function (e) {
             if (!/^[A-Za-z -]+$/.test(e.key)) {
                 e.preventDefault();
             }
-        });
+        });--%>
     </script>
 
 
@@ -481,12 +487,12 @@
                         errorLabel.textContent = "Invalid file type. Only PDF files are allowed.";
                         return;
                     }
-
-                    if (file.type === 'application/pdf' && file.size >= 1024 * 1024) {
+                    if (file.type === 'application/pdf' && file.size >= 2 * 1024 * 1024) {
                         resetUploader(viewLogoBtn, errorLabel, index);
-                        errorLabel.textContent = "PDF size must be under 1 MB";
+                        errorLabel.textContent = "PDF size must be under 2 MB";
                         return;
                     }
+
 
                     var reader = new FileReader();
                     reader.onload = function (e) {

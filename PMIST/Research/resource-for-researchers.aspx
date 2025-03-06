@@ -1,0 +1,690 @@
+<%@ Page Language="C#" AutoEventWireup="true" CodeFile="resource-for-researchers.aspx.cs" Inherits="resourceforresearchers" %>
+
+<%@ Register Src="~/PMIST/assets/includes/UCheader.ascx" TagName="UCheader" TagPrefix="UCheader" %>
+<%@ Register Src="~/PMIST/assets/includes/UCDepartmentSubmenu.ascx" TagName="UCDepartmentSubmenu" TagPrefix="UCDepartmentSubmenu" %>
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PMIST</title>
+    <link rel="icon" type="image/x-icon" href="../assets/img/fav-icon.png">
+
+    <link href="../assets/css/bootstrap5-3-2.min.css" rel="stylesheet">
+    <link href="../assets/css/jquery.fancybox.min.css" rel="stylesheet">
+    <link href="../assets/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="../assets/css/aos.css" rel="stylesheet">
+    <link href="../assets/css/swiper.min.css" rel="stylesheet">
+    <link href="../assets/css/owl.carousel.min.css" rel="stylesheet">
+    <link href="../assets/css/owl.theme.css" rel="stylesheet">
+    <link href="../assets/css/style.css" rel="stylesheet">
+    <link href="../assets/css/research/style.css" rel="stylesheet">
+
+    <style>
+        /* .sub-menu {
+      background: linear-gradient(104deg, #2F4088 0.77%, #181B61 50.61%, #2F4088 101.67%);
+    } */
+    </style>
+
+    <style>
+        /* start */
+        .BindToBackend ul, ol {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .BindToBackend li {
+            position: relative;
+            padding-left: 30px;
+            font-size: 16px;
+            line-height: 1.5;
+        }
+
+        .BindToBackend ul li::before, ol li::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 4px;
+            width: 20px;
+            height: 20px;
+            background-size: contain;
+            background-repeat: no-repeat;
+        }
+        /* Blue Tick for Odd Items */
+        .BindToBackend ul li:nth-child(odd)::before, ol li:nth-child(odd)::before {
+            background-image: url('../assets/img/icon/blue-tick.svg');
+        }
+
+        /* Red Tick for Even Items */
+        .BindToBackend ul li:nth-child(even)::before, ol li:nth-child(even)::before {
+            background-image: url('../assets/img/icon/red-tick.svg');
+        }
+
+        /* end */
+    </style>
+
+</head>
+<body>
+    <form id="form1" runat="server">
+        <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+        <!-- HEADER -->
+        <UCheader:UCheader ID="header" runat="server" />
+        <!-- END: HEADER -->
+
+
+        <!-- banner section start  -->
+        <section class="faculty banner-section">
+            <img src="../assets/img/centre/banner.jpg" class="img-fluid w-100">
+            <div class="custom-container">
+            </div>
+        </section>
+        <!-- banner section End  -->
+
+        <!-- sub-menu section start  -->
+        <UCDepartmentSubmenu:UCDepartmentSubmenu ID="UCDepartmentSubmenu" runat="server" />
+        <!-- sub-menu section End  -->
+
+        <section class="research">
+            <div class="ps-md-5 ps-4">
+                <div class="py-5">
+                    <div class="row m-0">
+                        <div class="col-md-3 pb-md-0 pb-sm-5 pb-4">
+                            <h1 class="page-heading btn-line position-relative">Resource for Researchers
+                            </h1>
+                            <div class="accordion research-sidebar-menu" id="accordionExample">
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header pe-3">
+                                        <button class="accordion-button ps-0 pe-0 collapsed" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#collapseOne"
+                                            aria-controls="collapseOne">
+                                            More Research
+                                        </button>
+                                    </h2>
+                                    <div id="collapseOne" class="accordion-collapse collapse "
+                                        data-bs-parent="#accordionExample">
+                                        <h1 class="research-list"><a href="culture.html">Research Culture</a></h1>
+                                        <h1 class="research-list"><a href="funded-projects.html">Funded Projects</a></h1>
+                                        <h1 class="research-list"><a href="research-facilities.html">Research Facilities</a></h1>
+                                        <h1 class="research-list"><a href="research-advisory-committee.html">Research Advisory Committee (RAC)</a></h1>
+                                        <h1 class="research-list"><a href="research-forms.html">Download Research Forms</a></h1>
+                                        <h1 class="research-list"><a href="collaborations-mou.html">Collaborations & MOU's</a></h1>
+                                        <h1 class="research-list"><a href="ipr-cell.html">IRP Cell</a></h1>
+                                        <h1 class="research-list"><a href="code-of-ethics-for-research.html">Code of Ethics for Research</a></h1>
+                                        <h1 class="research-list"><a href="regulation.html">M.Phil. & Ph.D. Regulation</a></h1>
+                                        <h1 class="research-list"><a href="institute-innovation-council.html">Institute Innovation Council</a></h1>
+                                        <h1 class="research-list"><a href="funding-agencies.html">Funding Agencies</a></h1>
+                                        <h1 class="research-list"><a href="research-outcome.html">Research outcome of PMIST in Scopus Database</a></h1>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-9 ">
+                            <div class="research-content-side">
+                                <div class="pe-3 pe-sm-5">
+                                    <h1 class="research-heading m-0">List of agencies offering research grants
+                                    </h1>
+                                   <asp:Repeater ID="rprresource" runat="server" OnItemDataBound="rprresource_ItemDataBound">
+    <ItemTemplate>
+        <div class="pb-3 pt-3  BindToBackend">
+            <asp:Literal ID="litContent" runat="server"></asp:Literal>
+        </div>
+    </ItemTemplate>
+</asp:Repeater>
+
+
+
+
+
+
+
+                                    <div class="pb-3">
+                                        <a href="dbtindia.nic.in/" target="_blank"
+                                            class="anchor-link txt-sec-clr">
+                                            <img src="../assets/img/icon/link.svg" alt="img" class="img-fluid pe-2"
+                                                width="26px">DBT India</a>
+                                    </div>
+                                    <div class="pb-3">
+                                        <a href="https://www.aicte-india.org/" target="_blank"
+                                            class="anchor-link txt-sec-clr">
+                                            <img src="../assets/img/icon/link.svg" alt="img" class="img-fluid pe-2"
+                                                width="26px">AICTE</a>
+                                    </div>
+                                    <div class="pb-3">
+                                        <a href="http://www.dst.gov.in/scientific-programmes/scientific-engineering-research/women-scientists-programs" target="_blank"
+                                            class="anchor-link txt-sec-clr">
+                                            <img src="../assets/img/icon/link.svg" alt="img" class="img-fluid pe-2"
+                                                width="26px">Women Scientist Programme in DST</a>
+                                    </div>
+                                    <div class="pb-3">
+                                        <a href="http://www.aicte-india.org/schemes/staff-development-schemes" target="_blank" class="anchor-link txt-sec-clr">
+                                            <img src="../assets/img/icon/link.svg" alt="img" class="img-fluid pe-2"
+                                                width="26px">
+                                            AICTE-QIP-Programme India</a>
+                                    </div>
+                                    <div class="pb-3">
+                                        <a href="https://www.drdo.gov.in/drdo/English/index.jsp?pg=genesis.jsp" target="_blank" class="anchor-link txt-sec-clr">
+                                            <img src="../assets/img/icon/link.svg" alt="img" class="img-fluid pe-2"
+                                                width="26px">DRDO India</a>
+                                    </div>
+                                    <div class="pb-3">
+                                        <a href="https://birac.nic.in/desc_new.php?id=647" target="_blank"
+                                            class="anchor-link txt-sec-clr">
+                                            <img src="../assets/img/icon/link.svg" alt="img" class="img-fluid pe-2"
+                                                width="26px">DOD India </a>
+                                    </div>
+                                    <div class="pb-3">
+                                        <a href="http://mnre.gov.in/human-resource-development" target="_blank"
+                                            class="anchor-link txt-sec-clr">
+                                            <img src="../assets/img/icon/link.svg" alt="img" class="img-fluid pe-2"
+                                                width="26px">
+                                            MNRE India</a>
+                                    </div>
+                                    <div class="pb-3">
+                                        <a href="http://envfor.nic.in/" target="_blank"
+                                            class="anchor-link txt-sec-clr">
+                                            <img src="../assets/img/icon/link.svg" alt="img" class="img-fluid pe-2"
+                                                width="26px">
+                                            Environment India</a>
+                                    </div>
+                                    <div class="pb-3">
+                                        <a href="http://envfor.nic.in/downloads/public-information/guidelines27042012.pdf" target="_blank"
+                                            class="anchor-link txt-sec-clr">
+                                            <img src="../assets/img/icon/link.svg" alt="img" class="img-fluid pe-2"
+                                                width="26px">
+                                            Environment India - 1</a>
+                                    </div>
+                                    <div class="pb-3">
+                                        <a href="http://www.unesco.org/new/en/communication-and-information/intergovernmental-programmes/ipdc/projects/how-to-submit-a-project-proposal/" target="_blank"
+                                            class="anchor-link txt-sec-clr">
+                                            <img src="../assets/img/icon/link.svg" alt="img" class="img-fluid pe-2"
+                                                width="26px">
+                                            UNESCO</a>
+                                    </div>
+                                    <div class="pb-3">
+                                        <a href="http://www.tanscst.nic.in/" target="_blank"
+                                            class="anchor-link txt-sec-clr">
+                                            <img src="../assets/img/icon/link.svg" alt="img" class="img-fluid pe-2"
+                                                width="26px">
+                                            Tamilnadu State Council for Science & Technology</a>
+                                    </div>
+                                    <div class="pb-3">
+                                        <a href="http://www.trecstep.com/" target="_blank"
+                                            class="anchor-link txt-sec-clr">
+                                            <img src="../assets/img/icon/link.svg" alt="img" class="img-fluid pe-2"
+                                                width="26px">
+                                            TRECSTEP India</a>
+                                    </div>
+                                    <div class="pb-3">
+                                        <a href="http://www.nrbdrdo.res.in/" target="_blank"
+                                            class="anchor-link txt-sec-clr">
+                                            <img src="../assets/img/icon/link.svg" alt="img" class="img-fluid pe-2"
+                                                width="26px">
+                                            NRBDRDO India</a>
+                                    </div>
+                                    <div class="pb-3">
+                                        <a href="www.nrbdrdo.res.in/submission_proposal.html" target="_blank"
+                                            class="anchor-link txt-sec-clr">
+                                            <img src="../assets/img/icon/link.svg" alt="img" class="img-fluid pe-2"
+                                                width="26px">
+                                            NRBDRDO India - 1</a>
+                                    </div>
+                                    <div class="pb-3">
+                                        <a href="http://www.gatesfoundation.org/what-we-do" target="_blank"
+                                            class="anchor-link txt-sec-clr">
+                                            <img src="../assets/img/icon/link.svg" alt="img" class="img-fluid pe-2"
+                                                width="26px">
+                                            GATES Foundation US</a>
+                                    </div>
+                                    <div class="pb-3">
+                                        <a href="http://www.gatesfoundation.org/avahan/Pages/overview.aspx" target="_blank"
+                                            class="anchor-link txt-sec-clr">
+                                            <img src="../assets/img/icon/link.svg" alt="img" class="img-fluid pe-2"
+                                                width="26px">
+                                            GATES Foundation US - 1</a>
+                                    </div>
+
+
+                                    <h1 class="research-heading m-0 mt-4">List of agencies offering research fellowships
+                                    </h1>
+                                    <div class="pb-3 pt-3">
+                                        <a href="https://csirhrdg.res.in/Home/Index/1/Default/1743/57" target="_blank" class="anchor-link txt-sec-clr">
+                                            <img src="../assets/img/icon/link.svg" alt="img" class="img-fluid pe-2"
+                                                width="26px">
+                                            CSIR, SRF</a>
+                                    </div>
+                                    <div class="pb-3">
+                                        <a href="https://main.icmr.nic.in/content/srfra" target="_blank" class="anchor-link txt-sec-clr">
+                                            <img src="../assets/img/icon/link.svg" alt="img" class="img-fluid pe-2"
+                                                width="26px">
+                                            ICMR, SRF</a>
+                                    </div>
+                                    <div class="pb-3">
+                                        <a href="https://www.education.gov.in/hi/scholarships" target="_blank" class="anchor-link txt-sec-clr">
+                                            <img src="../assets/img/icon/link.svg" alt="img" class="img-fluid pe-2"
+                                                width="26px">
+                                            Department of Higher Education, Government of India</a>
+                                    </div>
+                                    <div class="pb-3">
+                                        <a href="http://www.unesco.org/" target="_blank" class="anchor-link txt-sec-clr">
+                                            <img src="../assets/img/icon/link.svg" alt="img" class="img-fluid pe-2"
+                                                width="26px">
+                                            UNESCO</a>
+                                    </div>
+                                    <div class="pb-3">
+                                        <a href="http://www.indousstf.org/" target="_blank" class="anchor-link txt-sec-clr">
+                                            <img src="../assets/img/icon/link.svg" alt="img" class="img-fluid pe-2"
+                                                width="26px">
+                                            Indo US Scientific Forum India</a>
+                                    </div>
+                                    <div class="pb-3">
+                                        <a href="https://www.innovation.gov.au/" target="_blank" class="anchor-link txt-sec-clr">
+                                            <img src="../assets/img/icon/link.svg" alt="img" class="img-fluid pe-2"
+                                                width="26px">
+                                            Scholarship details</a>
+                                    </div>
+                                    <div class="pb-3">
+                                        <a href="http://www.jsps.go.jp/english/" target="_blank" class="anchor-link txt-sec-clr">
+                                            <img src="../assets/img/icon/link.svg" alt="img" class="img-fluid pe-2"
+                                                width="26px">
+                                            JSPS Japan</a>
+                                    </div>
+                                    <div class="pb-3">
+                                        <a href="https://www.icsu.org/" target="_blank" class="anchor-link txt-sec-clr">
+                                            <img src="../assets/img/icon/link.svg" alt="img" class="img-fluid pe-2"
+                                                width="26px">
+                                            International Council of for Science, ICSU India</a>
+                                    </div>
+                                    <div class="pb-3">
+                                        <a href="https://www.daad.org/" target="_blank" class="anchor-link txt-sec-clr">
+                                            <img src="../assets/img/icon/link.svg" alt="img" class="img-fluid pe-2"
+                                                width="26px">
+                                            DAAD Germany</a>
+                                    </div>
+                                    <div class="pb-3">
+                                        <a href="https://www.daad.org/index.v3page" target="_blank" class="anchor-link txt-sec-clr">
+                                            <img src="../assets/img/icon/link.svg" alt="img" class="img-fluid pe-2"
+                                                width="26px">
+                                            DAAD Germany - 1</a>
+                                    </div>
+                                    <div class="pb-3">
+                                        <a href="http://www.brainpool.or.kr/english/index.asp" target="_blank" class="anchor-link txt-sec-clr">
+                                            <img src="../assets/img/icon/link.svg" alt="img" class="img-fluid pe-2"
+                                                width="26px">
+                                            DAAD Germany - 1</a>
+                                    </div>
+                                    <div class="pb-3">
+                                        <a href="http://www.newtonfellowships.org/" target="_blank" class="anchor-link txt-sec-clr">
+                                            <img src="../assets/img/icon/link.svg" alt="img" class="img-fluid pe-2"
+                                                width="26px">
+                                            Brain Pool Korea</a>
+                                    </div>
+                                    <div class="pb-3">
+                                        <a href="http://www.usief.org.in/" target="_blank" class="anchor-link txt-sec-clr">
+                                            <img src="../assets/img/icon/link.svg" alt="img" class="img-fluid pe-2"
+                                                width="26px">
+                                            Newton Fellowship</a>
+                                    </div>
+                                    <div class="pb-3">
+                                        <a href="http://www.nserc-crsng.gc.ca/" target="_blank" class="anchor-link txt-sec-clr">
+                                            <img src="../assets/img/icon/link.svg" alt="img" class="img-fluid pe-2"
+                                                width="26px">
+                                            USIEF India</a>
+                                    </div>
+                                    <div class="pb-3">
+                                        <a href="http://cscuk.dfid.gov.uk/apply/" target="_blank" class="anchor-link txt-sec-clr">
+                                            <img src="../assets/img/icon/link.svg" alt="img" class="img-fluid pe-2"
+                                                width="26px">
+                                            NSERC Canada</a>
+                                    </div>
+                                    <div class="pb-3">
+                                        <a href="http://nanomission.gov.in/" target="_blank" class="anchor-link txt-sec-clr">
+                                            <img src="../assets/img/icon/link.svg" alt="img" class="img-fluid pe-2"
+                                                width="26px">
+                                            Commonwealth Fellowship UK</a>
+                                    </div>
+                                    <div class="pb-3">
+                                        <a href="http://www.winentrance.com/scholarships/university-grants-commission-ugc-post-doctoral-fellowship.html" target="_blank" class="anchor-link txt-sec-clr">
+                                            <img src="../assets/img/icon/link.svg" alt="img" class="img-fluid pe-2"
+                                                width="26px">
+                                            DST Nanomisson India</a>
+                                    </div>
+                                    <div class="pb-3">
+                                        <a href="http://www.jncasr.ac.in/main_page.php/About-JNCASR/2/1/1/" target="_blank" class="anchor-link txt-sec-clr">
+                                            <img src="../assets/img/icon/link.svg" alt="img" class="img-fluid pe-2"
+                                                width="26px">
+                                            Winentrance UGC India</a>
+                                    </div>
+                                    <div class="pb-3">
+                                        <a href="http://nasa.orau.org/postdoc/" target="_blank" class="anchor-link txt-sec-clr">
+                                            <img src="../assets/img/icon/link.svg" alt="img" class="img-fluid pe-2"
+                                                width="26px">
+                                            JNCASR India</a>
+                                    </div>
+                                    <div class="pb-3">
+                                        <a href="http://aciar.gov.au/training/JDF" target="_blank" class="anchor-link txt-sec-clr">
+                                            <img src="../assets/img/icon/link.svg" alt="img" class="img-fluid pe-2"
+                                                width="26px">
+                                            NASA US</a>
+                                    </div>
+                                    <div class="pb-3">
+                                        <a href="http://www.humboldt-foundation.de/web/humboldt-fellowship-postdoc.html" target="_blank" class="anchor-link txt-sec-clr">
+                                            <img src="../assets/img/icon/link.svg" alt="img" class="img-fluid pe-2"
+                                                width="26px">
+                                            ACIAR Australia</a>
+                                    </div>
+                                    <div class="pb-3">
+                                        <a href="" target="_blank" class="anchor-link txt-sec-clr">
+                                            <img src="../assets/img/icon/link.svg" alt="img" class="img-fluid pe-2"
+                                                width="26px">
+                                            Humboldt Germany</a>
+                                    </div>
+                                    <div class="pb-3">
+                                        <a href="http://eeas.europa.eu/delegations/india/documents/st_awereness_campaign/compendium-mobility-schemes-june-2011_en.pdf" target="_blank" class="anchor-link txt-sec-clr">
+                                            <img src="../assets/img/icon/link.svg" alt="img" class="img-fluid pe-2"
+                                                width="26px">
+                                            European Fellowship</a>
+                                    </div>
+                                    <div class="pb-3">
+                                        <a href="http://www.britishcouncil.in/" target="_blank" class="anchor-link txt-sec-clr">
+                                            <img src="../assets/img/icon/link.svg" alt="img" class="img-fluid pe-2"
+                                                width="26px">
+                                            Dr.Manmohan Fellowship</a>
+                                    </div>
+                                    <div class="pb-3">
+                                        <a href="http://www.britishcouncil.in/study-uk/scholarships/dr-manmohan-singh-scholarships/" target="_blank" class="anchor-link txt-sec-clr">
+                                            <img src="../assets/img/icon/link.svg" alt="img" class="img-fluid pe-2"
+                                                width="26px">
+                                            Dr.Manmohan Fellowship - 1</a>
+                                    </div>
+                                    <div class="pb-3">
+                                        <a href="https://www.studyin.cz/" target="_blank" class="anchor-link txt-sec-clr">
+                                            <img src="../assets/img/icon/link.svg" alt="img" class="img-fluid pe-2"
+                                                width="26px">
+                                            Czech Government Scholarship</a>
+                                    </div>
+                                    <div class="pb-3">
+                                        <a href="http://www.rff.org/rff/About/Fellowships_and_Internships/White/Gilbert-F-White-Postdoctoral-Fellowship-Program.cfm" target="_blank" class="anchor-link txt-sec-clr">
+                                            <img src="../assets/img/icon/link.svg" alt="img" class="img-fluid pe-2"
+                                                width="26px">
+                                            Gilbert-White Postdoc Fellowship</a>
+                                    </div>
+                                    <div class="pb-3">
+                                        <a href="http://www.grad.uottawa.ca/Default.aspx?tabid=1419" target="_blank" class="anchor-link txt-sec-clr">
+                                            <img src="../assets/img/icon/link.svg" alt="img" class="img-fluid pe-2"
+                                                width="26px">
+                                            Postdoc Ottawa</a>
+                                    </div>
+                                    <div class="pb-3">
+                                        <a href="http://www.twas.org/" target="_blank" class="anchor-link txt-sec-clr">
+                                            <img src="../assets/img/icon/link.svg" alt="img" class="img-fluid pe-2"
+                                                width="26px">
+                                            TWAS Agency</a>
+                                    </div>
+                                    <div class="pb-3">
+                                        <a href="http://cordis.europa.eu/home_en.html" target="_blank" class="anchor-link txt-sec-clr">
+                                            <img src="../assets/img/icon/link.svg" alt="img" class="img-fluid pe-2"
+                                                width="26px">
+                                            European Fellowship</a>
+                                    </div>
+                                    <div class="pb-3">
+                                        <a href="http://ec.europa.eu/nanotechnology/index_en.html" target="_blank" class="anchor-link txt-sec-clr">
+                                            <img src="../assets/img/icon/link.svg" alt="img" class="img-fluid pe-2"
+                                                width="26px">
+                                            Europe Nanotechnology</a>
+                                    </div>
+                                    <div class="pb-3">
+                                        <a href="http://nano.ksu.edu.sa/index.php?option=com_content&view=category&id=4&Itemid=31&lang=en" target="_blank" class="anchor-link txt-sec-clr">
+                                            <img src="../assets/img/icon/link.svg" alt="img" class="img-fluid pe-2"
+                                                width="26px">
+                                            King Abdulla Institute Saudi Arabia</a>
+                                    </div>
+                                    <div class="pb-3">
+                                        <a href="https://www.kcl.ac.uk/index.aspx" target="_blank" class="anchor-link txt-sec-clr">
+                                            <img src="../assets/img/icon/link.svg" alt="img" class="img-fluid pe-2"
+                                                width="26px">
+                                            Kings College London</a>
+                                    </div>
+                                    <div class="pb-3">
+                                        <a href="http://med.stanford.edu/rmg/funding/#postdoc" target="_blank" class="anchor-link txt-sec-clr">
+                                            <img src="../assets/img/icon/link.svg" alt="img" class="img-fluid pe-2"
+                                                width="26px">
+                                            Stanford University US</a>
+                                    </div>
+                                    <div class="pb-3">
+                                        <a href="http://www.physiology.emory.edu/FIRST/" target="_blank" class="anchor-link txt-sec-clr">
+                                            <img src="../assets/img/icon/link.svg" alt="img" class="img-fluid pe-2"
+                                                width="26px">
+                                            Emory University</a>
+                                    </div>
+                                    <div class="pb-3">
+                                        <a href="https://app.lc.applyyourself.com/AYApplicantLogin/fl_ApplicantLogin.asp?id=jhu-med" target="_blank" class="anchor-link txt-sec-clr">
+                                            <img src="../assets/img/icon/link.svg" alt="img" class="img-fluid pe-2"
+                                                width="26px">
+                                            Johns Hopkins University</a>
+                                    </div>
+                                    <div class="pb-3">
+                                        <a href="http://www.nibib.nih.gov/Research/ProgramAreas/Sensors" target="_blank" class="anchor-link txt-sec-clr">
+                                            <img src="../assets/img/icon/link.svg" alt="img" class="img-fluid pe-2"
+                                                width="26px">
+                                            National Institute of Health, USA</a>
+                                    </div>
+                                    <div class="pb-3">
+                                        <a href="http://cec.cm.utexas.edu/jobs" target="_blank" class="anchor-link txt-sec-clr">
+                                            <img src="../assets/img/icon/link.svg" alt="img" class="img-fluid pe-2"
+                                                width="26px">
+                                            University of Texas</a>
+                                    </div>
+                                    <div class="pb-3">
+                                        <a href="http://www.fchpt.stuba.sk/english/institutes-and-departments/institute-of-analytical-chemistry.html?page_id=1746" target="_blank" class="anchor-link txt-sec-clr">
+                                            <img src="../assets/img/icon/link.svg" alt="img" class="img-fluid pe-2"
+                                                width="26px">
+                                            Analytical Chemistry Slovakia</a>
+                                    </div>
+                                    <div class="pb-3">
+                                        <a href="http://www.sici.org.in/" target="_blank" class="anchor-link txt-sec-clr">
+                                            <img src="../assets/img/icon/link.svg" alt="img" class="img-fluid pe-2"
+                                                width="26px">
+                                            Shastri Institute, India</a>
+                                    </div>
+                                    <div class="pb-3">
+                                        <a href="http://academicpositions.eu/" target="_blank" class="anchor-link txt-sec-clr">
+                                            <img src="../assets/img/icon/link.svg" alt="img" class="img-fluid pe-2"
+                                                width="26px">
+                                            Strasbourg Institute</a>
+                                    </div>
+
+                                    <h1 class="research-heading m-0 pt-4">List of website announcing seminars / conferences
+                                    </h1>
+                                    <div class="pb-3 pt-3">
+                                        <a href="https://www.ieee.org/conferences/" target="_blank" class="anchor-link txt-sec-clr">
+                                            <img src="../assets/img/icon/link.svg" alt="img" class="img-fluid pe-2"
+                                                width="26px">
+                                            IEEE</a>
+                                    </div>
+                                    <div class="pb-3">
+                                        <a href="https://www.acs.org/content/acs/en/meetings.html" target="_blank" class="anchor-link txt-sec-clr">
+                                            <img src="../assets/img/icon/link.svg" alt="img" class="img-fluid pe-2"
+                                                width="26px">
+                                            ACS, USA</a>
+                                    </div>
+                                    <div class="pb-3">
+                                        <a href="https://www.elsevier.com/en-in/events/conferences" target="_blank" class="anchor-link txt-sec-clr">
+                                            <img src="../assets/img/icon/link.svg" alt="img" class="img-fluid pe-2"
+                                                width="26px">
+                                            Elsevier, Conferences / events</a>
+                                    </div>
+                                    <div class="pb-3">
+                                        <a href="https://www.aps.org/meetings/" target="_blank" class="anchor-link txt-sec-clr">
+                                            <img src="../assets/img/icon/link.svg" alt="img" class="img-fluid pe-2"
+                                                width="26px">
+                                            APS, USA</a>
+                                    </div>
+                                    <div class="pb-3">
+                                        <a href="https://www.ieindia.org/webui/iei-home.aspx" target="_blank" class="anchor-link txt-sec-clr">
+                                            <img src="../assets/img/icon/link.svg" alt="img" class="img-fluid pe-2"
+                                                width="26px">
+                                            IE, India</a>
+                                    </div>
+                                    <div class="pb-3">
+                                        <a href="http://www.icmr.nic.in/icmrnews/seminar.htm" target="_blank" class="anchor-link txt-sec-clr">
+                                            <img src="../assets/img/icon/link.svg" alt="img" class="img-fluid pe-2"
+                                                width="26px">
+                                            ICMR, India</a>
+                                    </div>
+                                    <div class="pb-3">
+                                        <a href="http://www.iaria.org/conferences.html" target="_blank" class="anchor-link txt-sec-clr">
+                                            <img src="../assets/img/icon/link.svg" alt="img" class="img-fluid pe-2"
+                                                width="26px">
+                                            Conferences</a>
+                                    </div>
+
+
+                                    <h1 class="research-heading m-0 mt-4">List of Intellectual Property Rights (IPR) courses / awareness programs / Patent Agent Examination offered by various agencies
+                                    </h1>
+                                    <div class="pb-3 pt-3">
+                                        <a href="https://ipindia.gov.in/ip-awarenes.htm" target="_blank" class="anchor-link txt-sec-clr">
+                                            <img src="../assets/img/icon/link.svg" alt="img" class="img-fluid pe-2"
+                                                width="26px">
+                                            IPR, India</a>
+                                    </div>
+                                    <div class="pb-3 ">
+                                        <a href="https://ipindia.gov.in/Patent-Agent-Examination.htm" target="_blank" class="anchor-link txt-sec-clr">
+                                            <img src="../assets/img/icon/link.svg" alt="img" class="img-fluid pe-2"
+                                                width="26px">
+                                            IPR, India - 1</a>
+                                    </div>
+                                    <div class="pb-3">
+                                        <a href="https://welc.wipo.int/" target="_blank" class="anchor-link txt-sec-clr">
+                                            <img src="../assets/img/icon/link.svg" alt="img" class="img-fluid pe-2"
+                                                width="26px">
+                                            WIPO, Switzerland</a>
+                                    </div>
+                                    <div class="pb-3">
+                                        <a href="https://www.wipo.int/services/en/help.html" target="_blank" class="anchor-link txt-sec-clr">
+                                            <img src="../assets/img/icon/link.svg" alt="img" class="img-fluid pe-2"
+                                                width="26px">
+                                            WIPO, Switzerland - 1</a>
+                                    </div>
+                                    <div class="pb-3">
+                                        <a href="https://www.uspto.gov/video/cbt/certpck/index.htm" target="_blank" class="anchor-link txt-sec-clr">
+                                            <img src="../assets/img/icon/link.svg" alt="img" class="img-fluid pe-2"
+                                                width="26px">
+                                            USPTO</a>
+                                    </div>
+                                    <div class="pb-3">
+                                        <a href="https://www.gov.uk/government/publications/intellectual-property-training-course-ip-master-class" target="_blank" class="anchor-link txt-sec-clr">
+                                            <img src="../assets/img/icon/link.svg" alt="img" class="img-fluid pe-2"
+                                                width="26px">
+                                            IPR, UK</a>
+                                    </div>
+                                    <div class="pb-3">
+                                        <a href="https://ec.europa.eu/info/business-economy-euro/doing-business-eu/intellectual-property-rights_en" target="_blank" class="anchor-link txt-sec-clr">
+                                            <img src="../assets/img/icon/link.svg" alt="img" class="img-fluid pe-2"
+                                                width="26px">
+                                            European Union</a>
+                                    </div>
+                                    <div class="pb-3">
+                                        <a href="https://iptse.com/" target="_blank" class="anchor-link txt-sec-clr">
+                                            <img src="../assets/img/icon/link.svg" alt="img" class="img-fluid pe-2"
+                                                width="26px">
+                                            IPTSE, India</a>
+                                    </div>
+
+                                    <h1 class="research-heading m-0 mt-4">List of training course offered by various agencies
+                                    </h1>
+                                    <div class="pb-3 pt-3">
+                                        <a href="https://main.icmr.nic.in/courses-trainings" target="_blank" class="anchor-link txt-sec-clr">
+                                            <img src="../assets/img/icon/link.svg" alt="img" class="img-fluid pe-2"
+                                                width="26px">
+                                            ICMR - India</a>
+                                    </div>
+                                    <div class="pb-3 ">
+                                        <a href="http://www.tanuvas.ac.in/ftc_kpm.html" target="_blank" class="anchor-link txt-sec-clr">
+                                            <img src="../assets/img/icon/link.svg" alt="img" class="img-fluid pe-2"
+                                                width="26px">
+                                            TANUVAS, India</a>
+                                    </div>
+
+
+                                    <h1 class="research-heading m-0 mt-4">List of travel fellowships to attend Seminar / Conferences / Workshops etc
+                                    </h1>
+                                    <div class="pb-3 pt-3">
+                                        <a href="https://dst.gov.in/" target="_blank" class="anchor-link txt-sec-clr">
+                                            <img src="../assets/img/icon/link.svg" alt="img" class="img-fluid pe-2"
+                                                width="26px">
+                                            DST, India</a>
+                                    </div>
+                                    <div class="pb-3 ">
+                                        <a href="https://www.dbtctep.gov.in/" target="_blank" class="anchor-link txt-sec-clr">
+                                            <img src="../assets/img/icon/link.svg" alt="img" class="img-fluid pe-2"
+                                                width="26px">
+                                            DBT, India</a>
+                                    </div>
+                                    <div class="pb-3 pt-3">
+                                        <a class="anchor-link txt-sec-clr">
+                                            <img src="../assets/img/academic/home-page/blue-tick.svg" alt="img" class="img-fluid pe-2"
+                                                width="26px">
+                                            ICMR : International Travel by Non-ICMR Scientists
+                                        </a>
+                                    </div>
+                                    <div class="pb-3 ">
+                                        <a class="anchor-link txt-sec-clr">
+                                            <img src="../assets/img/academic/home-page/pink-tick.svg" alt="img" class="img-fluid pe-2"
+                                                width="26px">
+                                            INSA-CSIR-DAE/BRNS-DOS/ISRO : CICS Travel Fellowship Programme
+                                        </a>
+
+                                    </div>
+                                    <div class="pb-3 ">
+                                        <a class="anchor-link txt-sec-clr">
+                                            <img src="../assets/img/academic/home-page/blue-tick.svg" alt="img" class="img-fluid pe-2"
+                                                width="26px">
+                                            International Brain Research Organisation (IBRO) : International Travel Grants
+                                        </a>
+                                    </div>
+                                    <div class="pb-3 ">
+                                        <a class="anchor-link txt-sec-clr">
+                                            <img src="../assets/img/academic/home-page/pink-tick.svg" alt="img" class="img-fluid pe-2"
+                                                width="26px">
+                                            Ratan Tata Trust and Navajbai Ratan Tata Trust : Education grant Travel grants and
+                                            Joint Research Project</a>
+                                    </div>
+
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <script src="../assets/js/jquery.min.js"></script>
+        <script src="../assets/js/bootstrap-bundle.min.js"></script>
+        <script src="../assets/js/jquery.fancybox.min.js"></script>
+        <script src="../assets/js/aos.js"></script>
+        <script src="../assets/js/swiper.min.js"></script>
+        <script src="../assets/js/owl.carousel.min.js"></script>
+        <script src="../assets/js/main.js"></script>
+
+
+
+
+
+
+
+
+
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+
+                document.querySelector(".atag_link a").setAttribute("target", "_blank");
+            });
+        </script>
+    </form>
+</body>
+</html>

@@ -379,25 +379,25 @@ public partial class activities : System.Web.UI.Page
         try
         {
             PMA.intACTID = Convert.ToInt32(hdnID1.Value);
-        PMA.strDepartment = ddldepartmentIVI.SelectedValue;
-        PMA.strTitle = txtTitleIVI.Text;
-        if (FileUploadIVI.HasFile)
-        {
-            PMA.strPdfFilename = SaveFile(FileUploadIVI, "ActivitiesDoc", ddldepartmentIVI.SelectedValue);
+            PMA.strDepartment = ddldepartmentIVI.SelectedValue;
+            PMA.strTitle = txtTitleIVI.Text;
+            if (FileUploadIVI.HasFile)
+            {
+                PMA.strPdfFilename = SaveFile(FileUploadIVI, "ActivitiesDoc", ddldepartmentIVI.SelectedValue);
+            }
+            else
+            {
+                PMA.strPdfFilename = hdnFileUploadIVI.Value;
+            }
+            PMA.strContent = txtContentIVI.Text;
+            PMA.ActivitiyStatus = true;
+            PMA.strUpdatedBy = "Admin";
+            ret = PMA.UpdateDepartmentActivities(PMA);
         }
-        else
-        {
-            PMA.strPdfFilename = hdnFileUploadIVI.Value;
-        }
-        PMA.strContent = txtContentIVI.Text;
-        PMA.ActivitiyStatus = true;
-        PMA.strUpdatedBy = "Admin";
-        ret = PMA.UpdateDepartmentActivities(PMA);
-    }
         catch (Exception ex)
         {
         }
-return ret;
+        return ret;
     }
     public string SaveFile(FileUpload uploadedFile, string appkey, string Projectname)
     {
@@ -409,8 +409,8 @@ return ret;
         {
             string filepath = System.Configuration.ConfigurationManager.AppSettings[appkey];
             string fileName = Path.GetFileName(uploadedFile.FileName);
-            string fileExtension = Path.GetExtension(fileName);
-            filename = GenerateFileName(Projectname.Trim(), fileExtension).Trim('-');
+
+            filename = Path.GetExtension(fileName + Convert.ToString(DateTime.Now));
             string temppath = filepath.Trim() + @"\" + filename.Trim().Replace(" ", "");
             string savepath = Server.MapPath(temppath);
             uploadedFile.SaveAs(savepath);
@@ -427,27 +427,7 @@ return ret;
         //}
         return filename.Contains(" ") ? filename.Replace(" ", "") : filename;
     }
-    public string GenerateFileName(string Projectname, string fileExtension)
-    {
-        string randomString = GenerateRandomString(4);
-        string newFileName = Projectname + randomString + fileExtension;
-        return newFileName;
-    }
-    private string GenerateRandomString(int length)
-    {
-        const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-        var byteArray = new byte[length];
-        using (var rng = RandomNumberGenerator.Create())
-        {
-            rng.GetBytes(byteArray);
-        }
-        var randomString = new char[length];
-        for (int i = 0; i < length; i++)
-        {
-            randomString[i] = chars[byteArray[i] % chars.Length];
-        }
-        return new string(randomString);
-    }
+
     public void Clear()
     {
         Response.Redirect(Request.Url.AbsolutePath);

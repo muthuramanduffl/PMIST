@@ -26,20 +26,20 @@
 
     <style>
         /* start */
-        ul, ol {
+       .BindToBackend ul, ol {
             list-style: none;
             padding: 0;
             margin: 0;
         }
 
-        li {
+        .BindToBackend li {
             position: relative;
             padding-left: 30px;
             font-size: 16px;
             line-height: 1.5;
         }
 
-        ul li::before, ol li::before {
+     .BindToBackend ul li::before, ol li::before {
             content: "";
             position: absolute;
             left: 0;
@@ -51,12 +51,12 @@
         }
 
         /* Blue Tick for Odd Items */
-        ul li:nth-child(odd)::before, ol li:nth-child(odd)::before {
+ .BindToBackendul li:nth-child(odd)::before, ol li:nth-child(odd)::before {
             background-image: url('../assets/img/icon/blue-tick.svg');
         }
 
         /* Red Tick for Even Items */
-        ul li:nth-child(even)::before, ol li:nth-child(even)::before {
+        .BindToBackend ul li:nth-child(even)::before, ol li:nth-child(even)::before {
             background-image: url('../assets/img/icon/red-tick.svg');
         }
 

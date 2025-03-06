@@ -47,7 +47,7 @@ public partial class academic_placement : System.Web.UI.Page
         DataTable dt = new DataTable();
         try
         {
-            dt = PMP.ViewAllPlacements("1", "", "", "placement");//Department 1 Computer Science
+            dt = PMP.ViewAllPlacements("5", "", "", "placement");//Department 1 Computer Science
         }
         catch (Exception ex)
         {

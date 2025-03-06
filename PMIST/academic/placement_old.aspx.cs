@@ -1,3 +1,4 @@
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +9,7 @@ using System.Net;
 using System.Data;
 
 
-public partial class academic_infrastructure1 : System.Web.UI.Page
+public partial class academic_placementold : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {

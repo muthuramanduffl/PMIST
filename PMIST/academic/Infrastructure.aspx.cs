@@ -8,7 +8,7 @@ using System.Net;
 using System.Data;
 
 
-public partial class infrastructure : System.Web.UI.Page
+public partial class academic_infrastructure : System.Web.UI.Page
 {
     pmistinfrastruncture PMIF = new pmistinfrastruncture();
     protected void Page_Load(object sender, EventArgs e)

@@ -45,7 +45,7 @@
                                                 <asp:RequiredFieldValidator ID="RequiredFieldValidator1" ControlToValidate="ddldepartment" ValidationGroup="FaqsVal" InitialValue="" runat="server" ErrorMessage="Select department"></asp:RequiredFieldValidator>
                                             </span>
                                         </div>
-                                        <div class="col-md-4 pt-3">
+                                        <div class="col-md-8 pt-3">
                                             <div class="input-icon input-icon-sm right">
                                                 <label>Content <span class="text-danger">*</span></label>
                                                 <i class="bi bi-body-text b5-icon"></i>
@@ -101,14 +101,44 @@
             ClassicEditor
                 .create(document.querySelector('.editor'), {
                     toolbar: [
-                        'bold', 'italic', 'link', 'undo', 'redo',
-                        'bulletedList', 'numberedList',
-                        'specialCharacters', 'code'
+                        'heading', '|', 'bold', 'italic', 'link', 'undo', 'redo',
+                        'bulletedList', 'numberedList', 'specialCharacters', 'code'
                     ],
-                    language: 'en', // Ensure language support
-                    removePlugins: ['MediaEmbed'] // If media embedding causes issues
+                    heading: {
+                        options: [
+                            { model: 'paragraph', view: 'p', title: 'Paragraph' },
+                            { model: 'heading1', view: { name: 'h1', classes: 'infrastructure-heading m-0' }, title: 'Heading 1' },
+                            
+                        ]
+                    },
+                    language: 'en',
+                    removePlugins: ['MediaEmbed']
                 })
                 .then(editor => {
+                    const conversion = editor.conversion;
+
+                    // 🔥 Downcast: Add class to <p> elements
+                    conversion.for('downcast').add(dispatcher => {
+                        dispatcher.on('insert:paragraph', (evt, data, conversionApi) => {
+                            const viewWriter = conversionApi.writer;
+                            const viewElement = conversionApi.mapper.toViewElement(data.item);
+
+                            if (viewElement) {
+                                viewWriter.addClass('infrastructure-content pb-4', viewElement);
+                            }
+                        });
+                    });
+
+                    // 🔥 Upcast: Ensure class is recognized in the editor
+                    conversion.for('upcast').elementToElement({
+                        view: {
+                            name: 'p',
+                            classes: 'infrastructure-content pb-4'
+                        },
+                        model: 'paragraph'
+                    });
+
+                    // 🔥 Ensure data is updated
                     editor.model.document.on('change:data', () => {
                         document.getElementById('<%= txtcontent.ClientID %>').value = editor.getData();
                    });

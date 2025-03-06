@@ -12,6 +12,7 @@ public class Bindddl
 {
     CMSDepartment De = new CMSDepartment();
     pmistcentrecsas CSAS = new pmistcentrecsas();
+    pmistresourceofresources PMROR = new pmistresourceofresources();
 
     public void BindDropdown(DropDownList ddl, DataTable dt, string textField, string valueField)
     {
@@ -38,6 +39,11 @@ public class Bindddl
     {
         DataTable facultyDt = CSAS.viewAllcentretype();
         BindDropdown(ddl, facultyDt, "Centrename", "centreID");
+    }
+    public void GetResourceResearchType(DropDownList ddl)
+    {
+        DataTable facultyDt = PMROR.viewAllResourceResearchTypeName();
+        BindDropdown(ddl, facultyDt, "ResearchTypeName", "RRID");
     }
 
 

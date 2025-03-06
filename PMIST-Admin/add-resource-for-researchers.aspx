@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/PMIST-Admin/Admin.master" AutoEventWireup="true" CodeFile="add-faqs.aspx.cs" Inherits="PMIST_Admin_Default" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/PMIST-Admin/Admin.master" AutoEventWireup="true" CodeFile="add-resource-for-researchers.aspx.cs" Inherits="PMIST_Admin_resourceforresearchersDefault" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
 </asp:Content>
@@ -30,19 +30,19 @@
                             <div class="form-group">
                                 <div class="form-border margin-top20">
                                     <div class="form-title">
-                                        <h3>FAQ's Details</h3>
+                                        <h3>Resource for Researchers</h3>
                                     </div>
                                     <div class="row mx-0 margin-top20 mb-4">
                                         <div class="col-md-3 pt-3">
                                             <div class="input-icon input-icon-sm right">
-                                                <label>Department <span class="text-danger">*</span></label>
+                                                <label>Resource Type <span class="text-danger">*</span></label>
                                                 <i class="bi bi-journal-bookmark-fill b5-icon"></i>
-                                                <asp:DropDownList ID="ddldepartment" class="bs-select form-control input-sm" runat="server">
+                                                <asp:DropDownList ID="ddlresearch" class="bs-select form-control input-sm" runat="server">
                                                     <asp:ListItem Selected="True" Value=""></asp:ListItem>
                                                 </asp:DropDownList>
                                             </div>
                                             <span class="error">
-                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator1" ControlToValidate="ddldepartment" ValidationGroup="FaqsVal" InitialValue="" runat="server" ErrorMessage="Select department"></asp:RequiredFieldValidator>
+                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator1" ControlToValidate="ddlresearch" ValidationGroup="FaqsVal" InitialValue="" runat="server" ErrorMessage="Select resource type"></asp:RequiredFieldValidator>
                                             </span>
                                         </div>
                                         <div class="col-md-6 pt-3">
@@ -59,25 +59,15 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-md-4 pt-3">
-                                            <div class="input-icon input-icon-sm right">
-                                                <label>Question <span class="text-danger">*</span></label>
-                                                <i class="bi bi-person-raised-hand b5-icon"></i>
-                                                <textarea class="form-control capitalize-input" rows="4" cols="50" id="txtquetion" placeholder="" runat="server"></textarea>
-                                                <!-- <span class="handle-file-request">(maximum 200 characters)</span> -->
-                                            </div>
-                                            <span class="error">
-                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator2" ControlToValidate="txtquetion" ValidationGroup="FaqsVal" runat="server" ErrorMessage="Enter question"></asp:RequiredFieldValidator>
-                                            </span>
-                                        </div>
+
                                         <div class="col-md-8 pt-3">
                                             <div class="input-icon input-icon-sm right">
-                                                <label>Answer <span class="text-danger">*</span></label>
+                                                <label>Link <span class="text-danger">*</span></label>
                                                 <i class="bi bi-body-text b5-icon"></i>
-                                                <asp:TextBox class="form-control capitalize-input editor" ClientIDMode="Static" ValidateRequestMode="Disabled" Rows="4" ID="txtans" cols="50" placeholder="" TextMode="MultiLine" runat="server"></asp:TextBox>
+                                                <asp:TextBox class="form-control capitalize-input editor" ClientIDMode="Static" ValidateRequestMode="Disabled" Rows="4" ID="txtlink" cols="50" placeholder="" runat="server"></asp:TextBox>
                                             </div>
                                             <span class="error">
-                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator3" ControlToValidate="txtans" ValidationGroup="FaqsVal" runat="server" ErrorMessage="Enter answer"></asp:RequiredFieldValidator>
+                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator3" ControlToValidate="txtlink" ValidationGroup="FaqsVal" runat="server" ErrorMessage="Enter link"></asp:RequiredFieldValidator>
                                             </span>
                                         </div>
                                     </div>
@@ -103,14 +93,14 @@
         </div>
     </div>
 
-    <script>
+    <%--  <script>
         document.getElementById('<%= txtquetion.ClientID %>').addEventListener('keydown', function (e) {
             var key = e.key;
             var validPattern = /^[A-Za-z0-9\s@#.,?()-]+$/;
             if (!validPattern.test(key) && e.keyCode !== 8) {
                 e.preventDefault();
             }
-        });
+        }); 
         document.getElementById('<%= txtans.ClientID %>').addEventListener('keydown', function (e) {
             var key = e.key;
             var validPattern = /^[A-Za-z0-9\s@#.,?()\-!]+$/;
@@ -118,9 +108,8 @@
             if (!validPattern.test(key) && e.keyCode !== 8) {
                 e.preventDefault();
             }
-        });
-    </script>
-
+        }); 
+    </script>--%>
     <script src="https://cdn.ckeditor.com/ckeditor5/32.0.0/classic/ckeditor.js"></script>
 
     <script>
@@ -128,32 +117,58 @@
             ClassicEditor
                 .create(document.querySelector('.editor'), {
                     toolbar: [
-                        'heading', '|', 'bold', 'italic', 'link', 'undo', 'redo',
-                        'bulletedList', 'numberedList', 'specialCharacters', 'code'
+                        'bold', 'italic', 'link', 'undo', 'redo',
+                        'bulletedList', 'numberedList',
+                        'specialCharacters', 'code'
                     ],
-                    heading: {
-                        options: [
-                            { model: 'paragraph', title: 'Paragraph', class: 'ck-heading_paragraph' },
-                            { model: 'heading1', view: 'h1', title: 'Heading 1', class: 'ck-heading_heading1' },
-                            { model: 'heading2', view: 'h2', title: 'Heading 2', class: 'ck-heading_heading2' },
-                            { model: 'heading3', view: 'h3', title: 'Heading 3', class: 'ck-heading_heading3' },
-                            { model: 'heading4', view: 'h4', title: 'Heading 4', class: 'ck-heading_heading4' },
-                            { model: 'heading5', view: 'h5', title: 'Heading 5', class: 'ck-heading_heading5' },
-                            { model: 'heading6', view: 'h6', title: 'Heading 6', class: 'ck-heading_heading6' }
-                        ]
-                    },
-                    language: 'en',
-                    removePlugins: ['MediaEmbed']
+                    language: 'en', // Ensure language support
+                    removePlugins: ['MediaEmbed'],
+                    link: {
+                        decorators: {
+                            addTargetBlank: {
+                                mode: 'automatic',
+                                callback: url => true,
+                                attributes: {
+                                    target: '_blank',
+                                    class: 'anchor-link txt-sec-clr'
+                                }
+                            }
+                        }
+                    }
                 })
                 .then(editor => {
-                    editor.model.document.on('change:data', () => {
-                        document.getElementById('<%= txtans.ClientID %>').value = editor.getData();
-                   });
-               })
-               .catch(error => console.error(error));
-       });
-    </script>
+                    // Set initial value from the TextBox
+                    editor.setData(document.getElementById('txtlink').value);
 
+                    // Listen for changes to the document
+                    editor.model.document.on('change:data', () => {
+                        document.getElementById('txtlink').value = editor.getData();
+                    });
+
+                    // Modify links when they are inserted
+                    editor.model.document.on('change:data', () => {
+                        editor.model.change(writer => {
+                            const root = editor.model.document.getRoot();
+
+                            for (const link of root.getChildren()) {
+                                if (link.is('element', 'a') && !link.getChild(0)?.is('element', 'img')) {
+                                    // Insert the image inside the link if it's not already there
+                                    writer.insertElement('image', {
+                                        src: '../assets/img/icon/link.svg',
+                                        alt: 'img',
+                                        class: 'img-fluid pe-2',
+                                        width: '26px'
+                                    }, link, 0);
+                                }
+                            }
+                        });
+                    });
+                })
+                .catch(error => console.error(error));
+        });
+
+
+    </script>
 
     <script type="text/javascript">
         function validatePage() {

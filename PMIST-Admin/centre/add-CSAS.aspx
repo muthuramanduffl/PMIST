@@ -102,7 +102,7 @@
                                                 </asp:RegularExpressionValidator>
                                             </span>
                                         </div>
-                                        <div class="col-md-3 col-6 pt-3">
+                                        <div class="col-md-2 col-6 pt-3">
                                             <div class="input-icon input-icon-sm right">
                                                 <label>Designation </label>
                                                 <i class="bi bi-person-workspace b5-icon"></i>
@@ -114,7 +114,7 @@
                                                 </asp:RegularExpressionValidator>
                                             </span>
                                         </div>
-                                        <div class="col-md-3 col-6 pt-3">
+                                        <div class="col-md-2 col-6 pt-3">
                                             <div class="input-icon input-icon-sm right">
                                                 <label>Mobile Number </label>
                                                 <i class="bi bi-telephone b5-icon"></i>
@@ -125,7 +125,7 @@
                                                     ValidationExpression="^(?![0-5])\d{10}$" ErrorMessage="Enter valid mobile no." Display="Dynamic"></asp:RegularExpressionValidator>
                                             </span>
                                         </div>
-                                        <div class="col-md-3 col-6 pt-3">
+                                        <div class="col-md-2 col-6 pt-3">
                                             <div class="input-icon input-icon-sm right">
                                                 <label>Email ID </label>
                                                 <i class="bi bi-envelope b5-icon"></i>
@@ -160,7 +160,7 @@
                                                 </asp:RegularExpressionValidator>
                                             </span>
                                         </div>
-                                        <div class="col-md-3 col-6 pt-3">
+                                        <div class="col-md-2 col-6 pt-3">
                                             <div class="input-icon input-icon-sm right">
                                                 <label>Designation </label>
                                                 <i class="bi bi-person-workspace b5-icon"></i>
@@ -172,7 +172,7 @@
                                                 </asp:RegularExpressionValidator>
                                             </span>
                                         </div>
-                                        <div class="col-md-3 col-6 pt-3">
+                                        <div class="col-md-2 col-6 pt-3">
                                             <div class="input-icon input-icon-sm right">
                                                 <label>Mobile Number </label>
                                                 <i class="bi bi-telephone b5-icon"></i>
@@ -183,7 +183,7 @@
                                                     ValidationExpression="^(?![0-5])\d{10}$" ErrorMessage="Enter valid mobile no." Display="Dynamic"></asp:RegularExpressionValidator>
                                             </span>
                                         </div>
-                                        <div class="col-md-3 col-6 pt-3">
+                                        <div class="col-md-2 col-6 pt-3">
                                             <div class="input-icon input-icon-sm right">
                                                 <label>Email ID </label>
                                                 <i class="bi bi-envelope b5-icon"></i>
@@ -218,7 +218,7 @@
                                                 </asp:RegularExpressionValidator>
                                             </span>
                                         </div>
-                                        <div class="col-md-3 col-6 pt-3">
+                                        <div class="col-md-2 col-6 pt-3">
                                             <div class="input-icon input-icon-sm right">
                                                 <label>Designation </label>
                                                 <i class="bi bi-person-workspace b5-icon"></i>
@@ -230,7 +230,7 @@
                                                 </asp:RegularExpressionValidator>
                                             </span>
                                         </div>
-                                        <div class="col-md-3 col-6 pt-3">
+                                        <div class="col-md-2 col-6 pt-3">
                                             <div class="input-icon input-icon-sm right">
                                                 <label>Mobile Number </label>
                                                 <i class="bi bi-telephone b5-icon"></i>
@@ -241,7 +241,7 @@
                                                     ValidationExpression="^(?![0-5])\d{10}$" ErrorMessage="Enter valid mobile no." Display="Dynamic"></asp:RegularExpressionValidator>
                                             </span>
                                         </div>
-                                        <div class="col-md-3 col-6 pt-3">
+                                        <div class="col-md-2 col-6 pt-3">
                                             <div class="input-icon input-icon-sm right">
                                                 <label>Email ID </label>
                                                 <i class="bi bi-envelope b5-icon"></i>
@@ -283,7 +283,7 @@
                                                 <%-- <asp:FileUpload ID="imgupload"  onchange="showMyImage(this)" runat="server" />--%>
                                                 <label class="custom-file-label pt-2" clientidmode="Static" id="customFile" for="customFile"></label>
                                                 <span class=" small">(.jpeg, .jpg, .png - max 10 images,<br>
-                                                    image size to be 450KB (Upload Multiple Images))</span>
+                                                    image size to be 2MB (Upload Multiple Images))</span>
                                                 <br>
                                                 <div>(Dimensions : 610(w) x 409(h) in Pixel)</div>
                                                 <asp:HiddenField ClientIDMode="Static" ID="hiddenBlogImage" runat="server" />
@@ -469,7 +469,7 @@
 
             var allowedImageTypes = ['image/jpeg', 'image/jpg', 'image/png'];
             var allowedExtensions = ['jpg', 'jpeg', 'png'];
-            var maxFileSize = 450 * 1024; // 450 KB
+            var maxFileSize = 2 * 1024 * 1024;
             var maxFileCount;
 
             if (hfFileCount == 1) {

@@ -67,6 +67,8 @@
 
     /* end */
 
+
+   
   </style>
 
 </head>
@@ -101,7 +103,7 @@
             <div class="custom-container">
                 <asp:Repeater ID="rprresearch" runat="server">
                     <ItemTemplate>
-                        <div class="BindToBackend"><%# Eval("Content")%></div>
+                        <div class="BindToBackend BackendtoContentSec"><%# Eval("Content")%></div>
                     </ItemTemplate>
 
                 </asp:Repeater>
