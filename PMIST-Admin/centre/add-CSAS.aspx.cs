@@ -178,14 +178,14 @@ public partial class PMIST_Admin_Mcentre_CSAS : System.Web.UI.Page
     protected void btnSave_Click(object sender, EventArgs e)
     {
         string lblerror = string.Empty;
-        if (string.IsNullOrEmpty(txtTitle.Text) && string.IsNullOrEmpty(txtContent.Text))
+        if (string.IsNullOrEmpty(txtContent.Text))
         {
             lblerror = "Fill all the field";
         }
-        else if (string.IsNullOrEmpty(txtTitle.Text))
-        {
-            lblerror = "Select title";
-        }
+        //else if (string.IsNullOrEmpty(txtTitle.Text))
+        //{
+        //    lblerror = "Select title";
+        //}
         else if (string.IsNullOrEmpty(txtContent.Text))
         {
             lblerror = "Enter content";

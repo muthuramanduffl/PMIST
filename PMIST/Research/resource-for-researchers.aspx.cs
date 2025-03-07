@@ -9,6 +9,7 @@ using System.Web.UI.WebControls;
 using System.Net;
 using System.Data;
 using System.Text.RegularExpressions;
+using System.Security.Permissions;
 
 
 public partial class resourceforresearchers : System.Web.UI.Page
@@ -19,26 +20,31 @@ public partial class resourceforresearchers : System.Web.UI.Page
     {
 
 
-        Bind();
+        Bind(rprresource, "1");
+        Bind(RPRLOA, "3");
+        Bind(rpr4, "4");
+        Bind(rpr5, "5");
+        Bind(rpr6, "6");
+        Bind(rpr7, "6");
     }
 
 
-    public void Bind()
+    public void Bind(Repeater repeater, string ID)
     {
         try
         {
-            DataTable dt = Get();
+            DataTable dt = Get(ID);
             if (dt != null && dt.Rows.Count > 0)
             {
-                rprresource.Visible = true;
-                rprresource.DataSource = dt;
-                rprresource.DataBind();
+                repeater.Visible = true;
+                repeater.DataSource = dt;
+                repeater.DataBind();
 
 
             }
             else
             {
-                rprresource.Visible = false;
+                repeater.Visible = false;
 
             }
         }
@@ -48,12 +54,12 @@ public partial class resourceforresearchers : System.Web.UI.Page
     }
 
 
-    public DataTable Get()
+    public DataTable Get(string ID)
     {
         DataTable dt = new DataTable();
         try
         {
-            dt = PMROR.ViewAllResearchRFRFilter("1", "1", "");//computer science id 5 only shows
+            dt = PMROR.ViewAllResearchRFRFilter(ID, "1", "");//computer science id 5 only shows
         }
         catch (Exception ex)
         {
@@ -62,29 +68,6 @@ public partial class resourceforresearchers : System.Web.UI.Page
     }
 
 
-    protected void rprresource_ItemDataBound(object sender, RepeaterItemEventArgs e)
-    {
-        if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
-        {
-            string urlAndNotes = DataBinder.Eval(e.Item.DataItem, "URL_AND_Notes").ToString();
-
-            string modifiedHtml = urlAndNotes; // Default value
-
-            // Check if the content contains <a> tag
-            if (Regex.IsMatch(urlAndNotes, @"<a[^>]*>"))
-            {
-                // Insert <img> inside <a> while keeping existing attributes
-                modifiedHtml = Regex.Replace(urlAndNotes, @"(<a[^>]*>)", "$1<img src=\"../assets/img/icon/link.svg\" alt=\"img\" class=\"img-fluid pe-2\" width=\"26px\">");
-            }
-
-            // Find the Literal control and set its text
-            Literal litContent = (Literal)e.Item.FindControl("litContent");
-            if (litContent != null)
-            {
-                litContent.Text = modifiedHtml;
-            }
-        }
-    }
 
 
 }

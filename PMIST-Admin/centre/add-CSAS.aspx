@@ -51,12 +51,12 @@
 
                                         <div class="col-md-4 pt-3">
                                             <div class="input-icon input-icon-sm right">
-                                                <label>Title <span class="text-danger">*</span></label>
+                                                <label>Title <span class="text-danger"></span></label>
                                                 <i class="bi bi-journal-bookmark-fill b5-icon"></i>
                                                 <asp:TextBox ID="txtTitle" class="form-control capitalize-input" ClientIDMode="Static" Rows="3" cols="50" placeholder="" TextMode="MultiLine" runat="server"></asp:TextBox>
                                             </div>
                                             <span class="error">
-                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator1" ControlToValidate="txtTitle" ValidationGroup="CSASVal" InitialValue="" runat="server" ErrorMessage="Enter title"></asp:RequiredFieldValidator>
+<%--                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator1" ControlToValidate="txtTitle" ValidationGroup="CSASVal" InitialValue="" runat="server" ErrorMessage="Enter title"></asp:RequiredFieldValidator>--%>
                                             </span>
                                         </div>
                                         <div class="col-md-5 pt-3">
@@ -139,7 +139,7 @@
                                         <div class="col-md-3 col-6 pt-3">
                                             <div class="input-icon input-icon-sm right">
                                                 <label>Address </label>
-                                                   <i class="bi bi-pin-map-fill b5-icon"></i>
+                                                <i class="bi bi-pin-map-fill b5-icon"></i>
                                                 <asp:TextBox ID="txtC1Address" class="form-control input-sm" runat="server"></asp:TextBox>
                                             </div>
                                             <span class="error">
@@ -197,8 +197,8 @@
                                         <div class="col-md-3 col-6 pt-3">
                                             <div class="input-icon input-icon-sm right">
                                                 <label>Address </label>
-                                               <i class="bi bi-pin-map-fill b5-icon"></i>
-                                                <asp:TextBox ID="txtC2address" class="form-control input-sm"  runat="server"></asp:TextBox>
+                                                <i class="bi bi-pin-map-fill b5-icon"></i>
+                                                <asp:TextBox ID="txtC2address" class="form-control input-sm" runat="server"></asp:TextBox>
                                             </div>
                                             <span class="error">
                                                 <asp:RegularExpressionValidator ID="RegularExpressionValidator13" runat="server" ControlToValidate="txtC2address" ValidationGroup="CSASVal"
@@ -255,8 +255,8 @@
                                         <div class="col-md-3 col-6 pt-3">
                                             <div class="input-icon input-icon-sm right">
                                                 <label>Address </label>
-                                                  <i class="bi bi-pin-map-fill b5-icon"></i>
-                                                <asp:TextBox ID="txtC3Address" class="form-control input-sm"  runat="server"></asp:TextBox>
+                                                <i class="bi bi-pin-map-fill b5-icon"></i>
+                                                <asp:TextBox ID="txtC3Address" class="form-control input-sm" runat="server"></asp:TextBox>
                                             </div>
                                             <span class="error">
                                                 <asp:RegularExpressionValidator ID="RegularExpressionValidator14" runat="server" ControlToValidate="txtC3Address" ValidationGroup="CSASVal"
@@ -337,26 +337,102 @@
 
     <script src="https://cdn.ckeditor.com/ckeditor5/32.0.0/classic/ckeditor.js"></script>
 
+
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             ClassicEditor
                 .create(document.querySelector('.editor'), {
                     toolbar: [
-                        'bold', 'italic', 'link', 'undo', 'redo',
-                        'bulletedList', 'numberedList',
-                        'specialCharacters', 'code'
+                        'heading', '|', 'bold', 'italic', 'link', 'undo', 'redo',
+                        'bulletedList', 'numberedList', 'specialCharacters', 'code'
                     ],
-                    language: 'en', // Ensure language support
-                    removePlugins: ['MediaEmbed'] // If media embedding causes issues
+                    heading: {
+                        options: [
+                            { model: 'paragraph', view: 'p', title: 'Paragraph' },
+                            { model: 'heading5', view: { name: 'h5', classes: 'centre-heading my-2' }, title: 'Heading 5' }
+                        ]
+                    },
+                    language: 'en',
+                    removePlugins: ['MediaEmbed']
                 })
                 .then(editor => {
+                    const conversion = editor.conversion;
+
+                    // Downcast: Add class to <p>, <ul>, <ol> and <h5> elements
+                    conversion.for('downcast').add(dispatcher => {
+                        dispatcher.on('insert:paragraph', (evt, data, conversionApi) => {
+                            const viewWriter = conversionApi.writer;
+                            const viewElement = conversionApi.mapper.toViewElement(data.item);
+
+                            if (viewElement) {
+                                viewWriter.addClass('centre-content mb-2', viewElement);
+                            }
+                        });
+                        dispatcher.on('insert:listItem', (evt, data, conversionApi) => {
+                            const viewWriter = conversionApi.writer;
+                            const viewElement = conversionApi.mapper.toViewElement(data.item);
+
+                            if (viewElement) {
+                                viewWriter.addClass('mb-2', viewElement);
+                            }
+                        });
+                        dispatcher.on('insert:listItem', (evt, data, conversionApi) => {
+                            const viewWriter = conversionApi.writer;
+                            const viewElement = conversionApi.mapper.toViewElement(data.item);
+
+                            if (viewElement) {
+                                viewWriter.addClass('mb-2', viewElement);
+                            }
+                        });
+                        dispatcher.on('insert:heading5', (evt, data, conversionApi) => {
+                            const viewWriter = conversionApi.writer;
+                            const viewElement = conversionApi.mapper.toViewElement(data.item);
+
+                            if (viewElement) {
+                                viewWriter.addClass('centre-heading my-2', viewElement);
+                            }
+                        });
+                    });
+
+                    // Upcast: Ensure class is recognized in the editor for <p>, <ul>, <ol> and <h5> elements
+                    conversion.for('upcast').elementToElement({
+                        view: {
+                            name: 'p',
+                            classes: 'centre-content mb-2'
+                        },
+                        model: 'paragraph'
+                    });
+                    conversion.for('upcast').elementToElement({
+                        view: {
+                            name: 'ul',
+                            classes: 'mb-2'
+                        },
+                        model: 'listItem'
+                    });
+                    conversion.for('upcast').elementToElement({
+                        view: {
+                            name: 'ol',
+                            classes: 'mb-2'
+                        },
+                        model: 'listItem'
+                    });
+                    conversion.for('upcast').elementToElement({
+                        view: {
+                            name: 'h5',
+                            classes: 'centre-heading my-2'
+                        },
+                        model: 'heading5'
+                    });
+
+                    // Update data
                     editor.model.document.on('change:data', () => {
                         document.getElementById('<%= txtContent.ClientID %>').value = editor.getData();
-                    });
-                })
-                .catch(error => console.error(error));
-        });
+                });
+            })
+            .catch(error => console.error(error));
+    });
     </script>
+
 
     <script type="text/javascript">
         function validatePage() {
@@ -555,14 +631,14 @@
                     var imageSrc = imagePath || 'assets/img/logo.png';
                     Swal.fire({
                         html: `
-                        <div style="position: relative;">
-                            <div class="btn-close-icon" 
-                                 style="cursor: pointer; position: absolute; top: -15px; right: -25px;">
-                                 &times;
-                            </div>
-                            <h2 class="fw-bold">View Image</h2>
-                            <img src="${imageSrc}" alt="Image" class="img-fluid mt-3">
-                        </div>
+            <div style="position: relative;">
+                <div class="btn-close-icon"
+                    style="cursor: pointer; position: absolute; top: -15px; right: -25px;">
+                    &times;
+                </div>
+                <h2 class="fw-bold">View Image</h2>
+                <img src="${imageSrc}" alt="Image" class="img-fluid mt-3">
+            </div>
                     `,
                         showConfirmButton: false,
                         didOpen: () => {

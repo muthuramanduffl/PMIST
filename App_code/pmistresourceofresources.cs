@@ -52,8 +52,9 @@ public class pmistresourceofresources
             {
                 cnn.Open();
                 command.CommandType = CommandType.StoredProcedure;
-              
+                
                 command.Parameters.Add(new SqlParameter("@ResearchType", PQ.strResearchType));
+                command.Parameters.Add(new SqlParameter("@TitleContent", PQ.strTitleContent));
                 command.Parameters.Add(new SqlParameter("@URL_AND_Notes", PQ.strURL_AND_Notes));
                 command.Parameters.Add(new SqlParameter("@CStatus", PQ.status));             
                 command.Parameters.Add(new SqlParameter("@AddedBy", PQ.strAddedBy));
@@ -84,8 +85,8 @@ public class pmistresourceofresources
                 cnn.Open();
                 command.CommandType = CommandType.StoredProcedure;
                 command.Parameters.Add(new SqlParameter("@RFID", PQ.intRFID));
-        
                 command.Parameters.Add(new SqlParameter("@ResearchType", PQ.strResearchType));
+                command.Parameters.Add(new SqlParameter("@TitleContent", PQ.strTitleContent));
                 command.Parameters.Add(new SqlParameter("@URL_AND_Notes", PQ.strURL_AND_Notes));
                 command.Parameters.Add(new SqlParameter("@CStatus", PQ.status));              
                 command.Parameters.Add(new SqlParameter("@UpdatedBy", PQ.strUpdatedBy));

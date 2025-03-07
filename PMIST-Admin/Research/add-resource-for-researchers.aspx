@@ -9,7 +9,8 @@
                 <div class="d-flex pb-2 align-items-left align-items-md-center flex-column flex-md-row justify-content-between">
                     <div class="d-flex">
                         <h2 class="text-white mb-0 fw-bold text-uppercase">
-                            <asp:Label ID="lbldisplayText" runat="server" Text=""></asp:Label></h2>
+                            <asp:Label ID="lbldisplayText" runat="server" Text=""></asp:Label>
+                        </h2>
                         <ul class="breadcrumbs">
                             <li class="nav-home pt-1">
                                 <a href="dashboard.html">
@@ -59,12 +60,22 @@
                                                 </div>
                                             </div>
                                         </div>
+                                        <div class="col-md-8 pt-3">
+                                            <div class="input-icon input-icon-sm right">
+                                                <label>URL Title <span class="text-danger">*</span></label>
+                                                <i class="bi bi-body-text b5-icon"></i>
+                                                <asp:TextBox class="form-control capitalize-input" ClientIDMode="Static" ID="txttitle" placeholder="" runat="server"></asp:TextBox>
+                                            </div>
+                                            <span class="error">
+                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator2" ControlToValidate="txttitle" ValidationGroup="FaqsVal" runat="server" ErrorMessage="Enter URL title"></asp:RequiredFieldValidator>
+                                            </span>
+                                        </div>
 
                                         <div class="col-md-8 pt-3">
                                             <div class="input-icon input-icon-sm right">
                                                 <label>Link <span class="text-danger">*</span></label>
                                                 <i class="bi bi-body-text b5-icon"></i>
-                                                <asp:TextBox class="form-control capitalize-input editor" ClientIDMode="Static" ValidateRequestMode="Disabled" Rows="4" ID="txtlink" cols="50" placeholder="" runat="server"></asp:TextBox>
+                                                <asp:TextBox class="form-control capitalize-input" ClientIDMode="Static" ID="txtlink" placeholder="" runat="server"></asp:TextBox>
                                             </div>
                                             <span class="error">
                                                 <asp:RequiredFieldValidator ID="RequiredFieldValidator3" ControlToValidate="txtlink" ValidationGroup="FaqsVal" runat="server" ErrorMessage="Enter link"></asp:RequiredFieldValidator>
@@ -113,59 +124,72 @@
     <script src="https://cdn.ckeditor.com/ckeditor5/32.0.0/classic/ckeditor.js"></script>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            ClassicEditor
-                .create(document.querySelector('.editor'), {
-                    toolbar: [
-                        'bold', 'italic', 'link', 'undo', 'redo',
-                        'bulletedList', 'numberedList',
-                        'specialCharacters', 'code'
-                    ],
-                    language: 'en', // Ensure language support
-                    removePlugins: ['MediaEmbed'],
-                    link: {
-                        decorators: {
-                            addTargetBlank: {
-                                mode: 'automatic',
-                                callback: url => true,
-                                attributes: {
-                                    target: '_blank',
-                                    class: 'anchor-link txt-sec-clr'
-                                }
-                            }
-                        }
-                    }
-                })
-                .then(editor => {
+        document.addEventListener("DOMContentLoaded", function () {
+            ClassicEditor.create(document.querySelector(".editor"), {
+                toolbar: [
+                    "bold",
+                    "italic",
+                    "link",
+                    "undo",
+                    "redo",
+                    "bulletedList",
+                    "numberedList",
+                    "specialCharacters",
+                    "code",
+                ],
+                language: "en", // Ensure language support
+                removePlugins: ["MediaEmbed"],
+                link: {
+                    decorators: {
+                        addTargetBlank: {
+                            mode: "automatic",
+                            callback: (url) => true,
+                            attributes: {
+                                target: "_blank",
+                                class: "anchor-link txt-sec-clr",
+                            },
+                        },
+                    },
+                },
+            })
+                .then((editor) => {
                     // Set initial value from the TextBox
-                    editor.setData(document.getElementById('txtlink').value);
+                    editor.setData(document.getElementById("txtlink").value);
 
                     // Listen for changes to the document
-                    editor.model.document.on('change:data', () => {
-                        document.getElementById('txtlink').value = editor.getData();
+                    editor.model.document.on("change:data", () => {
+                        document.getElementById("txtlink").value = editor.getData();
                     });
 
                     // Modify links when they are inserted
-                    editor.model.document.on('change:data', () => {
-                        editor.model.change(writer => {
+                    editor.model.document.on("change:data", () => {
+                        editor.model.change((writer) => {
                             const root = editor.model.document.getRoot();
 
-                            for (const link of root.getChildren()) {
-                                if (link.is('element', 'a') && !link.getChild(0)?.is('element', 'img')) {
-                                    // Insert the image inside the link if it's not already there
-                                    writer.insertElement('image', {
-                                        src: '../assets/img/icon/link.svg',
-                                        alt: 'img',
-                                        class: 'img-fluid pe-2',
-                                        width: '26px'
-                                    }, link, 0);
+                            // Iterate over all child nodes
+                            for (const element of root.getChildren()) {
+                                if (element.is("element", "paragraph")) {
+                                    for (const child of element.getChildren()) {
+                                        if (child.is("element", "a") && !child.getChild(0)?.is("element", "image")) {
+                                            // Insert image inside the <a> tag
+                                            const imageElement = writer.createElement("image", {
+                                                src: "../assets/img/icon/link.svg",
+                                                alt: "img",
+                                                class: "img-fluid pe-2",
+                                                width: "26px",
+                                            });
+
+                                            writer.insert(imageElement, child, 0);
+                                        }
+                                    }
                                 }
                             }
                         });
                     });
                 })
-                .catch(error => console.error(error));
+                .catch((error) => console.error(error));
         });
+
 
 
     </script>

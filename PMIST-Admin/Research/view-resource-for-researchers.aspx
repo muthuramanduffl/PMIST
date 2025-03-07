@@ -45,13 +45,13 @@
                                         </div>
                                     </div>
 
-                                    <div class="col-md-2 pt-3" style="display:none">
+                                    <div class="col-md-2 pt-3">
                                         <div class="input-icon input-icon-sm right">
                                             <label>Display Status </label>
                                             <i class="bi bi-check2-square b5-icon"></i>
                                             <asp:UpdatePanel ID="UpdatePanel2" runat="server">
                                                 <ContentTemplate>
-                                                    <asp:DropDownList ID="ddlstatus" class="bs-select form-control input-sm d-none" AutoPostBack="true" OnSelectedIndexChanged="ddlstatus_SelectedIndexChanged" runat="server">
+                                                    <asp:DropDownList ID="ddlstatus" class="bs-select form-control input-sm" AutoPostBack="true" OnSelectedIndexChanged="ddlstatus_SelectedIndexChanged" runat="server">
                                                         <asp:ListItem Value="">All</asp:ListItem>
                                                         <asp:ListItem Value="1">Active</asp:ListItem>
                                                         <asp:ListItem Value="0">Inactive</asp:ListItem>
@@ -118,7 +118,8 @@
                                                             <th class="w-sno">#</th>
                                                             <th class="min-w-300">Resource Type</th>
                                                             
-                                                            <th class="min-w-300">URL And Content </th>
+                                                            <th class="min-w-300">Content</th>
+                                                            <th class="min-w-300">URL</th>
                                                             <th class="min-w-150">Display Status</th>
                                                             <th class="min-w-150">Action </th>
                                                         </tr>
@@ -135,6 +136,9 @@
 
                                                     <td><%# ResourcetypeName(Convert.ToInt32(Eval("ResearchType"))) %>  </td>
                                                    
+                                                    <td>
+                                                        <div class="view-paragraphs atag_link"><%# Eval("TitleContent")%></div>
+                                                    </td> 
                                                     <td>
                                                         <div class="view-paragraphs atag_link"><%# Eval("URL_AND_Notes")%></div>
                                                     </td>

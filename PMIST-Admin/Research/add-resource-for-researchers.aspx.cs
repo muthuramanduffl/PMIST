@@ -72,6 +72,10 @@ public partial class PMIST_Admin_resourceforresearchersDefault : System.Web.UI.P
             if (!string.IsNullOrEmpty(Convert.ToString(Dt.Rows[0]["URL_AND_Notes"])))
             {
                 txtlink.Text = Convert.ToString(Dt.Rows[0]["URL_AND_Notes"]);
+            } 
+            if (!string.IsNullOrEmpty(Convert.ToString(Dt.Rows[0]["TitleContent"])))
+            {
+                txttitle.Text = Convert.ToString(Dt.Rows[0]["TitleContent"]);
             }
             if (!string.IsNullOrEmpty(Convert.ToString(Dt.Rows[0]["CStatus"])))
             {
@@ -108,6 +112,10 @@ public partial class PMIST_Admin_resourceforresearchersDefault : System.Web.UI.P
         else if (string.IsNullOrEmpty(txtlink.Text))
         {
             lblerror = "Enter link";
+        } 
+        else if (string.IsNullOrEmpty(txttitle.Text))
+        {
+            lblerror = "Enter URL title";
         }
 
         if (string.IsNullOrEmpty(lblerror))
@@ -179,6 +187,7 @@ public partial class PMIST_Admin_resourceforresearchersDefault : System.Web.UI.P
         {
             PMROR.strResearchType = ddlresearch.SelectedValue;
             PMROR.strURL_AND_Notes = txtlink.Text;
+            PMROR.strTitleContent = txttitle.Text;
             PMROR.status = toggleActiveInactive.Checked;
             PMROR.strAddedBy = "Admin";
             rowaffected = PMROR.AddResearchForResearches(PMROR);
@@ -202,6 +211,7 @@ public partial class PMIST_Admin_resourceforresearchersDefault : System.Web.UI.P
             PMROR.intRFID = Convert.ToInt32(hdnID.Value);
             PMROR.strResearchType = ddlresearch.SelectedValue;
             PMROR.strURL_AND_Notes = txtlink.Text;
+            PMROR.strTitleContent = txttitle.Text;
             PMROR.status = toggleActiveInactive.Checked;
             PMROR.strUpdatedBy = "Admin";
             rowaffected = PMROR.UpdateResearchForResearches(PMROR);
